@@ -5,6 +5,7 @@ import { View, Text, StyleSheet, TouchableOpacity, SafeAreaView, Dimensions } fr
 import { LinearGradient } from "expo-linear-gradient"
 import { Ionicons } from "@expo/vector-icons"
 import { signLanguageContent } from "../constants/Data"
+import { Video } from "expo-av"
 
 const { width } = Dimensions.get("window")
 
@@ -50,57 +51,68 @@ const LearningScreen = ({ navigation, route }) => {
     <SafeAreaView style={styles.container}>
       <LinearGradient colors={["#14b8a6", "#3b82f6", "#8b5cf6"]} style={styles.gradient}>
         <View style={styles.header}>
-          <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()} activeOpacity={0.7}>
+          {/*<TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()} activeOpacity={0.7}>
             <Ionicons name="arrow-back" size={24} color="white" />
             <Text style={styles.backText}>Back to Modules</Text>
-          </TouchableOpacity>
+          </TouchableOpacity>*/}
           <Text style={styles.title}>{module.name}</Text>
-          <TouchableOpacity style={styles.audioButton} activeOpacity={0.7}>
+          {/* <TouchableOpacity style={styles.audioButton} activeOpacity={0.7}> 
             <Ionicons name="volume-high" size={24} color="white" />
-          </TouchableOpacity>
+          </TouchableOpacity>*/}
         </View>
 
         <View style={styles.content}>
           <View style={styles.lessonCard}>
-            <Text style={styles.signEmoji}>{currentContent.sign}</Text>
+            {currentContent.Video ? (
+              <Video
+                source={currentContent.Video}
+                style={{ width: 350, height: 350, borderRadius: 10, marginBottom: 0 }}
+                resizeMode="contain"
+                isLooping
+                shouldPlay
+                isMuted     
+              />
+            ) : (
+              <Text style={styles.signEmoji}>{currentContent.sign}</Text>
+            )}
             <Text style={styles.letterText}>{currentContent.letter || currentContent.number}</Text>
             <Text style={styles.descriptionText}>{currentContent.description}</Text>
           </View>
+        </View>
 
-          <View style={styles.navigation}>
-            <TouchableOpacity
-              style={[styles.navButton, currentLessonIndex === 0 && styles.navButtonDisabled]}
-              onPress={previousLesson}
-              disabled={currentLessonIndex === 0}
-              activeOpacity={0.7}
-            >
-              <Ionicons name="chevron-back" size={24} color="white" />
-              <Text style={styles.navButtonText}>Previous</Text>
-            </TouchableOpacity>
+        <View style={styles.navigation}>
+          <TouchableOpacity
+            style={[styles.navButton, currentLessonIndex === 0 && styles.navButtonDisabled]}
+            onPress={previousLesson}
+            disabled={currentLessonIndex === 0}
+            activeOpacity={0.7}
+          >
+            <Ionicons name="chevron-back" size={24} color="white" />
+            <Text style={styles.navButtonText}>Previous</Text>
+          </TouchableOpacity>
 
-            <View style={styles.indicators}>
-              {content.map((_, index) => (
-                <View key={index} style={[styles.indicator, index === currentLessonIndex && styles.indicatorActive]} />
-              ))}
-            </View>
+          {/* <View style={styles.indicators}> 
+            {content.map((_, index) => (
+              <View key={index} style={[styles.indicator, index === currentLessonIndex && styles.indicatorActive]} />
+            ))}
+          </View>*/}
 
-            <TouchableOpacity
-              style={[styles.navButton, currentLessonIndex === content.length - 1 && styles.completeButton]}
-              onPress={nextLesson}
-              activeOpacity={0.7}
-            >
-              {currentLessonIndex === content.length - 1 ? (
-                <>
-                  <Text style={styles.navButtonText}>Complete Module! 🎉</Text>
-                </>
-              ) : (
-                <>
-                  <Text style={styles.navButtonText}>Next</Text>
-                  <Ionicons name="chevron-forward" size={24} color="white" />
-                </>
-              )}
-            </TouchableOpacity>
-          </View>
+          <TouchableOpacity
+            style={[styles.navButton, currentLessonIndex === content.length - 1 && styles.completeButton]}
+            onPress={nextLesson}
+            activeOpacity={0.7}
+          >
+            {currentLessonIndex === content.length - 1 ? (
+              <>
+                <Text style={styles.navButtonText}>Complete Module! 🎉</Text>
+              </>
+            ) : (
+              <>
+                <Text style={styles.navButtonText}>Next</Text>
+                <Ionicons name="chevron-forward" size={24} color="white" />
+              </>
+            )}
+          </TouchableOpacity>
         </View>
       </LinearGradient>
     </SafeAreaView>
@@ -110,6 +122,7 @@ const LearningScreen = ({ navigation, route }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    
   },
   gradient: {
     flex: 1,
@@ -136,18 +149,20 @@ const styles = StyleSheet.create({
     marginLeft: 5,
   },
   title: {
-    fontSize: 24,
+    fontSize: 30,
     fontWeight: "bold",
     color: "white",
     flex: 1,
     textAlign: "center",
+    paddingTop: 50,
   },
-  audioButton: {
-    backgroundColor: "rgba(255, 255, 255, 0.2)",
-    padding: 12,
-    borderRadius: 20,
-  },
+  //audioButton: {
+    //backgroundColor: "rgba(255, 255, 255, 0.2)",
+    //padding: 12,
+    //borderRadius: 20,
+  //},
   content: {
+
     flex: 1,
     paddingHorizontal: 20,
   },
@@ -156,7 +171,7 @@ const styles = StyleSheet.create({
     borderRadius: 25,
     padding: 30,
     alignItems: "center",
-    marginBottom: 30,
+    marginTop: 50,
     backdropFilter: "blur(10px)",
   },
   signEmoji: {
@@ -164,10 +179,10 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   letterText: {
-    fontSize: 48,
+    fontSize: 68,
     fontWeight: "bold",
     color: "white",
-    marginBottom: 15,
+    marginBottom: 10,
   },
   descriptionText: {
     fontSize: 18,
@@ -180,6 +195,12 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     alignItems: "center",
     paddingBottom: 20,
+    position: "absolute",
+    left: 0,
+    right: 0,
+    bottom: 0,
+    paddingHorizontal: 20,
+    backgroundColor: "transparent",
   },
   navButton: {
     flexDirection: "row",
@@ -198,6 +219,10 @@ const styles = StyleSheet.create({
   },
   navButtonText: {
     color: "white",
+    height: 24,
+    justifycontent: "bottom",
+    textAlign: "center",
+
     fontSize: 16,
     fontWeight: "bold",
   },

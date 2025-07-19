@@ -43,10 +43,10 @@ const ModulesScreen = ({ navigation, route }) => {
     <SafeAreaView style={styles.container}>
       <LinearGradient colors={["#6366f1", "#8b5cf6", "#ec4899"]} style={styles.gradient}>
         <View style={styles.header}>
-          <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()} activeOpacity={0.7}>
+          {/* <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()} activeOpacity={0.7}> 
             <Ionicons name="arrow-back" size={24} color="white" />
             <Text style={styles.backText}>Back</Text>
-          </TouchableOpacity>
+          </TouchableOpacity>*/}
           <Text style={styles.title}>{level.charAt(0).toUpperCase() + level.slice(1)} Level</Text>
         </View>
 

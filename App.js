@@ -21,17 +21,17 @@ const Stack = createNativeStackNavigator()
 export default function App() {
   return (
     <NavigationContainer>
-      <StatusBar style="light" />
+      <StatusBar style="dark" />
      <Stack.Navigator
         // initialRouteName="Splash"
-        // screenOptions={{
-        //   headerShown: false,
-        //   animation: "slide_from_right",
-        // }}
+         screenOptions={{
+         headerShown: false,
+        
+         }}
       >
-        {/*<Stack.Screen name="Splash" component={SplashScreen} />*/}
+        {/* <Stack.Screen name="Splash" component={SplashScreen} /> */}
+        
         <Stack.Screen name="Home" component={HomeScreen} />
-        {/*<Stack.Screen name="Levels" component={LevelsScreen} />*/}
         <Stack.Screen name="Modules" component={ModulesScreen} />
         <Stack.Screen name="Learning" component={LearningScreen} />
         <Stack.Screen name="Quiz" component={QuizScreen} />

@@ -5,6 +5,7 @@ import { View, Text, StyleSheet, TouchableOpacity, Dimensions, ScrollView, SafeA
 import { LinearGradient } from "expo-linear-gradient"
 import { Ionicons } from "@expo/vector-icons"
 import { levelData, levelColors, levelEmojis } from "../constants/Data"
+import { AlignLeft } from "lucide-react"
 
 const { width } = Dimensions.get("window")
 
@@ -65,6 +66,7 @@ const HomeScreen = ({ navigation }) => {
       <LinearGradient colors={["#3b82f6", "#8b5cf6", "#ec4899"]} style={styles.gradient}>
         <ScrollView style={styles.scrollView} showsVerticalScrollIndicator={false}>
           <View style={styles.header}>
+            <Text style={styles.logo}>Logo</Text>
             <Text style={styles.welcomeText}>Welcome Back! 🌟</Text>
             <Text style={styles.subtitleText}>Choose your learning adventure</Text>
           </View>
@@ -112,6 +114,14 @@ const styles = StyleSheet.create({
     alignItems: "center",
     paddingTop: 40,
     paddingBottom: 30,
+  },
+  logo:{
+    fontSize: 32,
+    fontWeight: "bold",
+    color: "white",
+    marginBottom: 10,
+    alignSelf: "flex-start",
+    marginLeft: 20,
   },
   welcomeText: {
     fontSize: 32,
