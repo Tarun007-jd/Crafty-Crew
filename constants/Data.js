@@ -36,6 +36,7 @@ import Hi from "../assets/GreetingsVideos/Hi.mp4"
 import Seeyouagain from "../assets/GreetingsVideos/Seeyouagain.mp4"
 import Seeyoutomorrow from "../assets/GreetingsVideos/Seeyoutomorrow.mp4"
 import Goodmorning from "../assets/GreetingsVideos/Goodmorning.mp4"
+import Namaste from "../assets/GreetingsVideos/Namaste.mp4"
 
 
 export const levelData = {
@@ -70,6 +71,7 @@ export const signLanguageContent = {
       {letter: "Good Night", Video: Goodnight, description: "Place your hand on"},
       {letter: "See You Again", Video: Seeyouagain, description: "Place your hand on"},
       {letter: "See You Tomorrow", Video: Seeyoutomorrow, description: "Place your hand on"},
+      {letter: "Namaste", Video: Namaste, description: "Place your hands together in front of your chest" },
      ],
 
   alphabets: [
