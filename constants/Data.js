@@ -25,7 +25,17 @@ import W from "../assets/AlpabetVideos/W.mp4"
 import X from "../assets/AlpabetVideos/X.mp4"
 import Y from "../assets/AlpabetVideos/Y.mp4"
 import Z from "../assets/AlpabetVideos/Z.mp4"
-
+import Goodafternoon from "../assets/GreetingsVideos/Goodafternoon.mp4"
+import Hello from "../assets/GreetingsVideos/Hello.mp4"
+import ThankYou from "../assets/GreetingsVideos/ThankYou.mp4"
+import Goodbye from "../assets/GreetingsVideos/Goodbye.mp4"
+import Goodevening from "../assets/GreetingsVideos/Goodevening.mp4"
+import Goodnight from "../assets/GreetingsVideos/Goodnight.mp4"
+import welcome from "../assets/GreetingsVideos/welcome.mp4"
+import Hi from "../assets/GreetingsVideos/Hi.mp4"
+import Seeyouagain from "../assets/GreetingsVideos/Seeyouagain.mp4"
+import Seeyoutomorrow from "../assets/GreetingsVideos/Seeyoutomorrow.mp4"
+import Goodmorning from "../assets/GreetingsVideos/Goodmorning.mp4"
 
 
 export const levelData = {
@@ -47,6 +57,21 @@ export const levelData = {
 }
 
 export const signLanguageContent = {
+
+  greetings: [
+    {letter: "Hi", Video: Hi, description: "Place your hand on"},
+     {letter: "Hello",     Video: Hello ,description: "Wave your hand to greet someone" },
+      {letter: "Welcome", Video: welcome, description: "Place your hand on"},
+      {letter: "Good Morning", Video: Goodmorning, description: "Place your hand on"},
+      {letter:"Good Afternoon", Video: Goodafternoon,description:"good and sunset"},
+      {letter: "Good Evening", Video: Goodevening, description: "Place your hand on"},
+      {letter: "ThankYou", Video: ThankYou, description: "Place your hand on"},
+      {letter: "Good Bye", Video: Goodbye, description: "Place your hand on"},
+      {letter: "Good Night", Video: Goodnight, description: "Place your hand on"},
+      {letter: "See You Again", Video: Seeyouagain, description: "Place your hand on"},
+      {letter: "See You Tomorrow", Video: Seeyoutomorrow, description: "Place your hand on"},
+     ],
+
   alphabets: [
     { letter: "A", Video: A, description: "Make a fist with thumb on the side" },
     { letter: "B", Video: B, description: "Open hand with fingers together, thumb across palm" },
