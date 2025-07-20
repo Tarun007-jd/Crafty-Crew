@@ -183,7 +183,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   letterText: {
-    fontSize: 68,
+    fontSize: 60,
     fontWeight: "bold",
     color: "white",
     marginBottom: 10,

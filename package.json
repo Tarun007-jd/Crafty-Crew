@@ -71,7 +71,8 @@
     "tailwindcss-animate": "^1.0.7",
     "vaul": "^0.9.6",
     "zod": "^3.24.1",
-    "expo-av": "~14.0.7"
+    "expo-av": "~14.0.7",
+    "lottie-react-native": "6.7.0"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
