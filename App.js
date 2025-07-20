@@ -4,9 +4,8 @@ import { StatusBar } from "expo-status-bar"
 import { LogBox } from "react-native"
 
 // Import screens
-//import SplashScreen from "./screens/SplashScreen"
+import SplashScreen from "./screens/SplashScreen"
 import HomeScreen from "./screens/HomeScreen"
-//import LevelsScreen from "./screens/LevelsScreen"
 import ModulesScreen from "./screens/ModulesScreen"
 import LearningScreen from "./screens/LearningScreen"
 import QuizScreen from "./screens/QuizScreen"
@@ -22,15 +21,13 @@ export default function App() {
   return (
     <NavigationContainer>
       <StatusBar style="dark" />
-     <Stack.Navigator
-        // initialRouteName="Splash"
-         screenOptions={{
-         headerShown: false,
-        
-         }}
+      <Stack.Navigator
+        initialRouteName="Splash"
+        screenOptions={{
+          headerShown: false,
+        }}
       >
-        {/* <Stack.Screen name="Splash" component={SplashScreen} /> */}
-        
+        <Stack.Screen name="Splash" component={SplashScreen} />
         <Stack.Screen name="Home" component={HomeScreen} />
         <Stack.Screen name="Modules" component={ModulesScreen} />
         <Stack.Screen name="Learning" component={LearningScreen} />

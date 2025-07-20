@@ -1,11 +1,12 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { View, Text, StyleSheet, TouchableOpacity, Dimensions, ScrollView, SafeAreaView } from "react-native"
+import { View,Image, Text, StyleSheet, TouchableOpacity, Dimensions, ScrollView, SafeAreaView } from "react-native"
 import { LinearGradient } from "expo-linear-gradient"
 import { Ionicons } from "@expo/vector-icons"
 import { levelData, levelColors, levelEmojis } from "../constants/Data"
 import { AlignLeft } from "lucide-react"
+
 
 const { width } = Dimensions.get("window")
 
@@ -66,8 +67,13 @@ const HomeScreen = ({ navigation }) => {
       <LinearGradient colors={["#3b82f6", "#8b5cf6", "#ec4899"]} style={styles.gradient}>
         <ScrollView style={styles.scrollView} showsVerticalScrollIndicator={false}>
           <View style={styles.header}>
-            <Text style={styles.logo}>Logo</Text>
-            <Text style={styles.welcomeText}>Welcome Back! 🌟</Text>
+          <Image
+      source={require('../assets/Logo.png')}
+      style={styles.logoImage}
+          />
+  
+            {/* <Text style={styles.logo}>Logo</Text> */}
+            <Text style={styles.welcomeText}>  Welcome Back! 🌟</Text>
             <Text style={styles.subtitleText}>Choose your learning adventure</Text>
           </View>
 
@@ -123,6 +129,19 @@ const styles = StyleSheet.create({
     alignSelf: "flex-start",
     marginLeft: 20,
   },
+  logoImage: {
+  position: 'absolute',
+          // adjust as needed
+  top: 40,           // adjust as needed
+  left: 20,          // adjust as needed
+  width: 50,         // diameter of circle
+  height: 50,        // diameter of circle
+  borderRadius: 25,  // half of width/height for perfect circle
+  borderWidth: 2,    // optional: border around circle
+  borderColor: 'white',
+  resizeMode: 'cover'
+},
+
   welcomeText: {
     fontSize: 32,
     fontWeight: "bold",
@@ -136,7 +155,7 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
   levelsContainer: {
-    paddingHorizontal: 20,
+    paddingHorizontal: 10,
     marginBottom: 30,
   },
   levelCard: {

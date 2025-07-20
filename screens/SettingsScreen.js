@@ -32,10 +32,10 @@ const SettingsScreen = ({ navigation }) => {
 
         <ScrollView style={styles.scrollView} showsVerticalScrollIndicator={false}>
           <View style={styles.settingsContainer}>
-            {renderSettingCard("Audio Settings", [
-              { label: "Sound Effects", value: "On" },
+            {/* {renderSettingCard("Audio Settings", [
+              // { label: "Sound Effects", value: "On" },
               { label: "Voice Instructions", value: "On" },
-            ])}
+            ])} */}
 
             {renderSettingCard("Parental Controls", [
               { label: "View Progress Report", value: "Open" },
@@ -68,6 +68,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   header: {
+    top: 30,
     flexDirection: "row",
     alignItems: "center",
     paddingHorizontal: 20,
@@ -75,6 +76,7 @@ const styles = StyleSheet.create({
     paddingBottom: 20,
   },
   backButton: {
+    top: 5,
     flexDirection: "row",
     alignItems: "center",
     backgroundColor: "rgba(255, 255, 255, 0.2)",
@@ -89,7 +91,8 @@ const styles = StyleSheet.create({
     marginLeft: 5,
   },
   title: {
-    fontSize: 28,
+    top: 5,
+    fontSize: 30,
     fontWeight: "bold",
     color: "white",
     flex: 1,
@@ -98,6 +101,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   settingsContainer: {
+    top: 30,
     paddingHorizontal: 20,
     paddingBottom: 20,
   },

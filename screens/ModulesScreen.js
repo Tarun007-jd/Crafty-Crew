@@ -87,7 +87,9 @@ const styles = StyleSheet.create({
     marginLeft: 5,
   },
   title: {
-    fontSize: 28,
+    top:30,
+    paddingBottom: 30,
+    fontSize: 32,
     fontWeight: "bold",
     color: "white",
     flex: 1,
@@ -100,13 +102,13 @@ const styles = StyleSheet.create({
     paddingBottom: 20,
   },
   moduleCard: {
-    marginBottom: 20,
-    borderRadius: 20,
+    marginBottom: 30,
+    borderRadius: 50,
     overflow: "hidden",
     elevation: 5,
     shadowColor: "#000",
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.25,
+    shadowOffset: { width: 2, height: 2 },
+    shadowOpacity: 1.25,
     shadowRadius: 3.84,
   },
   moduleContent: {

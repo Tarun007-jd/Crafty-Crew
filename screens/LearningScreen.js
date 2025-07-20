@@ -51,10 +51,10 @@ const LearningScreen = ({ navigation, route }) => {
     <SafeAreaView style={styles.container}>
       <LinearGradient colors={["#14b8a6", "#3b82f6", "#8b5cf6"]} style={styles.gradient}>
         <View style={styles.header}>
-          {/*<TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()} activeOpacity={0.7}>
+          <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()} activeOpacity={0.7}>
             <Ionicons name="arrow-back" size={24} color="white" />
-            <Text style={styles.backText}>Back to Modules</Text>
-          </TouchableOpacity>*/}
+            <Text style={styles.backText}>Back</Text>
+          </TouchableOpacity>
           <Text style={styles.title}>{module.name}</Text>
           {/* <TouchableOpacity style={styles.audioButton} activeOpacity={0.7}> 
             <Ionicons name="volume-high" size={24} color="white" />
@@ -121,6 +121,7 @@ const LearningScreen = ({ navigation, route }) => {
 
 const styles = StyleSheet.create({
   container: {
+    
     flex: 1,
     
   },
@@ -136,6 +137,7 @@ const styles = StyleSheet.create({
     paddingBottom: 20,
   },
   backButton: {
+    top:30,
     flexDirection: "row",
     alignItems: "center",
     backgroundColor: "rgba(255, 255, 255, 0.2)",
@@ -144,17 +146,19 @@ const styles = StyleSheet.create({
     borderRadius: 20,
   },
   backText: {
+  
     color: "white",
     fontSize: 16,
     marginLeft: 5,
   },
   title: {
-    fontSize: 30,
+    fontSize: 40,
     fontWeight: "bold",
     color: "white",
     flex: 1,
+    justifyContent: "center",
     textAlign: "center",
-    paddingTop: 50,
+    paddingTop: 60,
   },
   //audioButton: {
     //backgroundColor: "rgba(255, 255, 255, 0.2)",
