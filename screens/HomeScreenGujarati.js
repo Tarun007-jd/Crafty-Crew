@@ -8,7 +8,7 @@ import { levelData, levelColors, levelEmojis } from "../constants/Data"
 
 const { width } = Dimensions.get("window")
 
-const HomeScreen = ({ navigation,route }) => {
+const HomeScreenGujarati = ({ navigation, route }) => {
   const [userProgress, setUserProgress] = useState(levelData)
   const [stars, setStars] = useState(0)
 
@@ -61,7 +61,10 @@ const HomeScreen = ({ navigation,route }) => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <LinearGradient colors={["#3b82f6", "#8b5cf6", "#ec4899"]} style={styles.gradient}>
+      <LinearGradient
+        colors={["#e0f7fa", "#fce4ec"]}
+        style={styles.gradient}
+      >
         <ScrollView style={styles.scrollView} showsVerticalScrollIndicator={false}>
           <View style={styles.header}>
             <Image
@@ -71,27 +74,27 @@ const HomeScreen = ({ navigation,route }) => {
             <Text style={styles.welcomeText}>Welcome Back!</Text>
             <Text style={styles.subtitleText}>Let’s continue learning!</Text>
           </View>
-            <View style={styles.languageSwitch}>
-              <TouchableOpacity
-                onPress={() => navigation.navigate("HomeScreen")}
-                style={[
-                  styles.languageTab,
-                  route.name === "HomeScreen" && styles.activeTab,
-                ]}
-              >
-                <Text style={styles.languageText}>English</Text>
-              </TouchableOpacity>
-            
-              <TouchableOpacity
-                onPress={() => navigation.navigate("HomeScreenGujarati")}
-                style={[
-                  styles.languageTab,
-                  route.name === "HomeScreenGujarati" && styles.activeTab,
-                ]}
-              >
-                <Text style={styles.languageText}>Gujarati</Text>
-              </TouchableOpacity>
-            </View>
+          <View style={styles.languageSwitch}>
+  <TouchableOpacity
+    onPress={() => navigation.navigate("HomeScreen")}
+    style={[
+      styles.languageTab,
+      route.name === "HomeScreen" && styles.activeTab,
+    ]}
+  >
+    <Text style={styles.languageText}>English</Text>
+  </TouchableOpacity>
+
+  <TouchableOpacity
+    onPress={() => navigation.navigate("HomeScreenGujarati")}
+    style={[
+      styles.languageTab,
+      route.name === "HomeScreenGujarati" && styles.activeTab,
+    ]}
+  >
+    <Text style={styles.languageText}>Gujarati</Text>
+  </TouchableOpacity>
+</View>
 
           <View style={styles.levelsContainer}>
             {["basic", "intermediate", "advanced"].map(renderLevelCard)}
@@ -145,17 +148,42 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   welcomeText: {
-    fontSize: 32,
-    fontWeight: "bold",
-    color: "white",
-    marginBottom: 10,
-    textAlign: "center",
+    fontSize: 28,
+    fontWeight: "italic",
+    color: "#374151",
+    fontFamily: "Sniglet", // Use the imported font
   },
   subtitleText: {
-    fontSize: 18,
-    color: "rgba(255, 255, 255, 0.9)",
-    textAlign: "center",
+    fontSize: 14,
+    color: "#6b7280",
+    marginTop: 4,
+    fontFamily: "Sniglet", // Use the imported font
   },
+  languageSwitch: {
+  flexDirection: "row",
+  justifyContent: "space-around",
+  marginTop: 10,
+  marginBottom: 4,
+  paddingHorizontal: 20,
+},
+
+languageTab: {
+  paddingVertical: 10,
+  paddingHorizontal: 20,
+  borderBottomWidth: 2,
+  borderBottomColor: "transparent", // default: invisible
+},
+
+activeTab: {
+  borderBottomColor: "#000", // or any highlight color
+},
+
+languageText: {
+  fontSize: 16,
+  fontWeight: "bold",
+  fontFamily: "Sniglet",
+},
+
   levelsContainer: {
     paddingHorizontal: 20,
     marginTop: 10,
@@ -234,11 +262,17 @@ const styles = StyleSheet.create({
     borderRadius: 25,
   },
   buttonText: {
-    color: "white",
+    color: "#ffffff",
+    fontSize: 16,
+    fontWeight: "bold",
+    marginLeft: 8,
+  },
+  buttonTextDark: {
+    color: "#374151",
     fontSize: 16,
     fontWeight: "bold",
     marginLeft: 8,
   },
 })
 
-export default HomeScreen
+export default HomeScreenGujarati
