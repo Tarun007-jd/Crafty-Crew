@@ -38,6 +38,38 @@ import Seeyoutomorrow from "../assets/GreetingsVideos/Seeyoutomorrow.mp4"
 import Goodmorning from "../assets/GreetingsVideos/Goodmorning.mp4"
 import Namaste from "../assets/GreetingsVideos/Namaste.mp4"
 
+import Cave from "../assets/GeoVideos/Cave.mp4"
+import Cloud from "../assets/GeoVideos/Cloud.mp4"
+import Cyclone from "../assets/GeoVideos/Cyclone.mp4"
+import Forest from "../assets/GeoVideos/Forest.mp4"
+import Hail from "../assets/GeoVideos/Hail.mp4"
+import Hill from "../assets/GeoVideos/Hill.mp4"
+import Island from "../assets/GeoVideos/Island.mp4"
+import Lake from "../assets/GeoVideos/Lake.mp4"
+import Moon from "../assets/GeoVideos/Moon.mp4"
+import Mountain from "../assets/GeoVideos/Mountain.mp4"
+import Peak from "../assets/GeoVideos/Peak.mp4"
+import Plain from "../assets/GeoVideos/Plain.mp4"
+import Pond from "../assets/GeoVideos/Pond.mp4"
+import Rain from "../assets/GeoVideos/Rain.mp4"
+import Rainbow from "../assets/GeoVideos/Rainbow.mp4"
+import River from "../assets/GeoVideos/River.mp4"
+import Sea from "../assets/GeoVideos/Sea.mp4"
+import Sky from "../assets/GeoVideos/Sky.mp4"
+import SnowFall from "../assets/GeoVideos/Snowfall.mp4"
+import Spring from "../assets/GeoVideos/Spring.mp4"
+import Star from "../assets/GeoVideos/Star.mp4"
+import Summer from "../assets/GeoVideos/Summer.mp4"
+import Sun from "../assets/GeoVideos/Sun.mp4"
+import Thunder from "../assets/GeoVideos/Thunder.mp4"
+import Valley from "../assets/GeoVideos/Valley.mp4"
+import Volcano from "../assets/GeoVideos/Volcano.mp4"
+import Waterfalls from "../assets/GeoVideos/Waterfalls.mp4"
+import Wave from "../assets/GeoVideos/Wave.mp4"
+import Wind from "../assets/GeoVideos/Wind.mp4"
+import Winter from "../assets/GeoVideos/Winter.mp4"
+
+
 
 export const levelData = {
   basic: [
@@ -52,26 +84,59 @@ export const levelData = {
   ],
   advanced: [
     { id: "sentences", name: "Sentences", icon: "💬", color: "#818cf8", completed: false },
-    { id: "multiplication", name: "Multiplication", icon: "✖️", color: "#2dd4bf", completed: false },
+    { id: "multiplication", name: "Multiplication & Division", icon: "✖️", color: "#2dd4bf", completed: false },
     { id: "geography", name: "Geography", icon: "🌍", color: "#facc15", completed: false },
   ],
 }
 
 export const signLanguageContent = {
 
+  geography:[
+      {letter: "Cave", Video: Cave, description: "A natural underground space large enough for a human to enter" },
+      {letter: "Cloud", Video: Cloud, description: "A visible mass of condensed water vapor floating in the atmosphere" },
+      {letter: "Cyclone", Video: Cyclone, description: "A large scale air mass that rotates around a strong center of low atmospheric pressure" },
+      {letter: "Forest", Video: Forest, description: "A large area covered chiefly with trees and undergrowth" },
+      {letter: "Hail", Video: Hail, description: "Pellets of frozen rain that fall in showers from cumulonimbus clouds" },
+      {letter: "Hill", Video: Hill, description: "A naturally raised area of land, not as high or craggy as a mountain" },
+      {letter: "Island", Video: Island, description: "A piece of land surrounded by water" },
+      {letter: "Lake", Video: Lake, description: "A large body of water surrounded by land" },
+      {letter: "Moon", Video: Moon, description: "Earth's only natural satellite, visible at night" },
+      {letter: "Mountain", Video: Mountain, description: "A large landform that rises prominently above its surroundings, typically having a peak" },
+      {letter: "Peak", Video: Peak, description: "The pointed top of a mountain" },
+      {letter: "Plain", Video: Plain, description: "A large area of flat land with few trees" },
+      {letter: "Pond", Video: Pond, description: "A small body of still water, smaller than a lake" },
+      {letter: "Rain", Video: Rain, description: "Water droplets that fall from clouds to the ground" },
+      {letter: "Rainbow", Video: Rainbow, description: "A meteorological phenomenon caused by reflection, refraction, and dispersion of light in water droplets" },
+      {letter: "River", Video: River, description: "A large natural stream of water flowing in a channel toward a sea, lake, or another river" },
+      {letter: "Sea", Video: Sea, description: "A large body of saltwater smaller than an ocean, partially enclosed by land" },
+      {letter: "Sky", Video: Sky, description: "The region of the atmosphere and outer space seen from the Earth" },
+      {letter: "Snow Fall", Video: SnowFall, description: "Precipitation in the form of ice crystals that fall from clouds" },
+      {letter: "Spring", Video: Spring, description: "The season after winter and before summer, characterized by warmer weather and blooming flowers" },
+      {letter: "Star", Video: Star, description: "A luminous celestial body visible in the night sky" },
+      {letter: "Summer", Video: Summer, description: "The warmest season of the year, following spring and preceding autumn" },
+      {letter: "Sun", Video: Sun, description: "The star at the center of our solar system, providing light and heat to the Earth" },
+      {letter: "Thunder", Video: Thunder, description: "The sound caused by lightning during a storm" },
+      {letter: "Valley", Video: Valley, description: "A low area of land between hills or mountains, often with a river running through it" },
+      {letter: "Volcano", Video: Volcano, description: "An opening in the Earth's crust through which molten lava, ash, and gases are ejected" },
+      {letter: "Waterfalls", Video: Waterfalls, description: "A flow of water over a vertical drop or cliff" },
+      {letter: "Wave", Video: Wave, description: "A disturbance that travels through space and matter, often seen in water" },
+      {letter: "Wind", Video: Wind, description: "The movement of air caused by differences in atmospheric pressure" },
+      {letter: "Winter", Video: Winter, description: "The coldest season of the year, following autumn and preceding spring" },
+    
+  ],
   greetings: [
-    {letter: "Hi", Video: Hi, description: "Place your hand on"},
-     {letter: "Hello",     Video: Hello ,description: "Wave your hand to greet someone" },
-      {letter: "Welcome", Video: welcome, description: "Place your hand on"},
-      {letter: "Good Morning", Video: Goodmorning, description: "Place your hand on"},
-      {letter:"Good Afternoon", Video: Goodafternoon,description:"good and sunset"},
-      {letter: "Good Evening", Video: Goodevening, description: "Place your hand on"},
-      {letter: "ThankYou", Video: ThankYou, description: "Place your hand on"},
-      {letter: "Good Bye", Video: Goodbye, description: "Place your hand on"},
-      {letter: "Good Night", Video: Goodnight, description: "Place your hand on"},
-      {letter: "See You Again", Video: Seeyouagain, description: "Place your hand on"},
-      {letter: "See You Tomorrow", Video: Seeyoutomorrow, description: "Place your hand on"},
-      {letter: "Namaste", Video: Namaste, description: "Place your hands together in front of your chest" },
+      {letter: "Hi",              Video: Hi, description: "Place your hand on"},
+      {letter: "Hello",           Video: Hello ,description: "Wave your hand to greet someone" },
+      {letter: "Welcome",         Video: welcome, description: "Place your hand on"},
+      {letter: "Good Morning",    Video: Goodmorning, description: "Place your hand on"},
+      {letter:"Good Afternoon",   Video: Goodafternoon,description:"good and sunset"},
+      {letter: "Good Evening",    Video: Goodevening, description: "Place your hand on"},
+      {letter: "ThankYou",        Video: ThankYou, description: "Place your hand on"},
+      {letter: "Good Bye",        Video: Goodbye, description: "Place your hand on"},
+      {letter: "Good Night",      Video: Goodnight, description: "Place your hand on"},
+      {letter: "See You Again",   Video: Seeyouagain, description: "Place your hand on"},
+      {letter: "See You Tomorrow",Video: Seeyoutomorrow, description: "Place your hand on"},
+      {letter: "Namaste",         Video: Namaste, description: "Place your hands together in front of your chest" },
      ],
 
   alphabets: [

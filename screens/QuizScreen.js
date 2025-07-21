@@ -5,7 +5,7 @@ import { View, Text, StyleSheet, TouchableOpacity, SafeAreaView, Animated } from
 import { LinearGradient } from "expo-linear-gradient"
 
 const QuizScreen = ({ navigation, route }) => {
-  const { module, level } = route.params
+  const { module, level, } = route.params
   const scaleAnim = useRef(new Animated.Value(0)).current
   const fadeAnim = useRef(new Animated.Value(0)).current
 
