@@ -39,7 +39,7 @@ const SplashScreen = ({ navigation }) => {
 
     // Navigate to home after splash duration
     const navigationTimer = setTimeout(() => {
-      navigation.replace("Home")
+      navigation.replace("HomeScreen")
     }, 4000) // Increased time to accommodate video
 
     return () => {
@@ -50,7 +50,7 @@ const SplashScreen = ({ navigation }) => {
 
   const handleVideoEnd = () => {
     // Optional: Navigate immediately when video ends
-    navigation.replace("Home")
+    navigation.replace("HomeScreeb")
   }
 
   return (

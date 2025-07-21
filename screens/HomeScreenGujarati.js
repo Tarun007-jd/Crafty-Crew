@@ -8,7 +8,7 @@ import { levelData, levelColors, levelEmojis } from "../constants/Data"
 
 const { width } = Dimensions.get("window")
 
-const HomeScreen = ({ navigation,route }) => {
+const HomeScreenGujarati = ({ navigation, route }) => {
   const [userProgress, setUserProgress] = useState(levelData)
   const [stars, setStars] = useState(0)
 
@@ -74,27 +74,27 @@ const HomeScreen = ({ navigation,route }) => {
             <Text style={styles.welcomeText}>Welcome Back!</Text>
             <Text style={styles.subtitleText}>Let’s continue learning!</Text>
           </View>
-            <View style={styles.languageSwitch}>
-              <TouchableOpacity
-                onPress={() => navigation.navigate("HomeScreen")}
-                style={[
-                  styles.languageTab,
-                  route.name === "HomeScreen" && styles.activeTab,
-                ]}
-              >
-                <Text style={styles.languageText}>English</Text>
-              </TouchableOpacity>
-            
-              <TouchableOpacity
-                onPress={() => navigation.navigate("HomeScreenGujarati")}
-                style={[
-                  styles.languageTab,
-                  route.name === "HomeScreenGujarati" && styles.activeTab,
-                ]}
-              >
-                <Text style={styles.languageText}>Gujarati</Text>
-              </TouchableOpacity>
-            </View>
+          <View style={styles.languageSwitch}>
+  <TouchableOpacity
+    onPress={() => navigation.navigate("HomeScreen")}
+    style={[
+      styles.languageTab,
+      route.name === "HomeScreen" && styles.activeTab,
+    ]}
+  >
+    <Text style={styles.languageText}>English</Text>
+  </TouchableOpacity>
+
+  <TouchableOpacity
+    onPress={() => navigation.navigate("HomeScreenGujarati")}
+    style={[
+      styles.languageTab,
+      route.name === "HomeScreenGujarati" && styles.activeTab,
+    ]}
+  >
+    <Text style={styles.languageText}>Gujarati</Text>
+  </TouchableOpacity>
+</View>
 
           <View style={styles.levelsContainer}>
             {["basic", "intermediate", "advanced"].map(renderLevelCard)}
@@ -165,7 +165,7 @@ const styles = StyleSheet.create({
   marginTop: 10,
   marginBottom: 4,
   paddingHorizontal: 20,
-},  
+},
 
 languageTab: {
   paddingVertical: 10,
@@ -275,4 +275,4 @@ languageText: {
   },
 })
 
-export default HomeScreen
+export default HomeScreenGujarati

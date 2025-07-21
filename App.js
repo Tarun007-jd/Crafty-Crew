@@ -2,10 +2,14 @@ import { NavigationContainer } from "@react-navigation/native"
 import { createNativeStackNavigator } from "@react-navigation/native-stack"
 import { StatusBar } from "expo-status-bar"
 import { LogBox } from "react-native"
+import { useFonts } from "expo-font"
+
+
 
 // Import screens
 import SplashScreen from "./screens/SplashScreen"
 import HomeScreen from "./screens/HomeScreen"
+import HomeScreenGujarati from "./screens/HomeScreenGujarati"
 import ModulesScreen from "./screens/ModulesScreen"
 import LearningScreen from "./screens/LearningScreen"
 import QuizScreen from "./screens/QuizScreen"
@@ -18,6 +22,13 @@ LogBox.ignoreLogs(["Non-serializable values were found in the navigation state"]
 const Stack = createNativeStackNavigator()
 
 export default function App() {
+
+  const [fontsLoaded] = useFonts({
+    Sniglet: require("./assets/fonts/Sniglet/Sniglet-Regular.ttf"),
+  })
+
+  
+
   return (
     <NavigationContainer>
       <StatusBar style="dark" />
@@ -25,10 +36,13 @@ export default function App() {
         initialRouteName="Splash"
         screenOptions={{
           headerShown: false,
+          animation: "slide_from_right", // 👈 Adds left-to-right slide
+          gestureDirection: "horizontal", //
         }}
       >
         <Stack.Screen name="Splash" component={SplashScreen} />
-        <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen name="HomeScreen" component={HomeScreen} />
+        <Stack.Screen name="HomeScreenGujarati" component={HomeScreenGujarati} />
         <Stack.Screen name="Modules" component={ModulesScreen} />
         <Stack.Screen name="Learning" component={LearningScreen} />
         <Stack.Screen name="Quiz" component={QuizScreen} />
