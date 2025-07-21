@@ -64,7 +64,7 @@ const HomeScreen = ({ navigation }) => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <LinearGradient colors={["#3b82f6", "#8b5cf6", "#ec4899"]} style={styles.gradient}>
+      <LinearGradient colors={["#e0f7fa","#fce4ec"]} style={styles.gradient}>
         <ScrollView style={styles.scrollView} showsVerticalScrollIndicator={false}>
           <View style={styles.header}>
           <Image
@@ -143,15 +143,15 @@ const styles = StyleSheet.create({
 },
 
   welcomeText: {
+    color:"#374151",
     fontSize: 32,
     fontWeight: "bold",
-    color: "white",
     marginBottom: 10,
     textAlign: "center",
   },
   subtitleText: {
+    color: "#6b7280",
     fontSize: 18,
-    color: "rgba(255, 255, 255, 0.9)",
     textAlign: "center",
   },
   levelsContainer: {
@@ -243,7 +243,7 @@ const styles = StyleSheet.create({
     borderColor: "white",
   },
   buttonText: {
-    color: "white",
+    color: "#33415c",
     fontSize: 16,
     fontWeight: "bold",
     marginLeft: 8,

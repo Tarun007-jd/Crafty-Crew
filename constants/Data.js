@@ -73,9 +73,9 @@ import Winter from "../assets/GeoVideos/Winter.mp4"
 
 export const levelData = {
   basic: [
-    { id: "alphabets", name: "Alphabets", icon: "🔤", color: "#f87171", completed: false },
-    { id: "numbers", name: "Numbers", icon: "🔢", color: "#60a5fa", completed: false },
-    { id: "science", name: "Science", icon: "🔬", color: "#4ade80", completed: false },
+    { id: "alphabets", name: "Alphabets", icon: "🔤", color: "#ffa5a5ff", completed: false },
+    { id: "numbers", name: "Numbers", icon: "🔢", color: "#99c1f4ff", completed: false },
+    { id: "science", name: "Science", icon: "🔬", color: "#70cc93ff", completed: false },
   ],
   intermediate: [
     { id: "greetings", name: "Greetings", icon: "👋", color: "#a78bfa", completed: false },
@@ -83,7 +83,7 @@ export const levelData = {
     { id: "fruits", name: "Fruits", icon: "🍎", color: "#f472b6", completed: false },
   ],
   advanced: [
-    { id: "sentences", name: "Sentences", icon: "💬", color: "#818cf8", completed: false },
+    { id: "sentences", name: "Parts of Body", icon: "💬", color: "#818cf8", completed: false },
     { id: "multiplication", name: "Multiplication & Division", icon: "✖️", color: "#2dd4bf", completed: false },
     { id: "geography", name: "Geography", icon: "🌍", color: "#facc15", completed: false },
   ],
