@@ -18,7 +18,7 @@ const LoginScreen = ({ navigation }) => {
   const handleLogin = () => {
     // Validate credentials here (e.g. API call)
     // If successful, navigate to Home
-    navigation.replace('Home');
+    navigation.replace('HomeScreen');
   };
 
   const handleSignUp = () => {
