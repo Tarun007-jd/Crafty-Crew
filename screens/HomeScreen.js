@@ -61,7 +61,7 @@ const HomeScreen = ({ navigation,route }) => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <LinearGradient colors={["#3b82f6", "#8b5cf6", "#ec4899"]} style={styles.gradient}>
+      <LinearGradient colors={["#e0f7fa","#fce4ec"]} style={styles.gradient}>
         <ScrollView style={styles.scrollView} showsVerticalScrollIndicator={false}>
           <View style={styles.header}>
             <Image
@@ -145,31 +145,56 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   welcomeText: {
-    fontSize: 32,
-    fontWeight: "bold",
-    color: "white",
-    marginBottom: 10,
-    textAlign: "center",
+    fontSize: 28,
+    fontWeight: "italic",
+    color: "#374151",
+    fontFamily: "Sniglet", // Use the imported font
   },
   subtitleText: {
-    fontSize: 18,
-    color: "rgba(255, 255, 255, 0.9)",
-    textAlign: "center",
+    fontSize: 14,
+    color: "#6b7280",
+    marginTop: 4,
+    fontFamily: "Sniglet", // Use the imported font
   },
+  languageSwitch: {
+  flexDirection: "row",
+  justifyContent: "space-around",
+  marginTop: 10,
+  marginBottom: 4,
+  paddingHorizontal: 20,
+},  
+
+languageTab: {
+  paddingVertical: 10,
+  paddingHorizontal: 20,
+  borderBottomWidth: 2,
+  borderBottomColor: "transparent", // default: invisible
+},
+
+activeTab: {
+  borderBottomColor: "#000", // or any highlight color
+},
+
+languageText: {
+  fontSize: 16,
+  fontWeight: "bold",
+  fontFamily: "Sniglet",
+},
+
   levelsContainer: {
     paddingHorizontal: 20,
     marginTop: 10,
   },
   levelCard: {
-    backgroundColor: "#ffffff",
+    backgroundColor: "#fe9999ff",
     borderRadius: 16,
     padding: 20,
     marginBottom: 15,
-    shadowColor: "#000",
-    shadowOpacity: 0.1,
-    shadowOffset: { width: 0, height: 2 },
-    shadowRadius: 5,
-    elevation: 3,
+    shadowColor: "#020202ff",
+    shadowOpacity: .4,
+    shadowOffset: { width: 5, height: 15 },
+    shadowRadius: 50,
+    elevation: 10,
   },
   cardInner: {
     alignItems: "center",
@@ -234,7 +259,13 @@ const styles = StyleSheet.create({
     borderRadius: 25,
   },
   buttonText: {
-    color: "white",
+    color: "#ffffff",
+    fontSize: 16,
+    fontWeight: "bold",
+    marginLeft: 8,
+  },
+  buttonTextDark: {
+    color: "#374151",
     fontSize: 16,
     fontWeight: "bold",
     marginLeft: 8,
