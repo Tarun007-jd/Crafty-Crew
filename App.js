@@ -21,24 +21,19 @@ import PracticeScreenEnglish from "./screens/PracticeScreenEnglish"
 import PracticeScreenGujarati from "./screens/PracticeScreenGujarati"
 import ProfileScreen from "./screens/ProfileScreenEnglish"
 
+
 // Ignore specific warnings
 LogBox.ignoreLogs(["Non-serializable values were found in the navigation state"])
 
 const Stack = createNativeStackNavigator()
 
 export default function App() {
+
   const [fontsLoaded] = useFonts({
     Sniglet: require("./assets/fonts/Sniglet/Sniglet-Regular.ttf"),
   })
 
-  if (!fontsLoaded) {
-    // Show a loading spinner while fonts are loading
-    return (
-      <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-        <ActivityIndicator size="large" color="#3b82f6" />
-      </View>
-    )
-  }
+  
 
   return (
     <NavigationContainer>
@@ -47,8 +42,8 @@ export default function App() {
         initialRouteName="Splash"
         screenOptions={{
           headerShown: false,
-          animation: "slide_from_right",
-          gestureDirection: "horizontal",
+          animation: "slide_from_right", // 👈 Adds left-to-right slide
+          gestureDirection: "horizontal", //
         }}
       >
         <Stack.Screen name="Splash" component={SplashScreen} />
