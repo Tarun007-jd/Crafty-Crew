@@ -2,7 +2,7 @@ import React from "react"
 import { SafeAreaView, View, Text, StyleSheet, TouchableOpacity, Dimensions } from "react-native"
 import { Ionicons } from "@expo/vector-icons"
 
-const PracticeScreenGujarati = ({ navigation }) => {
+const PracticeScreen = ({ navigation }) => {
   return (
     <SafeAreaView style={styles.container}>
       <Text style={styles.title}>Practice Gujarati Sign Language</Text>
@@ -69,4 +69,4 @@ const styles = StyleSheet.create({
   },
 })
 
-export default PracticeScreenGujarati
+export default PracticeScreen
