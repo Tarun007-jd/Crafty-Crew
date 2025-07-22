@@ -17,9 +17,9 @@ import LearningScreen from "./screens/LearningScreen"
 import QuizScreen from "./screens/QuizScreen"
 import RewardsScreen from "./screens/RewardsScreen"
 import SettingsScreen from "./screens/SettingsScreen"
-import PracticeScreen from "./screens/PracticeScreen"
+import PracticeScreenEnglish from "./screens/PracticeScreenEnglish"
 import PracticeScreenGujarati from "./screens/PracticeScreenGujarati"
-import ProfileScreen from "./screens/ProfileScreen"
+import ProfileScreen from "./screens/ProfileScreenEnglish"
 
 // Ignore specific warnings
 LogBox.ignoreLogs(["Non-serializable values were found in the navigation state"])
@@ -55,7 +55,7 @@ export default function App() {
         <Stack.Screen name="LoginScreen" component={LoginScreen} />
         <Stack.Screen name="HomeScreen" component={HomeScreen} />
         <Stack.Screen name="HomeScreenGujarati" component={HomeScreenGujarati} />
-        <Stack.Screen name="PracticeScreen" component={PracticeScreen} />
+        <Stack.Screen name="PracticeScreenEnglish" component={PracticeScreenEnglish} />
         <Stack.Screen name="PracticeScreenGujarati" component={PracticeScreenGujarati} />
         <Stack.Screen name="ProfileScreen" component={ProfileScreen} />
         <Stack.Screen name="Modules" component={ModulesScreen} />

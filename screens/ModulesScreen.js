@@ -88,9 +88,9 @@ const styles = StyleSheet.create({
     marginLeft: 5,
   },
   title: {
-    top:30,
+    top:40,
     color:"#33415c",
-    paddingBottom: 30,
+    paddingBottom: 20,
     fontSize: 32,
     fontWeight: "bold",
     flex: 1,
@@ -103,7 +103,7 @@ const styles = StyleSheet.create({
     paddingBottom: 20,
   },
   moduleCard: {
-    marginBottom: 30,
+    paddingTop: 20,
     overflow: "hidden",
     elevation: 5,
     shadowColor: "#02e7fcff",
