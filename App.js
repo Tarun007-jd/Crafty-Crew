@@ -1,15 +1,11 @@
 import { NavigationContainer } from "@react-navigation/native"
 import { createNativeStackNavigator } from "@react-navigation/native-stack"
-<<<<<<< HEAD
 import { StatusBar } from "expo-status-bar" 
 import { LogBox } from "react-native"
 import { useFonts } from 'expo-font';
+import { View, ActivityIndicator } from 'react-native';
 
-=======
-import { StatusBar } from "expo-status-bar"
-import { LogBox, View, ActivityIndicator } from "react-native"
-import { useFonts } from "expo-font"
->>>>>>> 4e71ae3 (Added Bottom NavBar)
+
 
 // Import screens
 import SplashScreen from "./screens/SplashScreen"
@@ -59,12 +55,9 @@ export default function App() {
         <Stack.Screen name="LoginScreen" component={LoginScreen} />
         <Stack.Screen name="HomeScreen" component={HomeScreen} />
         <Stack.Screen name="HomeScreenGujarati" component={HomeScreenGujarati} />
-<<<<<<< HEAD
-=======
         <Stack.Screen name="PracticeScreen" component={PracticeScreen} />
         <Stack.Screen name="PracticeScreenGujarati" component={PracticeScreenGujarati} />
         <Stack.Screen name="ProfileScreen" component={ProfileScreen} />
->>>>>>> 4e71ae3 (Added Bottom NavBar)
         <Stack.Screen name="Modules" component={ModulesScreen} />
         <Stack.Screen name="Learning" component={LearningScreen} />
         <Stack.Screen name="Quiz" component={QuizScreen} />

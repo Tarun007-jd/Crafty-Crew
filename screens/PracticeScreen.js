@@ -5,7 +5,7 @@ import { Ionicons } from "@expo/vector-icons"
 const PracticeScreenGujarati = ({ navigation }) => {
   return (
     <SafeAreaView style={styles.container}>
-      <Text style={styles.title}>Practice Gujarati Sign Language</Text>
+      <Text style={styles.title}>Practice English Sign Language</Text>
 
       <View style={styles.cardsContainer}>
         <TouchableOpacity
