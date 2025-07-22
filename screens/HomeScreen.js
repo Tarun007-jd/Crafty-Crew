@@ -61,10 +61,7 @@ const HomeScreen = ({ navigation,route }) => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <LinearGradient
-        colors={["#e0f7fa", "#fce4ec"]}
-        style={styles.gradient}
-      >
+      <LinearGradient colors={["#e0f7fa","#fce4ec"]} style={styles.gradient}>
         <ScrollView style={styles.scrollView} showsVerticalScrollIndicator={false}>
           <View style={styles.header}>
             <Image
@@ -215,15 +212,15 @@ languageText: {
     marginTop: 10,
   },
   levelCard: {
-    backgroundColor: "#ffffff",
+    backgroundColor: "#fe9999ff",
     borderRadius: 16,
     padding: 20,
     marginBottom: 15,
-    shadowColor: "#000",
-    shadowOpacity: 0.1,
-    shadowOffset: { width: 0, height: 2 },
-    shadowRadius: 5,
-    elevation: 3,
+    shadowColor: "#020202ff",
+    shadowOpacity: .4,
+    shadowOffset: { width: 5, height: 15 },
+    shadowRadius: 50,
+    elevation: 10,
   },
   cardInner: {
     alignItems: "center",

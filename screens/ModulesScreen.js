@@ -41,7 +41,7 @@ const ModulesScreen = ({ navigation, route }) => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <LinearGradient colors={["#6366f1", "#8b5cf6", "#ec4899"]} style={styles.gradient}>
+      <LinearGradient colors={["#caf0f8", "#fad2e1"]} style={styles.gradient}>
         <View style={styles.header}>
           {/* <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()} activeOpacity={0.7}> 
             <Ionicons name="arrow-back" size={24} color="white" />
@@ -66,6 +66,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   header: {
+  
     flexDirection: "row",
     alignItems: "center",
     paddingHorizontal: 20,
@@ -88,10 +89,10 @@ const styles = StyleSheet.create({
   },
   title: {
     top:30,
+    color:"#33415c",
     paddingBottom: 30,
     fontSize: 32,
     fontWeight: "bold",
-    color: "white",
     flex: 1,
   },
   scrollView: {
@@ -103,13 +104,12 @@ const styles = StyleSheet.create({
   },
   moduleCard: {
     marginBottom: 30,
-    borderRadius: 50,
     overflow: "hidden",
     elevation: 5,
-    shadowColor: "#000",
+    shadowColor: "#02e7fcff",
     shadowOffset: { width: 2, height: 2 },
-    shadowOpacity: 1.25,
-    shadowRadius: 3.84,
+    shadowOpacity: 2.25,
+    shadowRadius: 5.84,
   },
   moduleContent: {
     padding: 25,

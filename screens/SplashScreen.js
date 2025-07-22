@@ -124,7 +124,7 @@ const SplashScreen = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#14b8a6",
+    backgroundColor: "#f7fbfbff",
     alignItems: "center",
     justifyContent: "center",
   },
@@ -135,14 +135,14 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 36,
     fontWeight: "bold",
-    color: "white",
+    color: "Black",
     letterSpacing: 2,
     textAlign: "center",
     marginBottom: 10,
   },
   subtitle: {
     fontSize: 16,
-    color: "rgba(255, 255, 255, 0.8)",
+    color: "#6b7280",
     letterSpacing: 1,
     textAlign: "center",
   },
@@ -153,7 +153,7 @@ const styles = StyleSheet.create({
     marginVertical: 10,
     borderRadius: 10,
     overflow: 'hidden',
-    backgroundColor: 'black', // Fallback color
+     
     
   },
   video: {

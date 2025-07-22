@@ -6,10 +6,10 @@
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
-    "splash": {
-      "image": "./assets/icon.png",
+     "splash": {
+       "image": "./assets/icon.png",
       "resizeMode": "contain",
-      "backgroundColor": "#a855f7"
+      "backgroundColor": "#ffffff"
     },
     "assetBundlePatterns": [
       "**/*"
