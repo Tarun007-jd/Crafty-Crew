@@ -119,6 +119,31 @@ const HomeScreenGujarati = ({ navigation, route }) => {
           </View>
         </ScrollView>
       </LinearGradient>
+      <View style={styles.bottomNav}>
+        <TouchableOpacity
+          onPress={() => navigation.navigate("HomeScreenGujarati")}
+          style={styles.navButton}
+        >
+          <Ionicons name="home-outline" size={24} color="#374151" />
+          <Text style={styles.navLabel}>Home</Text>
+        </TouchableOpacity>
+      
+        <TouchableOpacity
+          onPress={() => navigation.navigate("PracticeScreenGujarati")}
+          style={styles.navButton}
+        >
+          <Ionicons name="book-outline" size={24} color="#374151" />
+          <Text style={styles.navLabel}>Practice</Text>
+        </TouchableOpacity>
+      
+        <TouchableOpacity
+          onPress={() => navigation.navigate("ProfileScreen")}
+          style={styles.navButton}
+        >
+          <Ionicons name="person-outline" size={24} color="#374151" />
+          <Text style={styles.navLabel}>Profile</Text>
+        </TouchableOpacity>
+      </View>
     </SafeAreaView>
   )
 }
@@ -273,6 +298,26 @@ languageText: {
     fontWeight: "bold",
     marginLeft: 8,
   },
+    bottomNav: {
+  flexDirection: "row",
+  justifyContent: "space-around",
+  alignItems: "center",
+  backgroundColor: "#ffffff",
+  paddingVertical: 10,
+  borderTopWidth: 1,
+  borderColor: "#e5e7eb",
+},
+
+navButton: {
+  alignItems: "center",
+},
+
+navLabel: {
+  fontSize: 12,
+  color: "#374151",
+  marginTop: 2,
+  fontFamily: "Sniglet",
+},
 })
 
 export default HomeScreenGujarati
