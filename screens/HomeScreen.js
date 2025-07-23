@@ -212,7 +212,7 @@ languageText: {
     marginTop: 10,
   },
   levelCard: {
-    backgroundColor: "#fe9999ff",
+    backgroundColor: "#fe9999",
     borderRadius: 16,
     padding: 20,
     marginBottom: 15,
