@@ -49,7 +49,7 @@ const LearningScreen = ({ navigation, route }) => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <LinearGradient colors={["#14b8a6", "#3b82f6", "#8b5cf6"]} style={styles.gradient}>
+      <LinearGradient colors={["#75dfd3ff", "#699ff6ff", "#9873efff"]} style={styles.gradient}>
         <View style={styles.header}>
           <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()} activeOpacity={0.7}>
             <Ionicons name="arrow-back" size={24} color="white" />

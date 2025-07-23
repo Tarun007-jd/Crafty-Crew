@@ -3,6 +3,8 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack"
 import { StatusBar } from "expo-status-bar" 
 import { LogBox } from "react-native"
 import { useFonts } from 'expo-font';
+import { View, ActivityIndicator } from 'react-native';
+
 
 
 // Import screens
@@ -15,9 +17,9 @@ import LearningScreen from "./screens/LearningScreen"
 import QuizScreen from "./screens/QuizScreen"
 import RewardsScreen from "./screens/RewardsScreen"
 import SettingsScreen from "./screens/SettingsScreen"
-import PracticeScreen from "./screens/PracticeScreen"
+import PracticeScreenEnglish from "./screens/PracticeScreenEnglish"
 import PracticeScreenGujarati from "./screens/PracticeScreenGujarati"
-import ProfileScreen from "./screens/ProfileScreen"
+import ProfileScreen from "./screens/ProfileScreenEnglish"
 
 
 // Ignore specific warnings
@@ -48,7 +50,7 @@ export default function App() {
         <Stack.Screen name="LoginScreen" component={LoginScreen} />
         <Stack.Screen name="HomeScreen" component={HomeScreen} />
         <Stack.Screen name="HomeScreenGujarati" component={HomeScreenGujarati} />
-        <Stack.Screen name="PracticeScreen" component={PracticeScreen} />
+        <Stack.Screen name="PracticeScreenEnglish" component={PracticeScreenEnglish} />
         <Stack.Screen name="PracticeScreenGujarati" component={PracticeScreenGujarati} />
         <Stack.Screen name="ProfileScreen" component={ProfileScreen} />
         <Stack.Screen name="Modules" component={ModulesScreen} />

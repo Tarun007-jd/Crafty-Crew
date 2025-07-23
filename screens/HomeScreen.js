@@ -34,7 +34,7 @@ const HomeScreen = ({ navigation,route }) => {
     return (
       <TouchableOpacity
         key={level}
-        style={styles.levelCard}
+        style={[styles.levelCard, { backgroundColor: levelColors[level] }]}
         onPress={() => navigation.navigate("Modules", { level, userProgress, setUserProgress })}
         activeOpacity={0.9}
       >
@@ -126,7 +126,7 @@ const HomeScreen = ({ navigation,route }) => {
   </TouchableOpacity>
 
   <TouchableOpacity
-    onPress={() => navigation.navigate("PracticeScreen")}
+    onPress={() => navigation.navigate("PracticeScreenEnglish")}
     style={styles.navButton}
   >
     <Ionicons name="book-outline" size={24} color="#374151" />
@@ -212,7 +212,7 @@ languageText: {
     marginTop: 10,
   },
   levelCard: {
-    backgroundColor: "#fe9999",
+    backgroundColor: "#fdfab1ff",
     borderRadius: 16,
     padding: 20,
     marginBottom: 15,

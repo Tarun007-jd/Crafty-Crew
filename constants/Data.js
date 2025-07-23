@@ -69,6 +69,37 @@ import Wave from "../assets/GeoVideos/Wave.mp4"
 import Wind from "../assets/GeoVideos/Wind.mp4"
 import Winter from "../assets/GeoVideos/Winter.mp4"
 
+import Apple from "../assets/Fruits/Apple.mp4"
+import Banana from "../assets/Fruits/Banana.mp4"
+import Grapes from "../assets/Fruits/Grapes.mp4"
+import Guava from "../assets/Fruits/Guava.mp4"
+import Jackfruit from "../assets/Fruits/Jackfruit.mp4"
+import Mango from "../assets/Fruits/Mango.mp4"
+import Orange from "../assets/Fruits/Orange.mp4"
+import Papaya from "../assets/Fruits/Papaya.mp4"
+import Pineapple from "../assets/Fruits/Pineapple.mp4"
+import Pomogranate from "../assets/Fruits/Pomegranate.mp4"
+import Strawberry from "../assets/Fruits/Strawberry.mp4"
+import Watermelon from "../assets/Fruits/Watermelon.mp4"
+
+import one from "../assets/Numbers/One.mp4"
+import two from "../assets/Numbers/Two.mp4"
+import three from "../assets/Numbers/Three.mp4"
+import four from "../assets/Numbers/Four.mp4"
+import five from "../assets/Numbers/Five.mp4"
+import six from "../assets/Numbers/Six.mp4"
+import seven from "../assets/Numbers/Seven.mp4"
+import eight from "../assets/Numbers/Eight.mp4"
+import nine from "../assets/Numbers/Nine.mp4"
+import ten from "../assets/Numbers/Ten.mp4"
+import hundred from "../assets/Numbers/Hundred.mp4"
+import twothousand from "../assets/Numbers/TwoThousand.mp4"
+import lakhs from "../assets/Numbers/25Lakhs.mp4"
+import Crore from "../assets/Numbers/400Crore.mp4"
+
+import gas from "../assets/StatesOfMatters/Gas.mp4"
+import liquid from "../assets/StatesOfMatters/Liquid.mp4"
+import solid from "../assets/StatesOfMatters/Soild.mp4"
 
 
 export const levelData = {
@@ -90,6 +121,44 @@ export const levelData = {
 }
 
 export const signLanguageContent = {
+
+  science:  [
+    { letter: "Gas", Video: gas, description: "A state of matter with no fixed shape or volume" },  
+    { letter: "Liquid", Video: liquid, description: "A state of matter with a fixed volume but no fixed shape" },
+    { letter: "Solid", Video: solid, description: "A state of matter with a fixed shape and volume" },  
+  ],
+
+ numbers: [
+    { number: "1", Video: one, description: "Point index finger up" },
+    { number: "2", Video:two, description: "Peace sign with palm facing out" },
+    { number: "3", Video:three, description: "Thumb, index, and middle finger up" },
+    { number: "4", Video:four, description: "Index and middle finger up, other fingers folded" },
+    { number: "5", Video:five, description: "Open hand with fingers spread" },
+    { number: "6", Video:six, description: "Fingers forming an O shape" },
+    { number: "7", Video:seven, description: "Make a fist with thumb on the side" },
+    { number: "8", Video:eight, description: "Thumb and index finger forming an L shape" },
+    { number: "9", Video:nine, description: "Thumb and pinky extended, other fingers folded" },
+    { number: "10", Video:ten, description: "Open hand with fingers spread" },
+    { number: "100", Video:hundred, description: "Place one hand on top of the other, fingers extended" },
+    { number: "2000", Video:twothousand, description: "Hold up two fingers with palm facing out" },
+    { number: "25 Lakhs", Video:lakhs, description: "Hold up five fingers with palm facing out" },
+    { number: "400 Crore", Video:Crore, description: "Hold up four fingers with palm facing out" },
+  ],
+
+  fruits: [
+    { letter: "Apple", Video: Apple, description: "A round fruit with red or green skin and a crisp, juicy interior" },
+    { letter: "Banana", Video: Banana, description: "A long, curved fruit with a yellow peel and soft, sweet flesh" },
+    { letter: "Grapes", Video: Grapes, description: "Small, round fruits that grow in clusters, often purple or green" },
+    { letter: "Guava", Video: Guava, description: "A tropical fruit with a sweet, fragrant flavor and a green or yellow skin" },
+    { letter: "Jackfruit", Video: Jackfruit, description: "A large, spiky fruit with a sweet, fibrous flesh" },
+    { letter: "Mango", Video: Mango, description: "A juicy tropical fruit with a sweet, orange flesh and a large pit" },
+    { letter: "Orange", Video: Orange, description: "A round citrus fruit with a thick, orange skin and juicy, sweet segments" }, 
+    { letter: "Papaya", Video: Papaya, description: "A tropical fruit with a sweet, orange flesh and black seeds" },
+    { letter: "Pineapple", Video: Pineapple, description: "A tropical fruit with a spiky exterior and sweet, juicy interior" },
+    { letter: "Pomegranate", Video: Pomogranate, description: "A round fruit with a tough outer skin and many juicy seeds inside" },
+    { letter: "Strawberry", Video: Strawberry, description: "A small, red fruit with tiny seeds on its surface and a sweet flavor" },
+    { letter: "Watermelon", Video: Watermelon, description: "A large, green fruit with a sweet, juicy red or pink interior and black seeds" },
+  ],
 
   geography:[
       {letter: "Cave", Video: Cave, description: "A natural underground space large enough for a human to enter" },
@@ -168,24 +237,13 @@ export const signLanguageContent = {
     { letter: "Z", Video: Z, description: "Index and pinky fingers extended, other fingers folded" },
 
   ],
-  numbers: [
-    { number: "1", sign: "☝️", description: "Point index finger up" },
-    { number: "2", sign: "✌️", description: "Peace sign with palm facing out" },
-    { number: "3", sign: "👌", description: "Thumb, index, and middle finger up" },
-    { number: "4", sign: "🤘", description: "Index and middle finger up, other fingers folded" },
-    { number: "5", sign: "🖐️", description: "Open hand with fingers spread" },
-    { number: "6", sign: "👌", description: "Fingers forming an O shape" },
-    { number: "7", sign: "✊", description: "Make a fist with thumb on the side" },
-    { number: "8", sign: "🤟", description: "Thumb and index finger forming an L shape" },
-    { number: "9", sign: "🤙", description: "Thumb and pinky extended, other fingers folded" },
-    { number: "10", sign: "🤚", description: "Open hand with fingers spread" },
-  ],
+  
 }
 
 export const levelColors = {
-  basic: "#4ade80",
-  intermediate: "#facc15",
-  advanced: "#f87171",
+  basic: "#b1f5caff",
+  intermediate: "#ebdc9fff",
+  advanced: "#ffa2a2ff",
 }
 
 export const levelEmojis = {

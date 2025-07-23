@@ -34,7 +34,7 @@ const HomeScreenGujarati = ({ navigation, route }) => {
     return (
       <TouchableOpacity
         key={level}
-        style={styles.levelCard}
+        style={[styles.levelCard, { backgroundColor: levelColors[level] }]}
         onPress={() => navigation.navigate("Modules", { level, userProgress, setUserProgress })}
         activeOpacity={0.9}
       >
@@ -214,7 +214,7 @@ languageText: {
     marginTop: 10,
   },
   levelCard: {
-   backgroundColor: "#fe9994",
+    backgroundColor: "#8be6f9ff",
     borderRadius: 16,
     padding: 20,
     marginBottom: 15,
