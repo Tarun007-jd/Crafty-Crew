@@ -1,6 +1,8 @@
 import { View, Text, StyleSheet, TouchableOpacity, ScrollView, SafeAreaView } from "react-native"
 import { LinearGradient } from "expo-linear-gradient"
 import { Ionicons } from "@expo/vector-icons"
+import LottieView from 'lottie-react-native';
+
 
 const ModulesScreen = ({ navigation, route }) => {
   const { level, userProgress, setUserProgress } = route.params
@@ -29,7 +31,8 @@ const ModulesScreen = ({ navigation, route }) => {
               <Ionicons name="star" size={24} color="white" />
             </View>
           )}
-          <Text style={styles.moduleEmoji}>{module.icon}</Text>
+          <LottieView source={module.lottie} autoPlay loop style={{ width: 80, height: 70, marginBottom: 0 }}  />
+
           <Text style={styles.moduleName}>{module.name}</Text>
           <View style={styles.moduleButton}>
             <Text style={styles.moduleButtonText}>{module.completed ? "Review" : "Start Learning"}</Text>

@@ -1,4 +1,14 @@
 import { Video } from "lucide-react"
+import alphabetAnim from "../assets/ABC morphing letters.json"
+import numberAnim from "../assets/10 sec counter.json"
+import scienceAnim from "../assets/Science.json"
+import greetingsAnim from "../assets/Girl Hi or Wave.json"
+import addsubAnim from "../assets/Plus sign animation.json"
+import fruitsAnim from "../assets/Bouncing Fruits.json"
+import bodyAnim from "../assets/scan body.json"
+import multiAnim from "../assets/Calculator.json"
+import geoAnim from "../assets/Geo.json"
+
 import A from "../assets/AlpabetVideos/A.mp4"
 import B from "../assets/AlpabetVideos/B.mp4"
 import C from "../assets/AlpabetVideos/C.mp4"
@@ -104,19 +114,19 @@ import solid from "../assets/StatesOfMatters/Soild.mp4"
 
 export const levelData = {
   basic: [
-    { id: "alphabets", name: "Alphabets", icon: "🔤", color: "#ffa5a5ff", completed: false },
-    { id: "numbers", name: "Numbers", icon: "🔢", color: "#99c1f4ff", completed: false },
-    { id: "science", name: "Science", icon: "🔬", color: "#70cc93ff", completed: false },
+    { id: "alphabets", name: "Alphabets", lottie: alphabetAnim, color: "#ffa5a5ff", completed: false },
+    { id: "numbers", name: "Numbers", lottie: numberAnim, color: "#99c1f4ff", completed: false },
+    { id: "science", name: "Science", lottie: scienceAnim, color: "#70cc93ff", completed: false },
   ],
   intermediate: [
-    { id: "greetings", name: "Greetings", icon: "👋", color: "#a78bfa", completed: false },
-    { id: "math", name: "Addition & Subtraction", icon: "➕", color: "#fb923c", completed: false },
-    { id: "fruits", name: "Fruits", icon: "🍎", color: "#f472b6", completed: false },
+    { id: "greetings", name: "Greetings", lottie: greetingsAnim, color: "#a78bfa", completed: false },
+    { id: "math", name: "Addition & Subtraction", lottie: addsubAnim, color: "#fb923c", completed: false },
+    { id: "fruits", name: "Fruits", lottie: fruitsAnim, color: "#f472b6", completed: false },
   ],
   advanced: [
-    { id: "sentences", name: "Parts of Body", icon: "💬", color: "#818cf8", completed: false },
-    { id: "multiplication", name: "Multiplication & Division", icon: "✖️", color: "#2dd4bf", completed: false },
-    { id: "geography", name: "Geography", icon: "🌍", color: "#facc15", completed: false },
+    { id: "sentences", name: "Parts of Body", lottie: bodyAnim, color: "#818cf8", completed: false },
+    { id: "multiplication", name: "Multiplication & Division", lottie: multiAnim, color: "#2dd4bf", completed: false },
+    { id: "geography", name: "Geography", lottie: geoAnim, color: "#facc15", completed: false },
   ],
 }
 
