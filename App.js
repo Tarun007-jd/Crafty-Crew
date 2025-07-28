@@ -23,6 +23,8 @@ import ProfileScreen from "./screens/ProfileScreenEnglish"
 import BasicModuleGujarati from "./screens/BasicModuleGujarati";
 import IntermediateModuleGujarati from "./screens/IntemediateModuleGujarati";
 import AdvancedModuleGujarati from "./screens/AdvancedModuleGujarati";
+import EnglishQuiz from "./screens/EnglishQuiz";
+import EQuizLevel from "./screens/EQuizLevel";
 
 
 // Ignore specific warnings
@@ -64,6 +66,8 @@ export default function App() {
         <Stack.Screen name="BasicModuleGujarati" component={BasicModuleGujarati} />
         <Stack.Screen name="IntermediateModuleGujarati" component={IntermediateModuleGujarati} />
         <Stack.Screen name="AdvancedModuleGujarati" component={AdvancedModuleGujarati} />
+        <Stack.Screen name="EnglishQuiz" component={EnglishQuiz} />
+        <Stack.Screen name="EQuizLevel" component={EQuizLevel} />
 
       </Stack.Navigator>
     </NavigationContainer>

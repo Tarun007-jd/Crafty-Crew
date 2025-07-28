@@ -10,7 +10,7 @@ const PracticeScreenGujarati = ({ navigation }) => {
       <View style={styles.cardsContainer}>
         <TouchableOpacity
           style={styles.card}
-          onPress={() => navigation.navigate("QuizScreen")}
+          onPress={() => navigation.navigate("EnglishQuiz")}
         >
           <Ionicons name="help-circle-outline" size={40} color="#3b82f6" />
           <Text style={styles.cardText}>Quiz</Text>

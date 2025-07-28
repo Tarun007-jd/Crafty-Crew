@@ -61,7 +61,7 @@ const HomeScreen = ({ navigation,route }) => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <LinearGradient colors={["#e0f7fa","#fce4ec"]} style={styles.gradient}>
+      <LinearGradient colors={["#c0f8feff","#fce4ec"]} style={styles.gradient}>
         <ScrollView style={styles.scrollView} showsVerticalScrollIndicator={false}>
           <View style={styles.header}>
             <Image

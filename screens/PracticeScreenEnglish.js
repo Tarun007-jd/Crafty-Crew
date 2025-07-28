@@ -12,7 +12,7 @@ const PracticeScreenEnglish = ({ navigation }) => {
       <View style={styles.cardsContainer}>
         <TouchableOpacity
           style={styles.card}
-          onPress={() => navigation.navigate("QuizScreen")}
+          onPress={() => navigation.navigate("EQuizLevel")}
         >
           <LottieView
             source={require("../assets/motion_quizflip_loop.json")} autoPlay loop={true} style={{width:150, height: 150}} />
