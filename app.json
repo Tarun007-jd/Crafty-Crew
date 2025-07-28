@@ -1,13 +1,13 @@
 {
   "expo": {
-    "name": "Sign Language Fun",
+    "name": "signlearn.app",
     "slug": "sign-language-app",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
-     "splash": {
-       "image": "./assets/icon.png",
+    "splash": {
+      "image": "./assets/icon.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -18,16 +18,23 @@
       "supportsTablet": true
     },
     "android": {
+      "googleServicesFile": "./google-services.json",
       "adaptiveIcon": {
         "foregroundImage": "./assets/icon.png",
         "backgroundColor": "#a855f7"
-      }
+      },
+      "package": "com.shri.signlanguageapp"
     },
     "web": {
       "favicon": "./assets/icon.png"
     },
     "plugins": [
       "expo-font"
-    ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "33737278-6121-431f-9c50-dc0cef3ba4b4"
+      }
+    }
   }
 }

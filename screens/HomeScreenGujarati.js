@@ -1,14 +1,23 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { View, Image, Text, StyleSheet, TouchableOpacity, Dimensions, ScrollView, SafeAreaView } from "react-native"
+import {
+  View,
+  Image,
+  Text,
+  StyleSheet,
+  TouchableOpacity,
+  Dimensions,
+  ScrollView,
+  SafeAreaView,
+} from "react-native"
 import { LinearGradient } from "expo-linear-gradient"
 import { Ionicons } from "@expo/vector-icons"
-import { levelData, levelColors, levelEmojis } from "../constants/Data"
+import { levelData } from "../constants/Data"
 
 const { width } = Dimensions.get("window")
 
-const HomeScreenGujarati = ({ navigation, route }) => {
+const HomeScreenGujarati = ({ navigation }) => {
   const [userProgress, setUserProgress] = useState(levelData)
   const [stars, setStars] = useState(0)
 
@@ -23,31 +32,26 @@ const HomeScreenGujarati = ({ navigation, route }) => {
   }, [userProgress])
 
   const getProgressPercentage = (level) => {
-    const modules = userProgress[level]
+    const modules = userProgress[level] || []
     const completedModules = modules.filter((m) => m.completed).length
-    return (completedModules / modules.length) * 100
+    return modules.length > 0 ? (completedModules / modules.length) * 100 : 0
   }
 
-  const renderLevelCard = (level) => {
+  const renderLevelCard = (level, title, subtitle, navTarget, color, emoji) => {
     const percentage = getProgressPercentage(level)
 
     return (
       <TouchableOpacity
         key={level}
-        style={[styles.levelCard, { backgroundColor: levelColors[level] }]}
-        onPress={() => navigation.navigate("Modules", { level, userProgress, setUserProgress })}
+        style={[styles.levelCard, { backgroundColor: color }]}
+        onPress={() => navigation.navigate(navTarget, { level })}  
         activeOpacity={0.9}
       >
         <View style={styles.cardInner}>
-          <Text style={styles.levelEmoji}>{levelEmojis[level]}</Text>
-          <Text style={styles.levelTitle}>{level.charAt(0).toUpperCase() + level.slice(1)}</Text>
-          <Text style={styles.levelSubtitle}>
-            {level === "basic"
-              ? "Start your journey!"
-              : level === "intermediate"
-              ? "Build your skills!"
-              : "Master the art!"}
-          </Text>
+          <Text style={styles.levelEmoji}>{emoji}</Text>
+          <Text style={styles.levelTitle}>{title}</Text>
+          <Text style={styles.levelSubtitle}>{subtitle}</Text>
+
           <View style={styles.progressContainer}>
             <View style={styles.progressBar}>
               <View style={[styles.progressFill, { width: `${percentage}%` }]} />
@@ -61,43 +65,34 @@ const HomeScreenGujarati = ({ navigation, route }) => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <LinearGradient
-        colors={["#e0f7fa", "#fce4ec"]}
-        style={styles.gradient}
-      >
+      <LinearGradient colors={["#fff8e1", "#ffe0b2"]} style={styles.gradient}>
         <ScrollView style={styles.scrollView} showsVerticalScrollIndicator={false}>
           <View style={styles.header}>
-            <Image
-              source={require("../assets/Logo.png")}
-              style={styles.logoImage}
-            />
+            <Image source={require("../assets/Logo.png")} style={styles.logoImage} />
             <Text style={styles.welcomeText}>Welcome Back!</Text>
             <Text style={styles.subtitleText}>Let’s continue learning!</Text>
           </View>
-          <View style={styles.languageSwitch}>
-  <TouchableOpacity
-    onPress={() => navigation.navigate("HomeScreen")}
-    style={[
-      styles.languageTab,
-      route.name === "HomeScreen" && styles.activeTab,
-    ]}
-  >
-    <Text style={styles.languageText}>English</Text>
-  </TouchableOpacity>
 
-  <TouchableOpacity
-    onPress={() => navigation.navigate("HomeScreenGujarati")}
-    style={[
-      styles.languageTab,
-      route.name === "HomeScreenGujarati" && styles.activeTab,
-    ]}
-  >
-    <Text style={styles.languageText}>Gujarati</Text>
-  </TouchableOpacity>
-</View>
+          <View style={styles.languageSwitch}>
+            <TouchableOpacity
+              onPress={() => navigation.navigate("HomeScreen")}
+              style={[styles.languageTab]}
+            >
+              <Text style={styles.languageText}>English</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity
+              onPress={() => navigation.navigate("HomeScreenGujarati")}
+              style={[styles.languageTab, styles.activeTab]}
+            >
+              <Text style={styles.languageText}>Gujarati</Text>
+            </TouchableOpacity>
+          </View>
 
           <View style={styles.levelsContainer}>
-            {["basic", "intermediate", "advanced"].map(renderLevelCard)}
+            {renderLevelCard("basic", "Basic Level", "Learn the fundamentals", "BasicModuleGujarati", "#fdd835", "📘")}
+            {renderLevelCard("intermediate", "Intermediate Level", "Enhance your skills", "IntermediateModuleGujarati", "#aed581", "📗")}
+            {renderLevelCard("advanced", "Advanced Level", "Achieve mastery", "AdvancedModuleGujarati", "#ef9a9a", "📕")}
           </View>
 
           <View style={styles.buttonsContainer}>
@@ -119,27 +114,19 @@ const HomeScreenGujarati = ({ navigation, route }) => {
           </View>
         </ScrollView>
       </LinearGradient>
+
       <View style={styles.bottomNav}>
-        <TouchableOpacity
-          onPress={() => navigation.navigate("HomeScreenGujarati")}
-          style={styles.navButton}
-        >
+        <TouchableOpacity onPress={() => navigation.navigate("HomeScreenGujarati")} style={styles.navButton}>
           <Ionicons name="home-outline" size={24} color="#374151" />
           <Text style={styles.navLabel}>Home</Text>
         </TouchableOpacity>
-      
-        <TouchableOpacity
-          onPress={() => navigation.navigate("PracticeScreenGujarati")}
-          style={styles.navButton}
-        >
+
+        <TouchableOpacity onPress={() => navigation.navigate("PracticeScreenGujarati")} style={styles.navButton}>
           <Ionicons name="book-outline" size={24} color="#374151" />
           <Text style={styles.navLabel}>Practice</Text>
         </TouchableOpacity>
-      
-        <TouchableOpacity
-          onPress={() => navigation.navigate("ProfileScreen")}
-          style={styles.navButton}
-        >
+
+        <TouchableOpacity onPress={() => navigation.navigate("ProfileScreen")} style={styles.navButton}>
           <Ionicons name="person-outline" size={24} color="#374151" />
           <Text style={styles.navLabel}>Profile</Text>
         </TouchableOpacity>
@@ -174,96 +161,95 @@ const styles = StyleSheet.create({
   },
   welcomeText: {
     fontSize: 28,
-    fontWeight: "italic",
-    color: "#374151",
-    fontFamily: "Sniglet", // Use the imported font
+    fontWeight: "bold",
+    color: "#6d4c41",
+    fontFamily: "Sniglet",
   },
   subtitleText: {
     fontSize: 14,
-    color: "#6b7280",
+    color: "#8d6e63",
     marginTop: 4,
-    fontFamily: "Sniglet", // Use the imported font
+    fontFamily: "Sniglet",
   },
   languageSwitch: {
-  flexDirection: "row",
-  justifyContent: "space-around",
-  marginTop: 10,
-  marginBottom: 4,
-  paddingHorizontal: 20,
-},
-
-languageTab: {
-  paddingVertical: 10,
-  paddingHorizontal: 20,
-  borderBottomWidth: 2,
-  borderBottomColor: "transparent", // default: invisible
-},
-
-activeTab: {
-  borderBottomColor: "#000", // or any highlight color
-},
-
-languageText: {
-  fontSize: 16,
-  fontWeight: "bold",
-  fontFamily: "Sniglet",
-},
-
+    flexDirection: "row",
+    justifyContent: "space-around",
+    marginTop: 10,
+    marginBottom: 4,
+    paddingHorizontal: 20,
+  },
+  languageTab: {
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    borderBottomWidth: 2,
+    borderBottomColor: "transparent",
+  },
+  activeTab: {
+    borderBottomColor: "#000",
+  },
+  languageText: {
+    fontSize: 16,
+    fontWeight: "bold",
+    fontFamily: "Sniglet",
+  },
   levelsContainer: {
     paddingHorizontal: 20,
     marginTop: 10,
   },
   levelCard: {
-    backgroundColor: "#8be6f9ff",
-    borderRadius: 16,
-    padding: 20,
-    marginBottom: 15,
+    borderRadius: 20,
+    padding: 28,
+    marginBottom: 18,
     shadowColor: "#000",
-    shadowOpacity: 0.1,
+    shadowOpacity: 0.15,
     shadowOffset: { width: 0, height: 2 },
     shadowRadius: 5,
-    elevation: 3,
+    elevation: 5,
   },
   cardInner: {
     alignItems: "center",
+    width: "100%",
   },
   levelEmoji: {
     fontSize: 40,
-    marginBottom: 10,
+    marginBottom: 8,
   },
   levelTitle: {
-    fontSize: 20,
+    fontSize: 24,
     fontWeight: "bold",
-    color: "#111827",
-    fontFamily: "Sniglet", // Use the imported font
+    color: "#3e2723",
+    fontFamily: "Sniglet",
   },
   levelSubtitle: {
     fontSize: 14,
-    color: "#6b7280",
-    marginBottom: 12,
+    color: "#5d4037",
+    marginTop: 6,
+    fontFamily: "Sniglet",
     textAlign: "center",
   },
   progressContainer: {
     flexDirection: "row",
     alignItems: "center",
+    marginTop: 12,
     width: "100%",
   },
   progressBar: {
     flex: 1,
     height: 8,
-    backgroundColor: "#e5e7eb",
-    borderRadius: 4,
+    backgroundColor: "#e0e0e0",
+    borderRadius: 5,
     marginRight: 10,
   },
   progressFill: {
     height: "100%",
-    backgroundColor: "#60a5fa",
-    borderRadius: 4,
+    backgroundColor: "#388e3c",
+    borderRadius: 5,
   },
   progressText: {
-    color: "#111827",
-    fontWeight: "bold",
     fontSize: 14,
+    fontWeight: "bold",
+    color: "#333",
+    width: 40,
   },
   buttonsContainer: {
     flexDirection: "row",
@@ -273,7 +259,7 @@ languageText: {
   rewardsButton: {
     flexDirection: "row",
     alignItems: "center",
-    backgroundColor: "#f59e0b",
+    backgroundColor: "#ff6f00",
     paddingHorizontal: 20,
     paddingVertical: 12,
     borderRadius: 25,
@@ -298,26 +284,24 @@ languageText: {
     fontWeight: "bold",
     marginLeft: 8,
   },
-    bottomNav: {
-  flexDirection: "row",
-  justifyContent: "space-around",
-  alignItems: "center",
-  backgroundColor: "#ffffff",
-  paddingVertical: 10,
-  borderTopWidth: 1,
-  borderColor: "#e5e7eb",
-},
-
-navButton: {
-  alignItems: "center",
-},
-
-navLabel: {
-  fontSize: 12,
-  color: "#374151",
-  marginTop: 2,
-  fontFamily: "Sniglet",
-},
+  bottomNav: {
+    flexDirection: "row",
+    justifyContent: "space-around",
+    alignItems: "center",
+    backgroundColor: "#ffffff",
+    paddingVertical: 10,
+    borderTopWidth: 1,
+    borderColor: "#e5e7eb",
+  },
+  navButton: {
+    alignItems: "center",
+  },
+  navLabel: {
+    fontSize: 12,
+    color: "#374151",
+    marginTop: 2,
+    fontFamily: "Sniglet",
+  },
 })
 
 export default HomeScreenGujarati

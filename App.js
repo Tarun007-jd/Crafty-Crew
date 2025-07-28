@@ -20,6 +20,9 @@ import SettingsScreen from "./screens/SettingsScreen"
 import PracticeScreenEnglish from "./screens/PracticeScreenEnglish"
 import PracticeScreenGujarati from "./screens/PracticeScreenGujarati"
 import ProfileScreen from "./screens/ProfileScreenEnglish"
+import BasicModuleGujarati from "./screens/BasicModuleGujarati";
+import IntermediateModuleGujarati from "./screens/IntemediateModuleGujarati";
+import AdvancedModuleGujarati from "./screens/AdvancedModuleGujarati";
 
 
 // Ignore specific warnings
@@ -58,6 +61,10 @@ export default function App() {
         <Stack.Screen name="Quiz" component={QuizScreen} />
         <Stack.Screen name="Rewards" component={RewardsScreen} />
         <Stack.Screen name="Settings" component={SettingsScreen} />
+        <Stack.Screen name="BasicModuleGujarati" component={BasicModuleGujarati} />
+        <Stack.Screen name="IntermediateModuleGujarati" component={IntermediateModuleGujarati} />
+        <Stack.Screen name="AdvancedModuleGujarati" component={AdvancedModuleGujarati} />
+
       </Stack.Navigator>
     </NavigationContainer>
   )

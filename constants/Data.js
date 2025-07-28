@@ -9,32 +9,35 @@ import bodyAnim from "../assets/scan body.json"
 import multiAnim from "../assets/Calculator.json"
 import geoAnim from "../assets/Geo.json"
 
-import A from "../assets/AlpabetVideos/A.mp4"
-import B from "../assets/AlpabetVideos/B.mp4"
-import C from "../assets/AlpabetVideos/C.mp4"
-import D from "../assets/AlpabetVideos/D.mp4"
-import E from "../assets/AlpabetVideos/E.mp4"
-import F from "../assets/AlpabetVideos/F.mp4"
-import G from "../assets/AlpabetVideos/G.mp4"
-import H from "../assets/AlpabetVideos/H.mp4"
-import I from "../assets/AlpabetVideos/I.mp4"
-import J from "../assets/AlpabetVideos/J.mp4"
-import K from "../assets/AlpabetVideos/K.mp4"
-import L from "../assets/AlpabetVideos/L.mp4"
-import M from "../assets/AlpabetVideos/M.mp4"
-import N from "../assets/AlpabetVideos/N.mp4"
-import O from "../assets/AlpabetVideos/O.mp4"
-import P from "../assets/AlpabetVideos/P.mp4"
-import Q from "../assets/AlpabetVideos/Q.mp4"
-import R from "../assets/AlpabetVideos/R.mp4"
-import S from "../assets/AlpabetVideos/S.mp4"
-import T from "../assets/AlpabetVideos/T.mp4"
-import U from "../assets/AlpabetVideos/U.mp4"
-import V from "../assets/AlpabetVideos/V.mp4"
-import W from "../assets/AlpabetVideos/W.mp4"
-import X from "../assets/AlpabetVideos/X.mp4"
-import Y from "../assets/AlpabetVideos/Y.mp4"
-import Z from "../assets/AlpabetVideos/Z.mp4"
+const A = { uri: "https://res.cloudinary.com/da80hu9ko/video/upload/v1753418545/A_gsks2d.mp4" };
+const B = { uri: "https://res.cloudinary.com/da80hu9ko/video/upload/v1753418538/B_vj7skv.mp4" };
+const C = { uri: "https://res.cloudinary.com/da80hu9ko/video/upload/v1753418563/C_k1dfi6.mp4" };
+const D = { uri: "https://res.cloudinary.com/da80hu9ko/video/upload/v1753418585/D_ezc96r.mp4" };
+const E = { uri: "https://res.cloudinary.com/da80hu9ko/video/upload/v1753418543/E_jbzpq1.mp4" };
+const F = { uri: "https://res.cloudinary.com/da80hu9ko/video/upload/v1753418558/F_kcni7e.mp4" };
+const G = { uri: "https://res.cloudinary.com/da80hu9ko/video/upload/v1753418583/G_hvlkhm.mp4" };
+const H = { uri: "https://res.cloudinary.com/da80hu9ko/video/upload/v1753418616/H_it4uhf.mp4" };
+const I = { uri: "https://res.cloudinary.com/da80hu9ko/video/upload/v1753418563/I_vok1ks.mp4" };
+const J = { uri: "https://res.cloudinary.com/da80hu9ko/video/upload/v1753418555/J_uwpjsz.mp4" };
+const K = { uri: "https://res.cloudinary.com/da80hu9ko/video/upload/v1753418564/K_okwgh2.mp4" };
+const L = { uri: "https://res.cloudinary.com/da80hu9ko/video/upload/v1753418705/L_f5wlrb.mp4" };
+const M = { uri: "https://res.cloudinary.com/da80hu9ko/video/upload/v1753418663/M_sjckgs.mp4" };
+const N = { uri: "https://res.cloudinary.com/da80hu9ko/video/upload/v1753418720/N_wwq67b.mp4" };
+const O = { uri: "https://res.cloudinary.com/da80hu9ko/video/upload/v1753418616/O_mrt98t.mp4" };
+const P = { uri: "https://res.cloudinary.com/da80hu9ko/video/upload/v1753418620/P_ul0isv.mp4" };
+const Q = { uri: "https://res.cloudinary.com/da80hu9ko/video/upload/v1753418656/Q_gqmkt8.mp4" };
+const R = { uri: "https://res.cloudinary.com/da80hu9ko/video/upload/v1753418691/R_xclczg.mp4" };
+const S = { uri: "https://res.cloudinary.com/da80hu9ko/video/upload/v1753418667/S_wpcibo.mp4" };
+const T = { uri: "https://res.cloudinary.com/da80hu9ko/video/upload/v1753418690/T_vxfoqr.mp4" };
+const U = { uri: "https://res.cloudinary.com/da80hu9ko/video/upload/v1753418683/U_tedacq.mp4" };
+const V = { uri: "https://res.cloudinary.com/da80hu9ko/video/upload/v1753418685/V_ki3kol.mp4" };
+const W = { uri: "https://res.cloudinary.com/da80hu9ko/video/upload/v1753418707/W_a8nbst.mp4" };
+const X = { uri: "https://res.cloudinary.com/da80hu9ko/video/upload/v1753418704/X_bjwfuj.mp4" };
+const Y = { uri: "https://res.cloudinary.com/da80hu9ko/video/upload/v1753418720/Y_qmdlvw.mp4" };
+const Z = { uri: "https://res.cloudinary.com/da80hu9ko/video/upload/v1753418717/Z_movndq.mp4" };
+
+
+
 import Goodafternoon from "../assets/GreetingsVideos/Goodafternoon.mp4"
 import Hello from "../assets/GreetingsVideos/Hello.mp4"
 import ThankYou from "../assets/GreetingsVideos/ThankYou.mp4"
@@ -247,6 +250,40 @@ export const signLanguageContent = {
     { letter: "Z", Video: Z, description: "Index and pinky fingers extended, other fingers folded" },
 
   ],
+
+  vowels: [
+    {
+      letter: "અ",
+      icon: "🅰️",
+      description: "This is the vowel 'અ'",
+    },
+    
+  ],
+  consonants: [
+    {
+      letter: "ક",
+      sign: "🔤",
+      description: "This is the consonant 'ક'",
+    },
+
+  ],
+
+  animals: [
+    {
+      letter: "cow",
+      sign: "🔤",
+      description: "This is the consonant 'ક'",
+    },
+
+  ],
+
+  foods: [
+    {
+      letter: "cow",
+      sign: "🔤",
+      description: "This is the consonant 'ક'",  
+    },
+  ],
   
 }
 
@@ -261,3 +298,52 @@ export const levelEmojis = {
   intermediate: "🌿",
   advanced: "🌳",
 }
+
+export const gujaratiLevelData = {
+  basic: [
+    {
+      id: "vowels",
+      name: "Vowels",
+      color: "#f59e0b",
+      completed: false,
+    },
+    {
+      id: "consonants",
+      name: "Consonants",
+      color: "#10b981",
+      completed: false,
+    },
+  ],
+  intermediate: [
+    {
+      id: "animals",
+      name: "Animals",
+      
+      color: "#ec4899",
+      completed: false,
+    },
+    {
+      id: "food",
+      name: "Food",
+      color: "#6366f1",
+      completed: false,
+    },
+  ],
+  advanced: [
+    {
+      id: "grammar",
+      name: "Grammar",
+      color: "#e11d48",
+      completed: false,
+    },
+    {
+      id: "culture",
+      name: "Culture",
+      
+      color: "#14b8a6",
+      completed: false,
+    },
+  ],
+}
+
+
