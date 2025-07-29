@@ -25,6 +25,8 @@ import IntermediateModuleGujarati from "./screens/IntemediateModuleGujarati";
 import AdvancedModuleGujarati from "./screens/AdvancedModuleGujarati";
 import EnglishQuiz from "./screens/EnglishQuiz";
 import EQuizLevel from "./screens/EQuizLevel";
+import SignMirror from "./screens/SignMirror"
+
 
 
 // Ignore specific warnings
@@ -68,6 +70,7 @@ export default function App() {
         <Stack.Screen name="AdvancedModuleGujarati" component={AdvancedModuleGujarati} />
         <Stack.Screen name="EnglishQuiz" component={EnglishQuiz} />
         <Stack.Screen name="EQuizLevel" component={EQuizLevel} />
+        <Stack.Screen name="SignMirror" component={SignMirror} />
 
       </Stack.Navigator>
     </NavigationContainer>

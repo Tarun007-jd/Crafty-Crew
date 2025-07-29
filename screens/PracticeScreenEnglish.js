@@ -21,7 +21,7 @@ const PracticeScreenEnglish = ({ navigation }) => {
 
         <TouchableOpacity
           style={styles.card}
-          onPress={() => navigation.navigate("SignMirrorScreen")}
+          onPress={() => navigation.navigate("SignMirror")}
         >
           <LottieView 
             source={require("../assets/Digital Camera.json")} autoPlay loop={true} style={{width:150, height: 150}}  />
