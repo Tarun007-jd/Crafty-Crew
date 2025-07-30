@@ -7,12 +7,13 @@
     "dev": "next dev",
     "lint": "next lint",
     "start": "expo start",
-    "android": "expo start --android",
-    "ios": "expo start --ios",
+    "android": "expo run:android",
+    "ios": "expo run:ios",
     "web": "expo start --web"
   },
   "dependencies": {
     "@emotion/is-prop-valid": "latest",
+    "@expo-google-fonts/pacifico": "^0.4.0",
     "@expo/metro-runtime": "~3.2.3",
     "@expo/vector-icons": "^14.0.2",
     "@hookform/resolvers": "^3.9.1",

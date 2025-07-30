@@ -4,7 +4,7 @@ import { StatusBar } from "expo-status-bar"
 import { LogBox } from "react-native"
 import { useFonts } from 'expo-font';
 import { View, ActivityIndicator } from 'react-native';
-
+import {  Pacifico_400Regular } from '@expo-google-fonts/pacifico';
 
 
 // Import screens
@@ -38,6 +38,7 @@ export default function App() {
 
   const [fontsLoaded] = useFonts({
     Sniglet: require("./assets/fonts/Sniglet/Sniglet-Regular.ttf"),
+    Pacifico: Pacifico_400Regular,
   })
 
   
