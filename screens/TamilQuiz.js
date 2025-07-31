@@ -3,29 +3,63 @@ import { View, Text, TouchableOpacity, StyleSheet, FlatList } from 'react-native
 import { Video } from "expo-av"
 import { LinearGradient } from "expo-linear-gradient"
 
-import Hello from '../assets/GreetingsVideos/Hello.mp4'; // Adjust the path as necessary
-import A from '../assets/AlpabetVideos/A.mp4'; // Adjust the path as necessary
-import Six from '../assets/Numbers/Six.mp4'; // Adjust the path as necessary
+import Hello from '../assets/GreetingsVideos/Hello.mp4';
+import A from '../assets/AlpabetVideos/A.mp4';
+import B from '../assets/AlpabetVideos/B.mp4';
+import C from '../assets/AlpabetVideos/C.mp4';
+import Six from '../assets/Numbers/Six.mp4';
+import Five from '../assets/Numbers/Five.mp4';
+import ThankYou from '../assets/GreetingsVideos/ThankYou.mp4';
+import Goodbye from '../assets/GreetingsVideos/Goodbye.mp4';
 
 const quizData = [
-
   {
-    question: 'What is the sign ?',
+    question: 'What is the sign for greeting?',
     Video: Hello,
-    options: ['Seed', 'He', 'Apple', 'Cat'],
-    answer: 'He',
+    options: ['Hello', 'Goodbye', 'Thank You', 'Welcome'],
+    answer: 'Hello',
   },
   {
-    question: 'What is the sign ?',
-    Video:A,
+    question: 'What letter is this?',
+    Video: A,
     options: ['I', 'K', 'A', 'Q'],
     answer: 'A',
   },
   {
-    question: 'What is the sign ?',
+    question: 'What letter is this?',
+    Video: B,
+    options: ['B', 'D', 'P', 'R'],
+    answer: 'B',
+  },
+  {
+    question: 'What letter is this?',
+    Video: C,
+    options: ['C', 'G', 'O', 'U'],
+    answer: 'C',
+  },
+  {
+    question: 'What number is this?',
     Video: Six,
     options: ['Five', 'Two', 'One', 'Six'],
     answer: 'Six',
+  },
+  {
+    question: 'What number is this?',
+    Video: Five,
+    options: ['Five', 'Four', 'Three', 'Six'],
+    answer: 'Five',
+  },
+  {
+    question: 'What is this greeting sign?',
+    Video: ThankYou,
+    options: ['Hello', 'Thank You', 'Goodbye', 'Welcome'],
+    answer: 'Thank You',
+  },
+  {
+    question: 'What is this farewell sign?',
+    Video: Goodbye,
+    options: ['Hello', 'See You', 'Goodbye', 'Good Night'],
+    answer: 'Goodbye',
   },
 ];
 
@@ -76,7 +110,7 @@ const TamilQuiz = (
           >
             <Text style={styles.buttonText}>Restart Quiz</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.buttonhome} onPress={() => navigation.navigate("HomeScreen")}>
+          <TouchableOpacity style={styles.buttonhome} onPress={() => navigation.navigate("HomeTamil")}>
             <Text style={styles.buttonText}>Home</Text>
           </TouchableOpacity>
         </LinearGradient>
@@ -89,7 +123,7 @@ const TamilQuiz = (
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title1}>English Quiz</Text>
+      <Text style={styles.title1}>Tamil Quiz</Text>
           <Video
                 source={question.Video}
                 style={{ width: 350, height: 350, borderRadius: 12,paddingBottom: 10,paddingTop: 10 }}

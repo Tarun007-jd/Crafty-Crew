@@ -13,12 +13,12 @@ import {
 } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import { Ionicons } from "@expo/vector-icons";
-import { levelData, levelColors, levelEmojis } from "../constants/Data";
+import { levelDataTamil, levelColors, levelEmojis } from "../constants/Data";
 
 const { width } = Dimensions.get("window");
 
 const HomeScreenTamil = ({ navigation, route }) => {
-  const [userProgress, setUserProgress] = useState(levelData);
+  const [userProgress, setUserProgress] = useState(levelDataTamil);
   const [stars, setStars] = useState(0);
 
   useEffect(() => {
@@ -42,8 +42,8 @@ const HomeScreenTamil = ({ navigation, route }) => {
     return (
       <TouchableOpacity
         key={level}
-        style={styles.levelCard}
-        activeOpacity={0.9}
+        style={[styles.levelCard, { backgroundColor: levelColors[level][0] }]}
+        activeOpacity={0.8}
         onPress={() =>
           navigation.navigate("ModulesTamil", {
             level,
@@ -73,9 +73,7 @@ const HomeScreenTamil = ({ navigation, route }) => {
                 ]}
               />
             </View>
-            <Text style={styles.progressText}>
-              {Math.round(percentage)}%
-            </Text>
+            <Text style={styles.progressText}>{Math.round(percentage)}%</Text>
           </View>
         </View>
       </TouchableOpacity>
@@ -83,8 +81,11 @@ const HomeScreenTamil = ({ navigation, route }) => {
   };
 
   return (
-    <LinearGradient colors={levelColors.basic} style={styles.gradient}>
-      <SafeAreaView style={styles.container}>
+    <SafeAreaView style={styles.container}>
+      <LinearGradient
+        colors={["#f8c7acff", "#a4faa1ff"]}
+        style={styles.gradient}
+      >
         <ScrollView contentContainerStyle={styles.scrollView}>
           <View style={styles.header}>
             <Image
@@ -112,7 +113,7 @@ const HomeScreenTamil = ({ navigation, route }) => {
                 route.name === "HomeTamil" && styles.activeTab,
               ]}
             >
-              <Text style={styles.languageText}>Tamil</Text>
+              <Text style={styles.languageText}>தமிழ்</Text>
             </TouchableOpacity>
             <TouchableOpacity
               onPress={() => navigation.navigate("HomeGujarati")}
@@ -121,59 +122,62 @@ const HomeScreenTamil = ({ navigation, route }) => {
                 route.name === "HomeGujarati" && styles.activeTab,
               ]}
             >
-              <Text style={styles.languageText}>Gujarati</Text>
+              <Text style={styles.languageText}>ગુજરાતી</Text>
             </TouchableOpacity>
           </View>
 
           <View style={styles.levelsContainer}>
             {["basic", "intermediate", "advanced"].map(renderLevelCard)}
           </View>
-        </ScrollView>
 
-        <View style={styles.buttonsContainer}>
-          <TouchableOpacity
-            style={styles.rewardsButton}
-            onPress={() =>
-              navigation.navigate("Rewards", { stars, userProgress })
-            }
-          >
-            <Ionicons name="star" size={20} color="#fff" />
-            <Text style={styles.buttonText}>Rewards ({stars} ⭐)</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={styles.settingsButton}
-            onPress={() => navigation.navigate("Settings")}
-          >
-            <Ionicons name="settings" size={20} color="#374151" />
-            <Text style={styles.buttonTextDark}>Settings</Text>
-          </TouchableOpacity>
-        </View>
+          <View style={styles.buttonsContainer}>
+            <TouchableOpacity
+              style={styles.rewardsButton}
+              onPress={() =>
+                navigation.navigate("RewardsTamil", {
+                  stars,
+                  userProgress,
+                })
+              }
+            >
+              <Ionicons name="ios-star" size={20} color="#fff" />
+              <Text style={styles.buttonText}>Rewards ({stars} ⭐)</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={styles.settingsButton}
+              onPress={() => navigation.navigate("SettingsTamil")}
+            >
+              <Ionicons name="ios-settings" size={20} color="#374151" />
+              <Text style={styles.buttonTextDark}>Settings</Text>
+            </TouchableOpacity>
+          </View>
+        </ScrollView>
 
         <View style={styles.bottomNav}>
           <TouchableOpacity
-            onPress={() => navigation.navigate("Home")}
             style={styles.navButton}
+            onPress={() => navigation.navigate("HomeTamil")}
           >
             <Ionicons name="home" size={24} color="#374151" />
             <Text style={styles.navLabel}>Home</Text>
           </TouchableOpacity>
           <TouchableOpacity
-            onPress={() => navigation.navigate("PracticeTamil")}
             style={styles.navButton}
+            onPress={() => navigation.navigate("PracticeTamil")}
           >
             <Ionicons name="book" size={24} color="#374151" />
             <Text style={styles.navLabel}>Practice</Text>
           </TouchableOpacity>
           <TouchableOpacity
-            onPress={() => navigation.navigate("ProfileEnglish")}
             style={styles.navButton}
+            onPress={() => navigation.navigate("ProfileTamil")}
           >
             <Ionicons name="person" size={24} color="#374151" />
             <Text style={styles.navLabel}>Profile</Text>
           </TouchableOpacity>
         </View>
-      </SafeAreaView>
-    </LinearGradient>
+      </LinearGradient>
+    </SafeAreaView>
   );
 };
 
@@ -186,7 +190,12 @@ const styles = StyleSheet.create({
     paddingTop: 40,
     paddingBottom: 20,
   },
-  logoImage: { width: 60, height: 60, borderRadius: 30, marginBottom: 10 },
+  logoImage: {
+    width: 60,
+    height: 60,
+    borderRadius: 30,
+    marginBottom: 10,
+  },
   welcomeText: {
     fontSize: 28,
     fontStyle: "italic",
@@ -219,11 +228,10 @@ const styles = StyleSheet.create({
   },
   levelsContainer: { paddingHorizontal: 20, marginTop: 10 },
   levelCard: {
-    backgroundColor: "#fdfab1ff",
     borderRadius: 16,
     padding: 20,
     marginBottom: 15,
-    elevation: 10,
+    elevation: 8,
   },
   cardInner: { alignItems: "center" },
   levelEmoji: { fontSize: 40, marginBottom: 10 },
@@ -243,11 +251,12 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     width: "100%",
+    marginTop: 10,
   },
   progressBar: {
     flex: 1,
     height: 8,
-    backgroundColor: "#e8eaedff",
+    backgroundColor: "#e8eaed",
     borderRadius: 4,
     marginRight: 10,
   },
