@@ -9,19 +9,23 @@ const PracticeScreenEnglish = ({ navigation }) => {
     <SafeAreaView style={styles.container}>
       <Text style={styles.title}>Practice English Sign Language</Text>
 
+                <LottieView 
+            source={require("../assets/Man and Woman say Hi !.json")} autoPlay loop={true} style={{width:150, height: 150,alignSelf:"center",paddingBottom:0}}  />
+
       <View style={styles.cardsContainer}>
         <TouchableOpacity
           style={styles.card}
           onPress={() => navigation.navigate("EQuizLevel")}
         >
+          
           <LottieView
-            source={require("../assets/motion_quizflip_loop.json")} autoPlay loop={true} style={{width:150, height: 150}} />
+            source={require("../assets/motion_quizflip_loop.json")} autoPlay loop={true} style={{width:150, height: 100}} />
           <Text style={styles.cardText}>Take a Quiz</Text>
         </TouchableOpacity>
 
         <TouchableOpacity
           style={styles.card}
-          onPress={() => navigation.navigate("SignMirror")}
+          onPress={() => navigation.navigate("SignMirrorCategories")}
         >
           <LottieView 
             source={require("../assets/Digital Camera.json")} autoPlay loop={true} style={{width:150, height: 150}}  />
@@ -51,7 +55,7 @@ const styles = StyleSheet.create({
   },
   cardsContainer: {
     flexDirection: "column",
-    paddingTop: 50,
+    paddingTop: 0,
     justifyContent: "space-around",
     alignItems: "center",
   },
