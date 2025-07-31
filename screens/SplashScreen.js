@@ -14,10 +14,12 @@ const { width, height } = Dimensions.get('window')
 const SplashScreen = ({ navigation }) => {
   const fadeAnim = useRef(new Animated.Value(0)).current
   const scaleAnim = useRef(new Animated.Value(0.8)).current
-  const [showVideo, setShowVideo] = useState(false)
+  const [showVideo, setShowVideo] = useState(true) // Start with video visible
   const videoRef = useRef(null)
 
   useEffect(() => {
+    console.log('SplashScreen mounted, showVideo:', showVideo)
+    
     // Start fade and scale animations
     Animated.parallel([
       Animated.timing(fadeAnim, {
@@ -32,15 +34,16 @@ const SplashScreen = ({ navigation }) => {
       })
     ]).start()
 
-    // Show video after text animation
+    // Show video after text animation (redundant now since we start with true)
     const videoTimer = setTimeout(() => {
+      console.log('Setting showVideo to true')
       setShowVideo(true)
-    }, 800)
+    }, 500)
 
     // Navigate to home after splash duration
     const navigationTimer = setTimeout(() => {
-      navigation.replace("LoginScreen")
-    }, 4000) // Increased time to accommodate video
+      navigation.replace("Login")
+    }, 7000) // Increased time to accommodate video
 
     return () => {
       clearTimeout(videoTimer)
@@ -50,7 +53,7 @@ const SplashScreen = ({ navigation }) => {
 
   const handleVideoEnd = () => {
     // Optional: Navigate immediately when video ends
-    navigation.replace("LoginScreen")
+    navigation.replace("Login")
   }
 
   return (
@@ -83,14 +86,15 @@ const SplashScreen = ({ navigation }) => {
         >
           <Video
             ref={videoRef}
-            source={require('../assets/Splashvideo.mp4')} // Your logo video
+            source={require('../assets/Splashvideo.mp4')}
             style={styles.video}
-            resizeMode={ResizeMode.CONTAIN}
+            resizeMode={ResizeMode.COVER}
             shouldPlay={true}
             isLooping={false}
             isMuted={true}
-
+            useNativeControls={false}
             onLoad={(status) => {
+              console.log('Video loaded:', status.isLoaded)
               if (status.isLoaded && videoRef.current) {
                 videoRef.current.playAsync()
               }
@@ -99,6 +103,9 @@ const SplashScreen = ({ navigation }) => {
               if (status.didJustFinish) {
                 handleVideoEnd()
               }
+            }}
+            onError={(error) => {
+              console.log('Video error:', error)
             }}
           />
         </Animated.View>
@@ -147,18 +154,25 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
   videoContainer: {
-    width: width * 0.6,
-    height: width * 0.6,
-    borderRadius: 50,
-    marginVertical: 10,
-    borderRadius: 10,
+    width: width * 0.8,
+    height: width * 0.8,
+    marginVertical: 20,
+    borderRadius: 15,
     overflow: 'hidden',
-     
-    
+    backgroundColor: '#000',
+    elevation: 5,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
   },
   video: {
     width: '100%',
     height: '100%',
+    backgroundColor: 'transparent',
   },
   loadingContainer: {
     position: 'absolute',

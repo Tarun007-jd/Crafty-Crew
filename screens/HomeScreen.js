@@ -26,7 +26,7 @@ const HomeScreen = ({ navigation,route }) => {
     const modules = userProgress[level]
     const completedModules = modules.filter((m) => m.completed).length
     return (completedModules / modules.length) * 100
-  }
+  };
 
   const renderLevelCard = (level) => {
     const percentage = getProgressPercentage(level)
@@ -34,7 +34,7 @@ const HomeScreen = ({ navigation,route }) => {
     return (
       <TouchableOpacity
         key={level}
-        style={[styles.levelCard, { backgroundColor: levelColors[level] }]}
+        style={[styles.levelCard, { backgroundColor: levelColors[level][0] }]}
         onPress={() => navigation.navigate("Modules", { level, userProgress, setUserProgress })}
         activeOpacity={0.9}
       >
@@ -81,15 +81,25 @@ const HomeScreen = ({ navigation,route }) => {
               >
                 <Text style={styles.languageText}>English</Text>
               </TouchableOpacity>
+
+               <TouchableOpacity
+                onPress={() => navigation.navigate("HomeTamil")}
+                style={[
+                  styles.languageTab,
+                  route.name === "HomeScreenTamil" && styles.activeTab,
+                ]}
+              >
+                <Text style={styles.languageText}>தமிழ்</Text>
+              </TouchableOpacity>
             
               <TouchableOpacity
-                onPress={() => navigation.navigate("HomeScreenGujarati")}
+                onPress={() => navigation.navigate("HomeGujarati")}
                 style={[
                   styles.languageTab,
                   route.name === "HomeScreenGujarati" && styles.activeTab,
                 ]}
               >
-                <Text style={styles.languageText}>Gujarati</Text>
+                <Text style={styles.languageText}>ગુજરાતી</Text>
               </TouchableOpacity>
             </View>
 
@@ -116,11 +126,12 @@ const HomeScreen = ({ navigation,route }) => {
           </View>
         </ScrollView>
       </LinearGradient>
-      <View style={styles.bottomNav}>
-  <TouchableOpacity
-    onPress={() => navigation.navigate("HomeScreen")}
-    style={styles.navButton}
-  >
+ 
+  <View style={styles.bottomNav}>
+     <TouchableOpacity
+      onPress={() => navigation.navigate("HomeScreen")}
+       style={styles.navButton}
+       >
     <Ionicons name="home-outline" size={24} color="#374151" />
     <Text style={styles.navLabel}>Home</Text>
   </TouchableOpacity>
@@ -249,7 +260,7 @@ languageText: {
   progressBar: {
     flex: 1,
     height: 8,
-    backgroundColor: "#e5e7eb",
+    backgroundColor: "#e8eaedff",
     borderRadius: 4,
     marginRight: 10,
   },

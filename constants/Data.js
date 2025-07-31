@@ -132,6 +132,11 @@ export const levelData = {
     { id: "geography", name: "Geography", lottie: geoAnim, color: "#facc15", completed: false },
   ],
 }
+export const levelDataTamil = {
+  basic: [
+    { id: "alphabets", name: "அகராதி", lottie: alphabetAnim, color: "#ffa5a5ff", completed: false },
+  ],
+}
 
 export const signLanguageContent = {
 
@@ -288,9 +293,9 @@ export const signLanguageContent = {
 }
 
 export const levelColors = {
-  basic: "#b1f5caff",
-  intermediate: "#ebdc9fff",
-  advanced: "#ffa2a2ff",
+  basic: ["#b1f5caff", "#e8f7f0ff"],
+  intermediate: ["#ebdc9fff", "#f5f0d8ff"],
+  advanced: ["#ffa2a2ff", "#ffd8d8ff"],
 }
 
 export const levelEmojis = {
