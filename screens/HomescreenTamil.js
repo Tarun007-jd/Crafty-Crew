@@ -13,7 +13,7 @@ import {
 } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import { Ionicons } from "@expo/vector-icons";
-import { levelDataTamil, levelColors, levelEmojis } from "../constants/Data";
+import { levelDataTamil, levelTamilColors, levelTamilEmojis } from "../constants/Data";
 
 const { width } = Dimensions.get("window");
 
@@ -39,10 +39,11 @@ const HomeScreenTamil = ({ navigation, route }) => {
 
   const renderLevelCard = (level) => {
     const percentage = getProgressPercentage(level);
+
     return (
       <TouchableOpacity
         key={level}
-        style={[styles.levelCard, { backgroundColor: levelColors[level][0] }]}
+        style={[styles.levelCard, { backgroundColor: levelTamilColors[level][0] }]}
         activeOpacity={0.8}
         onPress={() =>
           navigation.navigate("ModulesScreenTamil", {
@@ -53,7 +54,7 @@ const HomeScreenTamil = ({ navigation, route }) => {
         }
       >
         <View style={styles.cardInner}>
-          <Text style={styles.levelEmoji}>{levelEmojis[level]}</Text>
+          <Text style={styles.levelEmoji}>{levelTamilEmojis[level]}</Text>
           <Text style={styles.levelTitle}>
             {level.charAt(0).toUpperCase() + level.slice(1)}
           </Text>
@@ -140,14 +141,14 @@ const HomeScreenTamil = ({ navigation, route }) => {
                 })
               }
             >
-              <Ionicons name="ios-star" size={20} color="#fff" />
+              <Ionicons name="star" size={20} color="#fff" />
               <Text style={styles.buttonText}>Rewards ({stars} ⭐)</Text>
             </TouchableOpacity>
             <TouchableOpacity
               style={styles.settingsButton}
               onPress={() => navigation.navigate("SettingsScreen")}
             >
-              <Ionicons name="ios-settings" size={20} color="#374151" />
+              <Ionicons name="settings" size={20} color="#374151" />
               <Text style={styles.buttonTextDark}>Settings</Text>
             </TouchableOpacity>
           </View>
@@ -198,7 +199,6 @@ const styles = StyleSheet.create({
   },
   welcomeText: {
     fontSize: 28,
-    fontStyle: "italic",
     color: "#374151",
     fontFamily: "Sniglet",
   },

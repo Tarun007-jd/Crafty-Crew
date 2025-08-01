@@ -9,7 +9,7 @@ const ModulesScreenTamil = ({ navigation, route }) => {
   const modules = userProgress[level]
 
   const selectModule = (module) => {
-    navigation.navigate("Learning", {
+    navigation.navigate("LearningScreenTamil", {
       module,
       level,
       userProgress,

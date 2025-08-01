@@ -177,7 +177,6 @@ const styles = StyleSheet.create({
   },
   welcomeText: {
     fontSize: 28,
-    fontWeight: "bold",
     color: "#6d4c41",
     fontFamily: "Sniglet",
   },
@@ -205,7 +204,7 @@ const styles = StyleSheet.create({
   },
   languageText: {
     fontSize: 16,
-    fontWeight: "italic",
+    fontWeight: "Bold",
     fontFamily: "Sniglet",
   },
   levelsContainer: {

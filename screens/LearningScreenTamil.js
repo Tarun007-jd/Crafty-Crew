@@ -4,7 +4,7 @@ import { useState } from "react"
 import { View, Text, StyleSheet, TouchableOpacity, SafeAreaView, Dimensions } from "react-native"
 import { LinearGradient } from "expo-linear-gradient"
 import { Ionicons } from "@expo/vector-icons"
-import { tamilSignLanguageContent } from "../constants/Data"
+import { signLanguageContentTamil } from "../constants/Data"
 import { Video } from "expo-av"
 
 const { width } = Dimensions.get("window")
@@ -13,7 +13,7 @@ const LearningScreenTamil = ({ navigation, route }) => {
   const { module, level, userProgress, setUserProgress } = route.params
   const [currentLessonIndex, setCurrentLessonIndex] = useState(0)
 
-  const content = tamilSignLanguageContent[module.id] || [
+  const content = signLanguageContentTamil[module.id] || [
     {
       letter: module.name,
       sign: "📚",

@@ -2,6 +2,7 @@ import { NavigationContainer } from "@react-navigation/native"
 import { createNativeStackNavigator } from "@react-navigation/native-stack"
 import { StatusBar } from "expo-status-bar"
 import { LogBox } from "react-native"
+import { useFonts } from 'expo-font';
 
 // Import screens
 import SplashScreen from "./screens/SplashScreen"
@@ -36,16 +37,23 @@ LogBox.ignoreLogs(["Non-serializable values were found in the navigation state"]
 const Stack = createNativeStackNavigator()
 
 export default function App() {
+
+    const [fontsLoaded] = useFonts({
+    Sniglet: require('./assets/fonts/sniglet/Sniglet-Regular.ttf'),
+  });
+
+  if (!fontsLoaded) {
+    return null; // or a loading screen if you want
+  }
+
   return (
     <NavigationContainer>
       <StatusBar style="dark" />
-     <Stack.Navigator
-        initialRouteName="Splash"
-         screenOptions={{
-         headerShown: false,
-        
-         }}
-      >
+         <Stack.Navigator
+          initialRouteName="Splash"
+           screenOptions={{
+            headerShown: false,}} >
+
         <Stack.Screen name="SplashScreen" component={SplashScreen} />
         <Stack.Screen name="LoginScreen" component={LoginScreen} />
         <Stack.Screen name="HomeScreen" component={HomeScreen} />
