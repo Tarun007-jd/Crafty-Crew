@@ -6,7 +6,7 @@ const BasicModuleGujarati = ({ navigation, route }) => {
   const basicModules = gujaratiLevelData.basic
 
   const handleModulePress = (module) => {
-    navigation.navigate("Learning", {
+    navigation.navigate("LearningScreen", {
       module, 
       level: "basic",
       lessonIndex: 0, 

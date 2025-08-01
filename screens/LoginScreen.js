@@ -19,17 +19,17 @@ const LoginScreen = ({ navigation }) => {
   const handleLogin = () => {
     // Validate credentials here (e.g. API call)
     // If successful, navigate to Home
-    navigation.replace('Home');
+    navigation.replace('HomeScreen');
   };
 
   const handleSignUp = () => {
     // Navigate to Home screen for now (or implement SignUp screen)
-    navigation.navigate('Home');
+    navigation.navigate('HomeScreen');
   };
 
   const handleForgot = () => {
     // Navigate to Settings screen for password recovery options
-    navigation.navigate('Settings');
+    navigation.navigate('SettingsScreen');
   };
 
   return (

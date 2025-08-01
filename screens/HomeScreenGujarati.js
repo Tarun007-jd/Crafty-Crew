@@ -75,30 +75,30 @@ const HomeScreenGujarati = ({ navigation, route }) => {
 
           <View style={styles.languageSwitch}>
             <TouchableOpacity
-              onPress={() => navigation.navigate("Home")}
+              onPress={() => navigation.navigate("HomeScreen")}
               style={[
                 styles.languageTab,
-                route.name === "Home" && styles.activeTab,
+                route.name === "HomeScreen" && styles.activeTab,
               ]}
             >
               <Text style={styles.languageText}>English</Text>
             </TouchableOpacity>
 
             <TouchableOpacity
-              onPress={() => navigation.navigate("HomeTamil")}
+              onPress={() => navigation.navigate("HomeScreenTamil")}
               style={[
                 styles.languageTab,
-                route.name === "HomeTamil" && styles.activeTab,
+                route.name === "HomeScreenTamil" && styles.activeTab,
               ]}
             >
               <Text style={styles.languageText}>தமிழ்</Text>
             </TouchableOpacity>
 
             <TouchableOpacity
-              onPress={() => navigation.navigate("HomeGujarati")}
+              onPress={() => navigation.navigate("HomeScreenGujarati")}
               style={[
                 styles.languageTab,
-                route.name === "HomeGujarati" && styles.activeTab,
+                route.name === "HomeScreenGujarati" && styles.activeTab,
               ]}
             >
               <Text style={styles.languageText}>ગુજરાતી</Text>
@@ -114,7 +114,7 @@ const HomeScreenGujarati = ({ navigation, route }) => {
           <View style={styles.buttonsContainer}>
             <TouchableOpacity
               style={styles.rewardsButton}
-              onPress={() => navigation.navigate("Rewards", { stars, userProgress })}
+              onPress={() => navigation.navigate("RewardsScreen", { stars, userProgress })}
             >
               <Ionicons name="trophy" size={24} color="#ffffff" />
               <Text style={styles.buttonText}>Rewards ({stars} ⭐)</Text>
@@ -122,7 +122,7 @@ const HomeScreenGujarati = ({ navigation, route }) => {
 
             <TouchableOpacity
               style={styles.settingsButton}
-              onPress={() => navigation.navigate("Settings")}
+              onPress={() => navigation.navigate("SettingsScreen")}
             >
               <Ionicons name="settings" size={24} color="#4b5563" />
               <Text style={styles.buttonTextDark}>Settings</Text>
@@ -132,17 +132,17 @@ const HomeScreenGujarati = ({ navigation, route }) => {
       </LinearGradient>
 
       <View style={styles.bottomNav}>
-        <TouchableOpacity onPress={() => navigation.navigate("HomeGujarati")} style={styles.navButton}>
+        <TouchableOpacity onPress={() => navigation.navigate("HomeScreenGujarati")} style={styles.navButton}>
           <Ionicons name="home-outline" size={24} color="#374151" />
           <Text style={styles.navLabel}>Home</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={() => navigation.navigate("PracticeGujarati")} style={styles.navButton}>
+        <TouchableOpacity onPress={() => navigation.navigate("PracticeScreenGujarati")} style={styles.navButton}>
           <Ionicons name="book-outline" size={24} color="#374151" />
           <Text style={styles.navLabel}>Practice</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={() => navigation.navigate("ProfileEnglish")} style={styles.navButton}>
+        <TouchableOpacity onPress={() => navigation.navigate("ProfileScreenEnglish")} style={styles.navButton}>
           <Ionicons name="person-outline" size={24} color="#374151" />
           <Text style={styles.navLabel}>Profile</Text>
         </TouchableOpacity>
@@ -205,7 +205,7 @@ const styles = StyleSheet.create({
   },
   languageText: {
     fontSize: 16,
-    fontWeight: "bold",
+    fontWeight: "italic",
     fontFamily: "Sniglet",
   },
   levelsContainer: {

@@ -46,26 +46,26 @@ export default function App() {
         
          }}
       >
-        <Stack.Screen name="Splash" component={SplashScreen} />
-        <Stack.Screen name="Login" component={LoginScreen} />
-        <Stack.Screen name="Home" component={HomeScreen} />
-        <Stack.Screen name="HomeGujarati" component={HomeScreenGujarati} />
-        <Stack.Screen name="HomeTamil" component={HomescreenTamil} />
-        <Stack.Screen name="Modules" component={ModulesScreen} />
-        <Stack.Screen name="ModulesTamil" component={ModulesScreenTamil} />
-        <Stack.Screen name="Learning" component={LearningScreen} />
-        <Stack.Screen name="LearningTamil" component={LearningScreenTamil} />
-        <Stack.Screen name="Quiz" component={QuizScreen} />
+        <Stack.Screen name="SplashScreen" component={SplashScreen} />
+        <Stack.Screen name="LoginScreen" component={LoginScreen} />
+        <Stack.Screen name="HomeScreen" component={HomeScreen} />
+        <Stack.Screen name="HomeScreenGujarati" component={HomeScreenGujarati} />
+        <Stack.Screen name="HomeScreenTamil" component={HomescreenTamil} />
+        <Stack.Screen name="ModulesScreen" component={ModulesScreen} />
+        <Stack.Screen name="ModulesScreenTamil" component={ModulesScreenTamil} />
+        <Stack.Screen name="LearningScreen" component={LearningScreen} />
+        <Stack.Screen name="LearningScreenTamil" component={LearningScreenTamil} />
+        <Stack.Screen name="QuizScreen" component={QuizScreen} />
         <Stack.Screen name="EnglishQuiz" component={EnglishQuiz} />
         <Stack.Screen name="TamilQuiz" component={TamilQuiz} />
         <Stack.Screen name="TQuiz" component={TQuiz} />
         <Stack.Screen name="EQuizLevel" component={EQuizLevel} />
-        <Stack.Screen name="Rewards" component={RewardsScreen} />
-        <Stack.Screen name="Settings" component={SettingsScreen} />
-        <Stack.Screen name="ProfileEnglish" component={ProfileScreenEnglish} />
-        <Stack.Screen name="PracticeEnglish" component={PracticeScreenEnglish} />
-        <Stack.Screen name="PracticeGujarati" component={PracticeScreenGujarati} />
-        <Stack.Screen name="PracticeTamil" component={PracticeScreenTamil} />
+        <Stack.Screen name="RewardsScreen" component={RewardsScreen} />
+        <Stack.Screen name="SettingsScreen" component={SettingsScreen} />
+        <Stack.Screen name="ProfileScreenEnglish" component={ProfileScreenEnglish} />
+        <Stack.Screen name="PracticeScreenEnglish" component={PracticeScreenEnglish} />
+        <Stack.Screen name="PracticeScreenGujarati" component={PracticeScreenGujarati} />
+        <Stack.Screen name="PracticeScreenTamil" component={PracticeScreenTamil} />
         <Stack.Screen name="BasicModuleGujarati" component={BasicModuleGujarati} />
         <Stack.Screen name="IntermediateModuleGujarati" component={IntemediateModuleGujarati} />
         <Stack.Screen name="AdvancedModuleGujarati" component={AdvancedModuleGujarati} />
