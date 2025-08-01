@@ -23,13 +23,13 @@ const LoginScreen = ({ navigation }) => {
   };
 
   const handleSignUp = () => {
-    
-    navigation.navigate('SignUp');
+    // Navigate to Home screen for now (or implement SignUp screen)
+    navigation.navigate('HomeScreen');
   };
 
   const handleForgot = () => {
-    // Navigate to Forgot Password screen if implemented
-    navigation.navigate('ForgotPassword');
+    // Navigate to Settings screen for password recovery options
+    navigation.navigate('Settings');
   };
 
   return (

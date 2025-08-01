@@ -13,11 +13,11 @@ import {
 } from "react-native"
 import { LinearGradient } from "expo-linear-gradient"
 import { Ionicons } from "@expo/vector-icons"
-import { levelData } from "../constants/Data"
+import { levelData, levelColors, levelEmojis } from "../constants/Data"
 
 const { width } = Dimensions.get("window")
 
-const HomeScreenGujarati = ({ navigation }) => {
+const HomeScreenGujarati = ({ navigation, route }) => {
   const [userProgress, setUserProgress] = useState(levelData)
   const [stars, setStars] = useState(0)
 
@@ -44,7 +44,7 @@ const HomeScreenGujarati = ({ navigation }) => {
       <TouchableOpacity
         key={level}
         style={[styles.levelCard, { backgroundColor: color }]}
-        onPress={() => navigation.navigate(navTarget, { level })}  
+        onPress={() => navigation.navigate(navTarget, { level, userProgress, setUserProgress })}  
         activeOpacity={0.9}
       >
         <View style={styles.cardInner}>
@@ -65,7 +65,7 @@ const HomeScreenGujarati = ({ navigation }) => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <LinearGradient colors={["#fff8e1", "#ffe0b2"]} style={styles.gradient}>
+      <LinearGradient colors={["#f9e1ffff", "#b2ffcdff"]} style={styles.gradient}>
         <ScrollView style={styles.scrollView} showsVerticalScrollIndicator={false}>
           <View style={styles.header}>
             <Image source={require("../assets/Logo.png")} style={styles.logoImage} />
@@ -76,23 +76,39 @@ const HomeScreenGujarati = ({ navigation }) => {
           <View style={styles.languageSwitch}>
             <TouchableOpacity
               onPress={() => navigation.navigate("HomeScreen")}
-              style={[styles.languageTab]}
+              style={[
+                styles.languageTab,
+                route.name === "HomeScreen" && styles.activeTab,
+              ]}
             >
               <Text style={styles.languageText}>English</Text>
             </TouchableOpacity>
 
             <TouchableOpacity
-              onPress={() => navigation.navigate("HomeScreenGujarati")}
-              style={[styles.languageTab, styles.activeTab]}
+              onPress={() => navigation.navigate("HomeScreenTamil")}
+              style={[
+                styles.languageTab,
+                route.name === "HomeScreenTamil" && styles.activeTab,
+              ]}
             >
-              <Text style={styles.languageText}>Gujarati</Text>
+              <Text style={styles.languageText}>தமிழ்</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity
+              onPress={() => navigation.navigate("HomeScreenGujarati")}
+              style={[
+                styles.languageTab,
+                route.name === "HomeScreenGujarati" && styles.activeTab,
+              ]}
+            >
+              <Text style={styles.languageText}>ગુજરાતી</Text>
             </TouchableOpacity>
           </View>
 
           <View style={styles.levelsContainer}>
-            {renderLevelCard("basic", "Basic Level", "Learn the fundamentals", "BasicModuleGujarati", "#fdd835", "📘")}
-            {renderLevelCard("intermediate", "Intermediate Level", "Enhance your skills", "IntermediateModuleGujarati", "#aed581", "📗")}
-            {renderLevelCard("advanced", "Advanced Level", "Achieve mastery", "AdvancedModuleGujarati", "#ef9a9a", "📕")}
+            {renderLevelCard("basic", "Basic Level", "Learn the fundamentals", "BasicModuleGujarati", levelColors.basic[0], levelEmojis.basic)}
+            {renderLevelCard("intermediate", "Intermediate Level", "Enhance your skills", "IntermediateModuleGujarati", levelColors.intermediate[0], levelEmojis.intermediate)}
+            {renderLevelCard("advanced", "Advanced Level", "Achieve mastery", "AdvancedModuleGujarati", levelColors.advanced[0], levelEmojis.advanced)}
           </View>
 
           <View style={styles.buttonsContainer}>
@@ -126,7 +142,7 @@ const HomeScreenGujarati = ({ navigation }) => {
           <Text style={styles.navLabel}>Practice</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={() => navigation.navigate("ProfileScreen")} style={styles.navButton}>
+        <TouchableOpacity onPress={() => navigation.navigate("ProfileScreenEnglish")} style={styles.navButton}>
           <Ionicons name="person-outline" size={24} color="#374151" />
           <Text style={styles.navLabel}>Profile</Text>
         </TouchableOpacity>
