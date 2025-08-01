@@ -1,23 +1,23 @@
-import React from "react"
-import { View, Text, StyleSheet, TouchableOpacity, SafeAreaView, FlatList } from "react-native"
-import { Ionicons } from "@expo/vector-icons"
-import { LinearGradient } from "expo-linear-gradient"
+  import React from "react"
+  import { View, Text, StyleSheet, TouchableOpacity, SafeAreaView, FlatList } from "react-native"
+  import { Ionicons } from "@expo/vector-icons"
+  import { LinearGradient } from "expo-linear-gradient"
 
-const categories = [
-  { id: "1", title: "Alphabets", icon: "language" },
-  { id: "2", title: "Numbers", icon: "calculator-outline" },
-  { id: "3", title: "Greetings", icon: "chatbubbles-outline" },
-]
+  const categories = [
+    { id: "1", title: "alphabets", icon: "language" },
+    { id: "2", title: "numbers", icon: "calculator-outline" },
+    { id: "3", title: "greetings", icon: "chatbubbles-outline" },
+  ]
 
-const SignMirrorCategories = ({ navigation }) => {
-  const renderItem = ({ item }) => (
-    <TouchableOpacity
-      style={styles.card}
-      onPress={() => navigation.navigate("SignMirror", { category: item.title })}
-    >
-      <Ionicons name={item.icon} size={48} color="#ffffff" />
-      <Text style={styles.cardTitle}>{item.title}</Text>
-    </TouchableOpacity>
+  const SignMirrorCategories = ({ navigation }) => {
+    const renderItem = ({ item }) => (
+      <TouchableOpacity
+        style={styles.card}
+        onPress={() => navigation.navigate("SignMirror", { category: item.title })}
+      >
+        <Ionicons name={item.icon} size={48} color="#ffffff" />
+        <Text style={styles.cardTitle}>{item.title}</Text>
+      </TouchableOpacity>
   )
 
   return (
