@@ -54,13 +54,11 @@ export default function App() {
          headerShown: false,
          }}  
       >
-
-
         <Stack.Screen name="Splash" component={SplashScreen} />
         <Stack.Screen name="Login" component={LoginScreen} />
-        <Stack.Screen name="HomeScreen" component={HomeScreen} />
-        <Stack.Screen name="HomeScreenGujarati" component={HomeScreenGujarati} />
-        <Stack.Screen name="HomeScreenTamil" component={HomescreenTamil} />
+        <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen name="HomeGujarati" component={HomeScreenGujarati} />
+        <Stack.Screen name="HomeTamil" component={HomescreenTamil} />
         <Stack.Screen name="Modules" component={ModulesScreen} />
         <Stack.Screen name="ModulesTamil" component={ModulesScreenTamil} />
         <Stack.Screen name="Learning" component={LearningScreen} />
@@ -72,10 +70,10 @@ export default function App() {
         <Stack.Screen name="EQuizLevel" component={EQuizLevel} />
         <Stack.Screen name="Rewards" component={RewardsScreen} />
         <Stack.Screen name="Settings" component={SettingsScreen} />
-        <Stack.Screen name="ProfileScreenEnglish" component={ProfileScreenEnglish} />
-        <Stack.Screen name="PracticeScreenEnglish" component={PracticeScreenEnglish} />
-        <Stack.Screen name="PracticeScreenGujarati" component={PracticeScreenGujarati} />
-        <Stack.Screen name="PracticeScreenTamil" component={PracticeScreenTamil} />
+        <Stack.Screen name="ProfileEnglish" component={ProfileScreenEnglish} />
+        <Stack.Screen name="PracticeEnglish" component={PracticeScreenEnglish} />
+        <Stack.Screen name="PracticeGujarati" component={PracticeScreenGujarati} />
+        <Stack.Screen name="PracticeTamil" component={PracticeScreenTamil} />
         <Stack.Screen name="BasicModuleGujarati" component={BasicModuleGujarati} />
         <Stack.Screen name="IntermediateModuleGujarati" component={IntemediateModuleGujarati} />
         <Stack.Screen name="AdvancedModuleGujarati" component={AdvancedModuleGujarati} />

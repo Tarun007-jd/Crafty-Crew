@@ -9,7 +9,7 @@ const ModulesScreen = ({ navigation, route }) => {
   const modules = userProgress[level]
 
   const selectModule = (module) => {
-    navigation.navigate("Learning", {
+    navigation.navigate("LearningScreen", {
       module,
       level,
       userProgress,

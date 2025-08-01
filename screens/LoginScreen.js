@@ -29,7 +29,7 @@ const LoginScreen = ({ navigation }) => {
 
   const handleForgot = () => {
     // Navigate to Settings screen for password recovery options
-    navigation.navigate('Settings');
+    navigation.navigate('SettingsScreen');
   };
 
   return (

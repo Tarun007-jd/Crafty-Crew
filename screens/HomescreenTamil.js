@@ -45,7 +45,7 @@ const HomeScreenTamil = ({ navigation, route }) => {
         style={[styles.levelCard, { backgroundColor: levelColors[level][0] }]}
         activeOpacity={0.8}
         onPress={() =>
-          navigation.navigate("ModulesTamil", {
+          navigation.navigate("ModulesScreenTamil", {
             level,
             userProgress,
             setUserProgress,
@@ -107,19 +107,19 @@ const HomeScreenTamil = ({ navigation, route }) => {
               <Text style={styles.languageText}>English</Text>
             </TouchableOpacity>
             <TouchableOpacity
-              onPress={() => navigation.navigate("HomeTamil")}
+              onPress={() => navigation.navigate("HomeScreenTamil")}
               style={[
                 styles.languageTab,
-                route.name === "HomeTamil" && styles.activeTab,
+                route.name === "HomeScreenTamil" && styles.activeTab,
               ]}
             >
               <Text style={styles.languageText}>தமிழ்</Text>
             </TouchableOpacity>
             <TouchableOpacity
-              onPress={() => navigation.navigate("HomeGujarati")}
+              onPress={() => navigation.navigate("HomeScreenGujarati")}
               style={[
                 styles.languageTab,
-                route.name === "HomeGujarati" && styles.activeTab,
+                route.name === "HomeScreenGujarati" && styles.activeTab,
               ]}
             >
               <Text style={styles.languageText}>ગુજરાતી</Text>
@@ -134,7 +134,7 @@ const HomeScreenTamil = ({ navigation, route }) => {
             <TouchableOpacity
               style={styles.rewardsButton}
               onPress={() =>
-                navigation.navigate("RewardsTamil", {
+                navigation.navigate("RewardsScreen", {
                   stars,
                   userProgress,
                 })
@@ -145,7 +145,7 @@ const HomeScreenTamil = ({ navigation, route }) => {
             </TouchableOpacity>
             <TouchableOpacity
               style={styles.settingsButton}
-              onPress={() => navigation.navigate("SettingsTamil")}
+              onPress={() => navigation.navigate("SettingsScreen")}
             >
               <Ionicons name="settings" size={20} color="#374151" />
               <Text style={styles.buttonTextDark}>Settings</Text>
@@ -156,7 +156,7 @@ const HomeScreenTamil = ({ navigation, route }) => {
         <View style={styles.bottomNav}>
           <TouchableOpacity
             style={styles.navButton}
-            onPress={() => navigation.navigate("HomeTamil")}
+            onPress={() => navigation.navigate("HomeScreenTamil")}
           >
             <Ionicons name="home" size={24} color="#374151" />
             <Text style={styles.navLabel}>Home</Text>
@@ -170,7 +170,7 @@ const HomeScreenTamil = ({ navigation, route }) => {
           </TouchableOpacity>
           <TouchableOpacity
             style={styles.navButton}
-            onPress={() => navigation.navigate("ProfileScreenEnglish")}
+            onPress={() => navigation.navigate("ProfileScreenTamil")}
           >
             <Ionicons name="person" size={24} color="#374151" />
             <Text style={styles.navLabel}>Profile</Text>

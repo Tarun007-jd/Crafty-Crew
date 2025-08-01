@@ -114,7 +114,7 @@ const HomeScreenGujarati = ({ navigation, route }) => {
           <View style={styles.buttonsContainer}>
             <TouchableOpacity
               style={styles.rewardsButton}
-              onPress={() => navigation.navigate("Rewards", { stars, userProgress })}
+              onPress={() => navigation.navigate("RewardsScreen", { stars, userProgress })}
             >
               <Ionicons name="trophy" size={24} color="#ffffff" />
               <Text style={styles.buttonText}>Rewards ({stars} ⭐)</Text>
@@ -122,7 +122,7 @@ const HomeScreenGujarati = ({ navigation, route }) => {
 
             <TouchableOpacity
               style={styles.settingsButton}
-              onPress={() => navigation.navigate("Settings")}
+              onPress={() => navigation.navigate("SettingsScreen")}
             >
               <Ionicons name="settings" size={24} color="#4b5563" />
               <Text style={styles.buttonTextDark}>Settings</Text>
@@ -205,7 +205,7 @@ const styles = StyleSheet.create({
   },
   languageText: {
     fontSize: 16,
-    fontWeight: "bold",
+    fontWeight: "italic",
     fontFamily: "Sniglet",
   },
   levelsContainer: {

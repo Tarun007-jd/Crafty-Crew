@@ -83,7 +83,7 @@ const HomeScreen = ({ navigation,route }) => {
               </TouchableOpacity>
 
                <TouchableOpacity
-                onPress={() => navigation.navigate("HomeTamil")}
+                onPress={() => navigation.navigate("HomeScreenTamil")}
                 style={[
                   styles.languageTab,
                   route.name === "HomeScreenTamil" && styles.activeTab,
@@ -93,7 +93,7 @@ const HomeScreen = ({ navigation,route }) => {
               </TouchableOpacity>
             
               <TouchableOpacity
-                onPress={() => navigation.navigate("HomeGujarati")}
+                onPress={() => navigation.navigate("HomeScreenGujarati")}
                 style={[
                   styles.languageTab,
                   route.name === "HomeScreenGujarati" && styles.activeTab,
@@ -110,7 +110,7 @@ const HomeScreen = ({ navigation,route }) => {
           <View style={styles.buttonsContainer}>
             <TouchableOpacity
               style={styles.rewardsButton}
-              onPress={() => navigation.navigate("Rewards", { stars, userProgress })}
+              onPress={() => navigation.navigate("RewardsScreen", { stars, userProgress })}
             >
               <Ionicons name="trophy" size={24} color="#ffffff" />
               <Text style={styles.buttonText}>Rewards ({stars} ⭐)</Text>
@@ -118,7 +118,7 @@ const HomeScreen = ({ navigation,route }) => {
 
             <TouchableOpacity
               style={styles.settingsButton}
-              onPress={() => navigation.navigate("Settings")}
+              onPress={() => navigation.navigate("SettingsScreen")}
             >
               <Ionicons name="settings" size={24} color="#4b5563" />
               <Text style={styles.buttonTextDark}>Settings</Text>
@@ -214,7 +214,7 @@ activeTab: {
 
 languageText: {
   fontSize: 16,
-  fontWeight: "bold",
+  fontWeight: "Bold",
   fontFamily: "Sniglet",
 },
 

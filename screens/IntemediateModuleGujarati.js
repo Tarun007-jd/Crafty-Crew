@@ -6,7 +6,7 @@ const IntermediateModuleGujarati = ({ navigation, route }) => {
   const inetermediateModules = gujaratiLevelData.intermediate
 
   const handleModulePress = (module) => {
-    navigation.navigate("Learning", {
+    navigation.navigate("LearningScreen", {
       module, 
       level: "intermediate",
       lessonIndex: 0, 

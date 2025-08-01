@@ -6,7 +6,7 @@ const AdvancedModuleGujarati = ({ navigation, route }) => {
   const advancedModules = gujaratiLevelData.advanced
 
   const handleModulePress = (module) => {
-    navigation.navigate("Learning", {
+    navigation.navigate("LearningScreen", {
       module, 
       level: "advanced",
       lessonIndex: 0, 
