@@ -170,7 +170,7 @@ const HomeScreenTamil = ({ navigation, route }) => {
           </TouchableOpacity>
           <TouchableOpacity
             style={styles.navButton}
-            onPress={() => navigation.navigate("ProfileScreenTamil")}
+            onPress={() => navigation.navigate("ProfileScreenEnglish")}
           >
             <Ionicons name="person" size={24} color="#374151" />
             <Text style={styles.navLabel}>Profile</Text>
