@@ -4,12 +4,12 @@ import { Ionicons } from "@expo/vector-icons"
 import LottieView from 'lottie-react-native';
 
 
-const ModulesScreenTamil = ({ navigation, route }) => {
+const ModulesScreenGujarati = ({ navigation, route }) => {
   const { level, userProgress, setUserProgress } = route.params
   const modules = userProgress[level]
 
   const selectModule = (module) => {
-    navigation.navigate("LearningScreenTamil", {
+    navigation.navigate("LearningScreenGujarati", {
       module,
       level,
       userProgress,
@@ -44,7 +44,7 @@ const ModulesScreenTamil = ({ navigation, route }) => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <LinearGradient colors={["#caf0f8", "#fad2e1"]} style={styles.gradient}>
+      <LinearGradient colors={["#f9e1ffff", "#b2ffcdff"]} style={styles.gradient}>
         <View style={styles.header}>
           {/* <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()} activeOpacity={0.7}> 
             <Ionicons name="arrow-back" size={24} color="white" />
@@ -52,11 +52,11 @@ const ModulesScreenTamil = ({ navigation, route }) => {
           </TouchableOpacity>*/}
           <Text style={styles.title}>
             {level === "basic" 
-              ? "அடிப்படைகள்" 
+              ? "મૂળભૂત બાબતો" 
               : level === "intermediate"
-              ? "வெற்றி பாதை"
+              ? "પ્રગતિ પાથ"
               : level === "advanced"
-              ? "தேர்ச்சி"
+              ? "નિપુણતા"
               : level.charAt(0).toUpperCase() + level.slice(1)}
           </Text>
         </View>
@@ -169,4 +169,4 @@ const styles = StyleSheet.create({
   },
 })
 
-export default ModulesScreenTamil
+export default ModulesScreenGujarati

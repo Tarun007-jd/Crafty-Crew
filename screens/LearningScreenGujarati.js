@@ -4,18 +4,16 @@ import { useState } from "react"
 import { View, Text, StyleSheet, TouchableOpacity, SafeAreaView, Dimensions } from "react-native"
 import { LinearGradient } from "expo-linear-gradient"
 import { Ionicons } from "@expo/vector-icons"
-import { signLanguageContentTamil
-  
- } from "../constants/Data"
+import { signLanguageContentGujarati } from "../constants/Data"
 import { Video } from "expo-av"
 
 const { width } = Dimensions.get("window")
 
-const LearningScreenTamil = ({ navigation, route }) => {
+const LearningScreenGujarati = ({ navigation, route }) => {
   const { module, level, userProgress, setUserProgress } = route.params
   const [currentLessonIndex, setCurrentLessonIndex] = useState(0)
 
-  const content = signLanguageContentTamil[module.id] || [
+  const content = signLanguageContentGujarati[module.id] || [
     {
       letter: module.name,
       sign: "📚",
@@ -51,7 +49,7 @@ const LearningScreenTamil = ({ navigation, route }) => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <LinearGradient colors={["#75dfd3ff", "#699ff6ff", "#9873efff"]} style={styles.gradient}>
+      <LinearGradient colors={["#f9e1ffff", "#b2ffcdff", "#75dfd3ff"]} style={styles.gradient}>
         <View style={styles.header}>
           <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()} activeOpacity={0.7}>
             <Ionicons name="arrow-back" size={24} color="white" />
@@ -86,7 +84,7 @@ const LearningScreenTamil = ({ navigation, route }) => {
             activeOpacity={0.7}
           >
             <Ionicons name="chevron-back" size={24} color="white" />
-            <Text style={styles.navButtonText}>Previous</Text>
+            <Text style={styles.navButtonText}>પાછળ</Text>
           </TouchableOpacity>
 
           <TouchableOpacity
@@ -95,10 +93,10 @@ const LearningScreenTamil = ({ navigation, route }) => {
             activeOpacity={0.7}
           >
             {currentLessonIndex === content.length - 1 ? (
-              <Text style={styles.navButtonText}>Complete Module! 🎉</Text>
+              <Text style={styles.navButtonText}>મોડ્યુલ પૂર્ણ કરો! 🎉</Text>
             ) : (
               <>
-                <Text style={styles.navButtonText}>Next</Text>
+                <Text style={styles.navButtonText}>આગળ</Text>
                 <Ionicons name="chevron-forward" size={24} color="white" />
               </>
             )}
@@ -185,4 +183,4 @@ const styles = StyleSheet.create({
   },
 })
 
-export default LearningScreenTamil
+export default LearningScreenGujarati

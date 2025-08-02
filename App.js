@@ -11,8 +11,10 @@ import HomeScreenGujarati from "./screens/HomeScreenGujarati"
 import HomescreenTamil from "./screens/HomescreenTamil"
 import ModulesScreen from "./screens/ModulesScreen"
 import ModulesScreenTamil from "./screens/ModulesScreenTamil"
+import ModulesScreenGujarati from "./screens/ModulesScreenGujarati"
 import LearningScreen from "./screens/LearningScreen"
 import LearningScreenTamil from "./screens/LearningScreenTamil"
+import LearningScreenGujarati from "./screens/LearningScreenGujarati"
 import QuizScreen from "./screens/QuizScreen"
 import EnglishQuiz from "./screens/EnglishQuiz"
 import TamilQuiz from "./screens/TamilQuiz"
@@ -39,21 +41,21 @@ const Stack = createNativeStackNavigator()
 export default function App() {
 
     const [fontsLoaded] = useFonts({
-    Sniglet: require('./assets/fonts/Sniglet/Sniglet-Regular.ttf'),
+    Sniglet: require('./assets/fonts/sniglet/Sniglet-Regular.ttf'),
   });
 
   if (!fontsLoaded) {
     return null; // or a loading screen if you want
   }
+
   return (
     <NavigationContainer>
       <StatusBar style="dark" />
-     <Stack.Navigator
-        initialRouteName="Splash"
-         screenOptions={{
-         headerShown: false,
-         }}  
-      >
+         <Stack.Navigator
+          initialRouteName="Splash"
+           screenOptions={{
+            headerShown: false,}} >
+
         <Stack.Screen name="SplashScreen" component={SplashScreen} />
         <Stack.Screen name="LoginScreen" component={LoginScreen} />
         <Stack.Screen name="HomeScreen" component={HomeScreen} />
@@ -61,8 +63,10 @@ export default function App() {
         <Stack.Screen name="HomeScreenTamil" component={HomescreenTamil} />
         <Stack.Screen name="ModulesScreen" component={ModulesScreen} />
         <Stack.Screen name="ModulesScreenTamil" component={ModulesScreenTamil} />
+        <Stack.Screen name="ModulesScreenGujarati" component={ModulesScreenGujarati} />
         <Stack.Screen name="LearningScreen" component={LearningScreen} />
         <Stack.Screen name="LearningScreenTamil" component={LearningScreenTamil} />
+        <Stack.Screen name="LearningScreenGujarati" component={LearningScreenGujarati} />
         <Stack.Screen name="QuizScreen" component={QuizScreen} />
         <Stack.Screen name="EnglishQuiz" component={EnglishQuiz} />
         <Stack.Screen name="TamilQuiz" component={TamilQuiz} />

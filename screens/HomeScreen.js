@@ -16,16 +16,17 @@ const HomeScreen = ({ navigation,route }) => {
     let totalStars = 0
     Object.values(userProgress).forEach((modules) => {
       modules.forEach((module) => {
-        if (module.completed) totalStars += 3
+        if (module.completed)
+           totalStars += 3
       })
     })
     setStars(totalStars)
   }, [userProgress])
 
   const getProgressPercentage = (level) => {
-    const modules = userProgress[level]
+    const modules = userProgress[level] || []
     const completedModules = modules.filter((m) => m.completed).length
-    return (completedModules / modules.length) * 100
+    return modules.length > 0 ? (completedModules / modules.length) * 100 : 0
   };
 
   const renderLevelCard = (level) => {
