@@ -35,7 +35,7 @@ const HomeScreen = ({ navigation,route }) => {
       <TouchableOpacity
         key={level}
         style={[styles.levelCard, { backgroundColor: levelColors[level][0] }]}
-        onPress={() => navigation.navigate("Modules", { level, userProgress, setUserProgress })}
+        onPress={() => navigation.navigate("ModulesScreen", { level, userProgress, setUserProgress })}
         activeOpacity={0.9}
       >
         <View style={styles.cardInner}>
@@ -183,9 +183,10 @@ const styles = StyleSheet.create({
   },
   welcomeText: {
     fontSize: 28,
-    fontWeight: "italic",
+    fontWeight: "bold",
     color: "#374151",
     fontFamily: "Sniglet", // Use the imported font
+
   },
   subtitleText: {
     fontSize: 14,

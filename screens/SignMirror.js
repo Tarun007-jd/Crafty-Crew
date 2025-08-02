@@ -1,7 +1,7 @@
 const API_MAP = {
-  greetings: 'http://10.103.170.133:8001/predict-gesture',
-  alphabets: 'http://10.103.170.133:8001/predict-alphabet',
-  numbers: 'http://10.103.170.133:8001/predict-number',
+  greetings: 'http://10.108.57.54:8000/predict-gesture',
+  alphabets: 'http://10.108.57.82:8002/predict-Alphabets',
+  numbers: 'http://10.108.57.82:8001/predict-Numbers',
 };
 
 import { useState, useEffect, useRef } from 'react';
@@ -12,7 +12,7 @@ import {
   Dimensions,
   StatusBar,
 } from 'react-native';
-import { CameraView, useCameraPermissions } from 'expo-camera';
+import { CameraView, useCameraPermissions } from 'expo-camera'; 
 import { LinearGradient } from 'expo-linear-gradient';
 import { useFonts } from 'expo-font';
 import { Pacifico_400Regular } from '@expo-google-fonts/pacifico';
@@ -28,15 +28,18 @@ export default function SignMirror({ route }) {
   const cameraRef = useRef(null);
   const [gesture, setGesture] = useState('');
   const [error, setError] = useState('');
+  const [isProcessing, setIsProcessing] = useState(false);
 
   useEffect(() => {
-    if (permission === false) {
+    if (permission && !permission.granted) {
       requestPermission();
     }
   }, [permission]);
 
   const captureAndSend = async () => {
-    if (!cameraRef.current || !permission?.granted) return;
+    if (!cameraRef.current || !permission?.granted || isProcessing) return;
+
+    setIsProcessing(true);
 
     try {
       const photo = await cameraRef.current.takePictureAsync({
@@ -73,16 +76,15 @@ export default function SignMirror({ route }) {
     } catch (err) {
       console.error('API Error:', err);
       setError('API connection failed');
+    } finally {
+      setIsProcessing(false);
     }
   };
 
   useEffect(() => {
     let interval;
     if (permission?.granted) {
-      interval = setInterval(() => {
-        // Prevent flicker by not calling takePictureAsync if already processing
-      
-      }, 1500);
+      interval = setInterval(captureAndSend, 2500);
     }
     return () => clearInterval(interval);
   }, [permission]);
