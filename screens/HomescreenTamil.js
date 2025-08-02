@@ -56,14 +56,20 @@ const HomeScreenTamil = ({ navigation, route }) => {
         <View style={styles.cardInner}>
           <Text style={styles.levelEmoji}>{levelTamilEmojis[level]}</Text>
           <Text style={styles.levelTitle}>
-            {level.charAt(0).toUpperCase() + level.slice(1)}
+            {level === "basic" 
+              ? "அடிப்படைகள்" 
+              : level === "intermediate"
+              ? "வெற்றி பாதை"
+              : level === "advanced"
+              ? "தேர்ச்சி"
+              : level.charAt(0).toUpperCase() + level.slice(1)}
           </Text>
           <Text style={styles.levelSubtitle}>
             {level === "basic"
-              ? "Start your journey!"
+              ? "படிக்கத் தொடங்குவோம்!"
               : level === "intermediate"
-              ? "Build your skills!"
-              : "Master the art!"}
+              ? "விடா முயார்ச்சி!"
+              : "மைல்கல்!"}
           </Text>
           <View style={styles.progressContainer}>
             <View style={styles.progressBar}>
@@ -93,8 +99,8 @@ const HomeScreenTamil = ({ navigation, route }) => {
               source={require("../assets/Logo.png")}
               style={styles.logoImage}
             />
-            <Text style={styles.welcomeText}>Welcome Back!</Text>
-            <Text style={styles.subtitleText}>Let’s continue learning!</Text>
+            <Text style={styles.welcomeText}>மீண்டும் வரவேற்கிறோம்!</Text>
+            <Text style={styles.subtitleText}>தொடர்ந்து கற்றுக்கொள்வோம்!</Text>
           </View>
 
           <View style={styles.languageSwitch}>

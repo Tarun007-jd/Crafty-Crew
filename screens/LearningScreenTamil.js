@@ -4,7 +4,9 @@ import { useState } from "react"
 import { View, Text, StyleSheet, TouchableOpacity, SafeAreaView, Dimensions } from "react-native"
 import { LinearGradient } from "expo-linear-gradient"
 import { Ionicons } from "@expo/vector-icons"
-import { signLanguageContentTamil } from "../constants/Data"
+import { signLanguageContentTamil
+  
+ } from "../constants/Data"
 import { Video } from "expo-av"
 
 const { width } = Dimensions.get("window")

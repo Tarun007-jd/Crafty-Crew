@@ -36,8 +36,6 @@ const X = { uri: "https://res.cloudinary.com/da80hu9ko/video/upload/v1753418704/
 const Y = { uri: "https://res.cloudinary.com/da80hu9ko/video/upload/v1753418720/Y_qmdlvw.mp4" };
 const Z = { uri: "https://res.cloudinary.com/da80hu9ko/video/upload/v1753418717/Z_movndq.mp4" };
 
-
-
 import Goodafternoon from "../assets/GreetingsVideos/Goodafternoon.mp4"
 import Hello from "../assets/GreetingsVideos/Hello.mp4"
 import ThankYou from "../assets/GreetingsVideos/ThankYou.mp4"
@@ -158,7 +156,6 @@ import TamilSeven from "../assets/tamilnum/7.mp4"
 import TamilEight from "../assets/tamilnum/8.mp4"
 import TamilNine from "../assets/tamilnum/9.mp4"
 import TamilTen from "../assets/tamilnum/10.mp4"
-
 
 export const levelData = {
   basic: [
@@ -459,17 +456,17 @@ export const signLanguageContentTamil = {
 ],
 
   numbersT: [
-    { number: "0", Video: TamilZero, description: "கட்டை விரலை பக்கவாட்டில் வைத்து முட்டி போடுங்கள்" },
-    { number: "1", Video: TamilOne, description: "ஆள்காட்டி விரலை மேலே காட்டுங்கள்" },
-    { number: "2", Video: TamilTwo, description: "உள்ளங்கை வெளியே பார்த்து அமைதி குறியீடு" },
-    { number: "3", Video: TamilThree, description: "கட்டை விரல், ஆள்காட்டி மற்றும் நடு விரல் மேலே" },
-    { number: "4", Video: TamilFour, description: "ஆள்காட்டி மற்றும் நடு விரல் மேலே, மற்ற விரல்கள் மடக்கப்பட்டது" },
-    { number: "5", Video: TamilFive, description: "விரல்களை விரித்து திறந்த கை" },
-    { number: "6", Video: TamilSix, description: "விரல்கள் ஓ வடிவம் உருவாக்குதல்" },
-    { number: "7", Video: TamilSeven, description: "கட்டை விரலை பக்கவாட்டில் வைத்து முட்டி போடுங்கள்" },
-    { number: "8", Video: TamilEight, description: "கட்டை விரலும் ஆள்காட்டி விரலும் எல் வடிவம் உருவாக்குதல்" },
-    { number: "9", Video: TamilNine, description: "கட்டை விரலும் சிறு விரலும் நீட்டப்பட்டது, மற்ற விரல்கள் மடக்கப்பட்டது" },
-    { number: "10", Video: TamilTen, description: "விரல்களை விரித்து திறந்த கை" },
+    { number: "பூஜ்யம்", Video: TamilZero, description: "கட்டை விரலை பக்கவாட்டில் வைத்து முட்டி போடுங்கள்" },
+    { number: "ஒன்று", Video: TamilOne, description: "ஆள்காட்டி விரலை மேலே காட்டுங்கள்" },
+    { number: "இரண்டு", Video: TamilTwo, description: "உள்ளங்கை வெளியே பார்த்து அமைதி குறியீடு" },
+    { number: "மூன்று", Video: TamilThree, description: "கட்டை விரல், ஆள்காட்டி மற்றும் நடு விரல் மேலே" },
+    { number: "நான்கு", Video: TamilFour, description: "ஆள்காட்டி மற்றும் நடு விரல் மேலே, மற்ற விரல்கள் மடக்கப்பட்டது" },
+    { number: "ஐந்து", Video: TamilFive, description: "விரல்களை விரித்து திறந்த கை" },
+    { number: "ஆறு", Video: TamilSix, description: "விரல்கள் ஓ வடிவம் உருவாக்குதல்" },
+    { number: "ஏழு", Video: TamilSeven, description: "கட்டை விரலை பக்கவாட்டில் வைத்து முட்டி போடுங்கள்" },
+    { number: "எட்டு", Video: TamilEight, description: "கட்டை விரலும் ஆள்காட்டி விரலும் எல் வடிவம் உருவாக்குதல்" },
+    { number: "ஒன்பது", Video: TamilNine, description: "கட்டை விரலும் சிறு விரலும் நீட்டப்பட்டது, மற்ற விரல்கள் மடக்கப்பட்டது" },
+    { number: "பத்து", Video: TamilTen, description: "விரல்களை விரித்து திறந்த கை" },
   ],
 
   scienceT: [

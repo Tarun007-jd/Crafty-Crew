@@ -50,7 +50,15 @@ const ModulesScreenTamil = ({ navigation, route }) => {
             <Ionicons name="arrow-back" size={24} color="white" />
             <Text style={styles.backText}>Back</Text>
           </TouchableOpacity>*/}
-          <Text style={styles.title}>{level.charAt(0).toUpperCase() + level.slice(1)} Level</Text>
+          <Text style={styles.title}>
+            {level === "basic" 
+              ? "அடிப்படைகள்" 
+              : level === "intermediate"
+              ? "வெற்றி பாதை"
+              : level === "advanced"
+              ? "தேர்ச்சி"
+              : level.charAt(0).toUpperCase() + level.slice(1)}
+          </Text>
         </View>
 
         <ScrollView style={styles.scrollView} showsVerticalScrollIndicator={false}>
