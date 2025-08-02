@@ -11,8 +11,10 @@ import HomeScreenGujarati from "./screens/HomeScreenGujarati"
 import HomescreenTamil from "./screens/HomescreenTamil"
 import ModulesScreen from "./screens/ModulesScreen"
 import ModulesScreenTamil from "./screens/ModulesScreenTamil"
+import ModulesScreenGujarati from "./screens/ModulesScreenGujarati"
 import LearningScreen from "./screens/LearningScreen"
 import LearningScreenTamil from "./screens/LearningScreenTamil"
+import LearningScreenGujarati from "./screens/LearningScreenGujarati"
 import QuizScreen from "./screens/QuizScreen"
 import EnglishQuiz from "./screens/EnglishQuiz"
 import TamilQuiz from "./screens/TamilQuiz"
@@ -61,8 +63,10 @@ export default function App() {
         <Stack.Screen name="HomeScreenTamil" component={HomescreenTamil} />
         <Stack.Screen name="ModulesScreen" component={ModulesScreen} />
         <Stack.Screen name="ModulesScreenTamil" component={ModulesScreenTamil} />
+        <Stack.Screen name="ModulesScreenGujarati" component={ModulesScreenGujarati} />
         <Stack.Screen name="LearningScreen" component={LearningScreen} />
         <Stack.Screen name="LearningScreenTamil" component={LearningScreenTamil} />
+        <Stack.Screen name="LearningScreenGujarati" component={LearningScreenGujarati} />
         <Stack.Screen name="QuizScreen" component={QuizScreen} />
         <Stack.Screen name="EnglishQuiz" component={EnglishQuiz} />
         <Stack.Screen name="TamilQuiz" component={TamilQuiz} />

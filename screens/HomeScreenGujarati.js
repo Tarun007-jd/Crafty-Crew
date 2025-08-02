@@ -13,12 +13,12 @@ import {
 } from "react-native"
 import { LinearGradient } from "expo-linear-gradient"
 import { Ionicons } from "@expo/vector-icons"
-import { levelData, levelColors, levelEmojis } from "../constants/Data"
+import { levelGujaratiData, levelGujaratiColors, levelGujaratiEmojis } from "../constants/Data"
 
 const { width } = Dimensions.get("window")
 
 const HomeScreenGujarati = ({ navigation, route }) => {
-  const [userProgress, setUserProgress] = useState(levelData)
+  const [userProgress, setUserProgress] = useState(levelGujaratiData)
   const [stars, setStars] = useState(0)
 
   useEffect(() => {
@@ -37,24 +37,48 @@ const HomeScreenGujarati = ({ navigation, route }) => {
     return modules.length > 0 ? (completedModules / modules.length) * 100 : 0
   }
 
-  const renderLevelCard = (level, title, subtitle, navTarget, color, emoji) => {
+  const renderLevelCard = (level) => {
     const percentage = getProgressPercentage(level)
 
     return (
       <TouchableOpacity
         key={level}
-        style={[styles.levelCard, { backgroundColor: color }]}
-        onPress={() => navigation.navigate(navTarget, { level, userProgress, setUserProgress })}  
-        activeOpacity={0.9}
+        style={[styles.levelCard, { backgroundColor: levelGujaratiColors[level][0] }]}
+        activeOpacity={0.8}
+        onPress={() =>
+          navigation.navigate("ModulesScreenGujarati", {
+            level,
+            userProgress,
+            setUserProgress,
+          })
+        }
       >
         <View style={styles.cardInner}>
-          <Text style={styles.levelEmoji}>{emoji}</Text>
-          <Text style={styles.levelTitle}>{title}</Text>
-          <Text style={styles.levelSubtitle}>{subtitle}</Text>
-
+          <Text style={styles.levelEmoji}>{levelGujaratiEmojis[level]}</Text>
+          <Text style={styles.levelTitle}>
+            {level === "basic" 
+              ? "મૂળભૂત બાબતો" 
+              : level === "intermediate"
+              ? "પ્રગતિ પાથ"
+              : level === "advanced"
+              ? "નિપુણતા"
+              : level.charAt(0).toUpperCase() + level.slice(1)}
+          </Text>
+          <Text style={styles.levelSubtitle}>
+            {level === "basic"
+              ? "શીખવાનું શરુ કરીએ!"
+              : level === "intermediate"
+              ? "સતત પ્રયાસ!"
+              : "માઇલસ્ટોન!"}
+          </Text>
           <View style={styles.progressContainer}>
             <View style={styles.progressBar}>
-              <View style={[styles.progressFill, { width: `${percentage}%` }]} />
+              <View
+                style={[
+                  styles.progressFill,
+                  { width: `${Math.round(percentage)}%` },
+                ]}
+              />
             </View>
             <Text style={styles.progressText}>{Math.round(percentage)}%</Text>
           </View>
@@ -69,8 +93,8 @@ const HomeScreenGujarati = ({ navigation, route }) => {
         <ScrollView style={styles.scrollView} showsVerticalScrollIndicator={false}>
           <View style={styles.header}>
             <Image source={require("../assets/Logo.png")} style={styles.logoImage} />
-            <Text style={styles.welcomeText}>Welcome Back!</Text>
-            <Text style={styles.subtitleText}>Let’s continue learning!</Text>
+            <Text style={styles.welcomeText}>પાછા સ્વાગત છે!</Text>
+            <Text style={styles.subtitleText}>ચાલો શીખવાનું ચાલુ રાખીએ!</Text>
           </View>
 
           <View style={styles.languageSwitch}>
@@ -106,9 +130,9 @@ const HomeScreenGujarati = ({ navigation, route }) => {
           </View>
 
           <View style={styles.levelsContainer}>
-            {renderLevelCard("basic", "Basic Level", "Learn the fundamentals", "BasicModuleGujarati", levelColors.basic[0], levelEmojis.basic)}
-            {renderLevelCard("intermediate", "Intermediate Level", "Enhance your skills", "IntermediateModuleGujarati", levelColors.intermediate[0], levelEmojis.intermediate)}
-            {renderLevelCard("advanced", "Advanced Level", "Achieve mastery", "AdvancedModuleGujarati", levelColors.advanced[0], levelEmojis.advanced)}
+            {renderLevelCard("basic", "Basic Level", "Learn the fundamentals", "BasicModuleGujarati", levelGujaratiColors.basic[0], levelGujaratiEmojis.basic)}
+            {renderLevelCard("intermediate", "Intermediate Level", "Enhance your skills", "IntermediateModuleGujarati", levelGujaratiColors.intermediate[0], levelGujaratiEmojis.intermediate)}
+            {renderLevelCard("advanced", "Advanced Level", "Achieve mastery", "AdvancedModuleGujarati", levelGujaratiColors.advanced[0], levelGujaratiEmojis.advanced)}
           </View>
 
           <View style={styles.buttonsContainer}>

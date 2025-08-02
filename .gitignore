@@ -7,6 +7,12 @@ node_modules/
 *.log
 build/
 
+# packages
+package-lock.json
+yarn.lock
+.pnp
+.pnp.js
+
 
 # next.js
 /.next/

@@ -131,7 +131,7 @@ import Ear from "../assets/PartsOfBody/Ear.mp4"
 import Eye from "../assets/PartsOfBody/Eye.mp4"
 import Face from "../assets/PartsOfBody/Face.mp4"
 import Forehead from "../assets/PartsOfBody/Forehead.mp4"
-import Head from "../assets/PartsOfBody/Head.mp4"
+
 import Leg from "../assets/PartsOfBody/Leg.mp4"
 import Mouth from "../assets/PartsOfBody/Mouth.mp4"
 import Neck from "../assets/PartsOfBody/Neck.mp4"
@@ -270,7 +270,7 @@ export const signLanguageContent = {
     { letter: "Eye", Video: Eye, description: "The organ of sight" },
     { letter: "Face", Video: Face, description: "The front part of the head from forehead to chin" },
     { letter: "Forehead", Video: Forehead, description: "The part of the face above the eyebrows" },
-    { letter: "Head", Video: Head, description: "The upper part of the human body containing the brain" },
+    // { letter: "Head", Video: Head, description: "The upper part of the human body containing the brain" },
     { letter: "Leg", Video: Leg, description: "The limb used for walking and standing" },
     { letter: "Mouth", Video: Mouth, description: "The opening for eating and speaking" },
     { letter: "Neck", Video: Neck, description: "The part connecting the head to the body" },
@@ -382,6 +382,36 @@ export const levelTamilEmojis = {
   basic: "💧",
   intermediate: "🌧️",
   advanced: "🌊",
+}
+
+export const levelGujaratiData = {
+  basic: [
+    { id: "vowelsG", name: "સ્વરો", lottie: alphabetAnim, color: "#ffa5a5ff", completed: false },
+    { id: "consonantsG", name: "વ્યંજનો", lottie: numberAnim, color: "#99c1f4ff", completed: false },
+    { id: "numbersG", name: "આંકડાઓ", lottie: scienceAnim, color: "#70cc93ff", completed: false },
+  ],
+  intermediate: [
+    { id: "animalsG", name: "પ્રાણીઓ", lottie: greetingsAnim, color: "#a78bfa", completed: false },
+    { id: "foodG", name: "ખોરાક", lottie: fruitsAnim, color: "#f472b6", completed: false },
+    { id: "greetingsG", name: "શુભેચ્છાઓ", lottie: addsubAnim, color: "#fb923c", completed: false },
+  ],
+  advanced: [
+    { id: "grammarG", name: "વ્યાકરણ", lottie: bodyAnim, color: "#818cf8", completed: false },
+    { id: "cultureG", name: "સંસ્કૃતિ", lottie: multiAnim, color: "#2dd4bf", completed: false },
+    { id: "geographyG", name: "ભૂગોળ", lottie: geoAnim, color: "#facc15", completed: false },
+  ],
+}
+
+export const levelGujaratiColors = {
+  basic: ["#b1f5caff", "#e8f7f0ff"],
+  intermediate: ["#ebdc9fff", "#f5f0d8ff"],
+  advanced: ["#ffa2a2ff", "#ffd8d8ff"],
+}
+
+export const levelGujaratiEmojis = {
+  basic: "🔤",
+  intermediate: "📚",
+  advanced: "🎓",
 }
 
 export const gujaratiLevelData = {
@@ -517,6 +547,86 @@ export const signLanguageContentTamil = {
     { letter: "Forest", Video: Forest, description: "A large area covered with trees" },
     { letter: "Island", Video: Island, description: "A piece of land surrounded by water" },
     { letter: "Valley", Video: Valley, description: "A low area between hills or mountains" },
+  ],
+}
+
+export const signLanguageContentGujarati = {
+  // Basic level content
+  vowelsG: [
+    { letter: "અ", Video: A, description: "પ્રથમ ગુજરાતી સ્વર 'અ'" },
+    { letter: "આ", Video: B, description: "બીજો ગુજરાતી સ્વર 'આ'" },
+    { letter: "ઇ", Video: C, description: "ત્રીજો ગુજરાતી સ્વર 'ઇ'" },
+    { letter: "ઈ", Video: D, description: "ચોથો ગુજરાતી સ્વર 'ઈ'" },
+    { letter: "ઉ", Video: E, description: "પાંચમો ગુજરાતી સ્વર 'ઉ'" },
+    { letter: "ઊ", Video: F, description: "છઠ્ઠો ગુજરાતી સ્વર 'ઊ'" },
+  ],
+
+  consonantsG: [
+    { letter: "ક", Video: G, description: "પ્રથમ ગુજરાતી વ્યંજન 'ક'" },
+    { letter: "ખ", Video: H, description: "બીજો ગુજરાતી વ્યંજન 'ખ'" },
+    { letter: "ગ", Video: I, description: "ત્રીજો ગુજરાતી વ્યંજન 'ગ'" },
+    { letter: "ઘ", Video: J, description: "ચોથો ગુજરાતી વ્યંજન 'ઘ'" },
+    { letter: "ચ", Video: K, description: "પાંચમો ગુજરાતી વ્યંજન 'ચ'" },
+    { letter: "છ", Video: L, description: "છઠ્ઠો ગુજરાતી વ્યંજન 'છ'" },
+  ],
+
+  numbersG: [
+    { number: "શૂન્ય", Video: TamilZero, description: "ગુજરાતીમાં શૂન્ય" },
+    { number: "એક", Video: TamilOne, description: "ગુજરાતીમાં એક" },
+    { number: "બે", Video: TamilTwo, description: "ગુજરાતીમાં બે" },
+    { number: "ત્રણ", Video: TamilThree, description: "ગુજરાતીમાં ત્રણ" },
+    { number: "ચાર", Video: TamilFour, description: "ગુજરાતીમાં ચાર" },
+    { number: "પાંચ", Video: TamilFive, description: "ગુજરાતીમાં પાંચ" },
+  ],
+
+  // Intermediate level content
+  animalsG: [
+    { letter: "ગાય", Video: Apple, description: "દૂધ આપતું પ્રાણી" },
+    { letter: "ઘોડો", Video: Banana, description: "દોડવામાં ઝડપી પ્રાણી" },
+    { letter: "કૂતરો", Video: Grapes, description: "માણસનો વફાદાર મિત્ર" },
+    { letter: "બિલાડી", Video: Guava, description: "નાનું ઘરેલું પ્રાણી" },
+    { letter: "હાથી", Video: Jackfruit, description: "વિશ્વનું સૌથી મોટું જમીની પ્રાણી" },
+  ],
+
+  foodG: [
+    { letter: "રોટલી", Video: Bread, description: "ગુજરાતીનું મુખ્ય ખોરાક" },
+    { letter: "ભાત", Video: FoodApple, description: "ચોખાથી બનતું ખોરાક" },
+    { letter: "દાળ", Video: Chapati, description: "કઠોળમાંથી બનતી વાનગી" },
+    { letter: "શાક", Video: Meat, description: "શાકભાજીની વાનગી" },
+    { letter: "દહીં", Video: FoodOrange, description: "દૂધમાંથી બનતી વસ્તુ" },
+  ],
+
+  greetingsG: [
+    { letter: "નમસ્તે", Video: Hi, description: "ગુજરાતી વધામણીનો શબ્દ" },
+    { letter: "આદાબ", Video: Hello, description: "માન આપવાનો શબ્દ" },
+    { letter: "આવજો", Video: welcome, description: "સ્વાગત કરવાનો શબ્દ" },
+    { letter: "સુપ્રભાત", Video: Goodmorning, description: "સવારની વધામણી" },
+    { letter: "આભાર", Video: ThankYou, description: "આભારનો પ્રગટાવો" },
+    { letter: "વિદાય", Video: Goodbye, description: "વિદાય લેવાનો શબ્દ" },
+  ],
+
+  // Advanced level content
+  grammarG: [
+    { letter: "નામ", Video: Chin, description: "વ્યાકરણનું મૂળભૂત તત્વ" },
+    { letter: "સર્વનામ", Video: Elbow, description: "નામની જગ્યાએ વપરાતો શબ્દ" },
+    { letter: "વિશેષણ", Video: Jaw, description: "નામની વિશેષતા દર્શાવતો શબ્દ" },
+    { letter: "ક્રિયા", Video: Shoulder, description: "કાર્ય દર્શાવતો શબ્દ" },
+  ],
+
+  cultureG: [
+    { letter: "ગરબા", Video: Wrist, description: "ગુજરાતનો પરંપરાગત નૃત્ય" },
+    { letter: "નવરાત્રી", Video: Mountain, description: "ગુજરાતનો મુખ્ય તહેવાર" },
+    { letter: "ધોતી", Video: River, description: "ગુજરાતનો પરંપરાગત પોશાક" },
+    { letter: "થાળી", Video: Sea, description: "ગુજરાતી ખોરાકની રીત" },
+  ],
+
+  geographyG: [
+    { letter: "પર્વત", Video: Mountain, description: "ઊંચા ભૂમિનો ભાગ" },
+    { letter: "નદી", Video: River, description: "વહેતું પાણી" },
+    { letter: "સમુદ્ર", Video: Sea, description: "મોટું ખારું પાણીનું જળાશય" },
+    { letter: "જંગલ", Video: Forest, description: "વૃક્ષોથી ભરેલો વિસ્તાર" },
+    { letter: "ટાપુ", Video: Island, description: "પાણીથી ઘેરાયેલી જમીન" },
+    { letter: "ખીણ", Video: Valley, description: "પર્વતો વચ્ચેનો નીચો વિસ્તાર" },
   ],
 }
 
