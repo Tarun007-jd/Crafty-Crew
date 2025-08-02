@@ -1,39 +1,48 @@
+const API_MAP = {
+  greetings: 'http://10.103.170.133:8001/predict-gesture',
+  alphabets: 'http://10.103.170.133:8001/predict-alphabet',
+  numbers: 'http://10.103.170.133:8001/predict-number',
+};
+
 import { useState, useEffect, useRef } from 'react';
-import { View, Text, StyleSheet, Dimensions, StatusBar, ActivityIndicator } from 'react-native';
+import {
+  View,
+  Text,
+  StyleSheet,
+  Dimensions,
+  StatusBar,
+} from 'react-native';
 import { CameraView, useCameraPermissions } from 'expo-camera';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useFonts } from 'expo-font';
 import { Pacifico_400Regular } from '@expo-google-fonts/pacifico';
+import Animated, { FadeInDown } from 'react-native-reanimated';
 
-const API_URL = 'http://192.168.239.54:8000/predict-gesture/';
 const { width } = Dimensions.get('window');
 
-export default function SignMirror() {
+export default function SignMirror({ route }) {
+  const { category = 'greetings' } = route.params || {};
+  const API_URL = API_MAP[category];
+
   const [permission, requestPermission] = useCameraPermissions();
   const cameraRef = useRef(null);
   const [gesture, setGesture] = useState('');
-  const [confidence, setConfidence] = useState(0);
   const [error, setError] = useState('');
-  const [isLoading, setIsLoading] = useState(false);
 
-  // Keep CameraView mounted: do not unmount/remount it
   useEffect(() => {
     if (permission === false) {
       requestPermission();
     }
   }, [permission]);
-  
-  const captureAndSend = async () => {
-    if (!cameraRef.current || isLoading || !permission?.granted) return;
 
-    setIsLoading(true);
+  const captureAndSend = async () => {
+    if (!cameraRef.current || !permission?.granted) return;
+
     try {
       const photo = await cameraRef.current.takePictureAsync({
         base64: true,
         quality: 0.8,
         skipProcessing: true,
-        pauseAfterCapture: false,
-
       });
 
       const formData = new FormData();
@@ -53,33 +62,30 @@ export default function SignMirror() {
       });
 
       const data = await response.json();
+
       if (data.success) {
         setGesture(data.gesture);
-        setConfidence(data.confidence);
         setError('');
       } else {
         setGesture('');
-        setConfidence(0);
         setError(data.message || 'No hand detected');
       }
     } catch (err) {
-      setError('API connection failed');
       console.error('API Error:', err);
-    } finally {
-      setIsLoading(false);
+      setError('API connection failed');
     }
   };
 
- 
   useEffect(() => {
     let interval;
     if (permission?.granted) {
       interval = setInterval(() => {
-        captureAndSend();
-      }, 1000); 
+        // Prevent flicker by not calling takePictureAsync if already processing
+      
+      }, 1500);
     }
     return () => clearInterval(interval);
-  }, [isLoading, permission]);
+  }, [permission]);
 
   const [fontsLoaded] = useFonts({
     Pacifico_400Regular,
@@ -105,34 +111,32 @@ export default function SignMirror() {
   }
 
   return (
-    <LinearGradient colors={['#FDEFF9', '#A1C4FD']} style={styles.container}>
+    <LinearGradient colors={['#F6E6FF', '#E0F7FA']} style={styles.container}>
       <StatusBar hidden />
-      <Text style={[styles.title, { fontFamily: 'Pacifico_400Regular' }]}>SignMirror</Text>
-      <Text style={styles.subText}>Let's practice signs! 🤟</Text>
+      <Text style={[styles.title, { fontFamily: 'Pacifico_400Regular' }]}>GesturePlay</Text>
+      <Text style={styles.subText}>Show your sign to begin!</Text>
 
-      <View style={styles.cameraWrapper}>
+      <Animated.View entering={FadeInDown} style={styles.cameraWrapper}>
         <View style={styles.mirrorFrame}>
           <CameraView
             ref={cameraRef}
             style={styles.camera}
             facing="front"
-            // If you use expo-camera/next or react-native-vision-camera, uncomment and use:
             isActive={true}
             enableTorch={false}
           />
         </View>
 
-        {!isLoading && gesture && (
-          <View style={styles.resultBox}>
-            <Text style={styles.gestureLabel}>✋ {gesture}</Text>
-            <Text style={styles.confidence}>{(confidence * 100).toFixed(1)}%</Text>
-          </View>
+        {gesture && (
+          <Animated.View entering={FadeInDown.delay(300)} style={styles.resultBox}>
+            <Text style={styles.gestureLabel}>{gesture}</Text>
+          </Animated.View>
         )}
-      </View>
+      </Animated.View>
 
       {error ? (
         <View style={styles.error}>
-          <Text style={styles.errorText}>⚠️ {error}</Text>
+          <Text style={styles.errorText}>{error}</Text>
         </View>
       ) : null}
     </LinearGradient>
@@ -143,34 +147,34 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
-    paddingTop: 50,
+    paddingTop: 40,
   },
   title: {
-    fontSize: 38,
-    color: '#5D3FD3',
-    marginBottom: 5,
+    fontSize: 40,
+    color: '#7B68EE',
+    marginBottom: 4,
   },
   subText: {
     fontSize: 18,
     color: '#333',
-    marginBottom: 15,
+    marginBottom: 18,
   },
   cameraWrapper: {
     alignItems: 'center',
     justifyContent: 'center',
   },
   mirrorFrame: {
-    width: width * 0.75,
-    height: width * 1.0,
-    borderWidth: 8,
-    borderColor: '#B0C4DE',
-    borderRadius: 30,
+    width: width * 0.9,
+    height: width * 0.8,
+    borderWidth: 6,
+    borderColor: '#A9A9F5',
+    borderRadius: 20,
     overflow: 'hidden',
     backgroundColor: '#fff',
     shadowColor: '#000',
-    shadowOpacity: 0.15,
-    shadowRadius: 10,
-    elevation: 10,
+    shadowOpacity: 0.1,
+    shadowRadius: 12,
+    elevation: 8,
   },
   camera: {
     flex: 1,
@@ -178,32 +182,27 @@ const styles = StyleSheet.create({
     height: '100%',
   },
   resultBox: {
-    marginTop: 20,
-    backgroundColor: '#FFF3C4',
-    padding: 14,
-    borderRadius: 20,
+    marginTop: 18,
+    backgroundColor: '#E6FFFA',
+    padding: 16,
+    borderRadius: 18,
     alignItems: 'center',
     borderWidth: 2,
-    borderColor: '#FFD700',
+    borderColor: '#40E0D0',
   },
   gestureLabel: {
-    fontSize: 26,
-    fontWeight: 'bold',
-    color: '#FF5733',
-  },
-  confidence: {
-    fontSize: 18,
-    color: '#555',
-    marginTop: 5,
+    fontSize: 28,
+    fontWeight: '600',
+    color: '#FF69B4',
   },
   error: {
     marginTop: 20,
     padding: 10,
-    backgroundColor: '#FFCCCC',
+    backgroundColor: '#FFEBEB',
     borderRadius: 10,
   },
   errorText: {
-    color: '#990000',
+    color: '#D8000C',
     fontSize: 16,
   },
   centered: {
