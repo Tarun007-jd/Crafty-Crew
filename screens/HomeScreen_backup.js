@@ -1,6 +1,6 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
+import { useState, useEffect } from "react";
 import {
   View,
   Image,
@@ -10,43 +10,43 @@ import {
   Dimensions,
   ScrollView,
   SafeAreaView,
-} from "react-native"
-import { LinearGradient } from "expo-linear-gradient"
-import { Ionicons } from "@expo/vector-icons"
-import { levelData, levelColors, levelEmojis } from "../constants/Data"
+} from "react-native";
+import { LinearGradient } from "expo-linear-gradient";
+import { Ionicons } from "@expo/vector-icons";
+import { levelDataTamil, levelTamilColors, levelTamilEmojis } from "../constants/Data";
 
-const { width } = Dimensions.get("window")
+const { width } = Dimensions.get("window");
 
-const HomeScreenGujarati = ({ navigation, route }) => {
-  const [userProgress, setUserProgress] = useState(levelData)
-  const [stars, setStars] = useState(0)
+const HomeScreenTamil = ({ navigation, route }) => {
+  const [userProgress, setUserProgress] = useState(levelDataTamil);
+  const [stars, setStars] = useState(0);
 
   useEffect(() => {
-    let totalStars = 0
+    let totalStars = 0;
     Object.values(userProgress).forEach((modules) => {
       modules.forEach((module) => {
-        if (module.completed) totalStars += 3
-      })
-    })
-    setStars(totalStars)
-  }, [userProgress])
+        if (module.completed) totalStars += 3;
+      });
+    });
+    setStars(totalStars);
+  }, [userProgress]);
 
   const getProgressPercentage = (level) => {
-    const modules = userProgress[level] || []
-    const completedModules = modules.filter((m) => m.completed).length
-    return modules.length > 0 ? (completedModules / modules.length) * 100 : 0
-  }
+    const modules = userProgress[level] || [];
+    const completedModules = modules.filter((m) => m.completed).length;
+    return modules.length > 0 ? (completedModules / modules.length) * 100 : 0;
+  };
 
   const renderLevelCard = (level) => {
-    const percentage = getProgressPercentage(level)
+    const percentage = getProgressPercentage(level);
 
     return (
       <TouchableOpacity
         key={level}
-        style={[styles.levelCard, { backgroundColor: levelColors[level][0] }]}
+        style={[styles.levelCard, { backgroundColor: levelTamilColors[level][0] }]}
         activeOpacity={0.8}
         onPress={() =>
-          navigation.navigate("ModulesScreenGujarati", {
+          navigation.navigate("ModulesScreenTamil", {
             level,
             userProgress,
             setUserProgress,
@@ -54,22 +54,22 @@ const HomeScreenGujarati = ({ navigation, route }) => {
         }
       >
         <View style={styles.cardInner}>
-          <Text style={styles.levelEmoji}>{levelEmojis[level]}</Text>
+          <Text style={styles.levelEmoji}>{levelTamilEmojis[level]}</Text>
           <Text style={styles.levelTitle}>
             {level === "basic" 
-              ? "મૂળભૂત બાબતો" 
+              ? "அடிப்படைகள்" 
               : level === "intermediate"
-              ? "પ્રગતિ પાથ"
+              ? "வெற்றி பாதை"
               : level === "advanced"
-              ? "નિપુણતા"
+              ? "தேர்ச்சி"
               : level.charAt(0).toUpperCase() + level.slice(1)}
           </Text>
           <Text style={styles.levelSubtitle}>
             {level === "basic"
-              ? "શીખવાનું શરુ કરીએ!"
+              ? "படிக்கத் தொடங்குவோம்!"
               : level === "intermediate"
-              ? "સતત પ્રયાસ!"
-              : "માઇલસ્ટોન!"}
+              ? "விடா முயார்ச்சி!"
+              : "மைல்கல்!"}
           </Text>
           <View style={styles.progressContainer}>
             <View style={styles.progressBar}>
@@ -84,20 +84,49 @@ const HomeScreenGujarati = ({ navigation, route }) => {
           </View>
         </View>
       </TouchableOpacity>
-    )
-  }
+    );
+  };
 
   return (
     <SafeAreaView style={styles.container}>
-      <LinearGradient colors={["#f9e1ffff", "#b2ffcdff"]} style={styles.gradient}>
+      <LinearGradient
+        colors={["#ffcdb2ff", "#b8feb5ff"]}
+        style={styles.gradient}
+      >
         <ScrollView contentContainerStyle={styles.scrollView}>
           <View style={styles.header}>
             <Image
               source={require("../assets/Logo.png")}
               style={styles.logoImage}
             />
-            <Text style={styles.welcomeText}>પાછા આવવા બદલ આભાર!</Text>
-            <Text style={styles.subtitleText}>ચાલો શીખવાનું ચાલુ રાખીએ!</Text>
+            <Text style={styles.welcomeText}>மீண்டும் வரவேற்கிறோம்!</Text>
+            <Text style={styles.subtitleText}>தொடர்ந்து கற்றுக்கொள்வோம்!</Text>
+          </View>
+
+          <View style={styles.levelsContainer}>
+            {["basic", "intermediate", "advanced"].map(renderLevelCard)}
+          </View>
+
+          <View style={styles.buttonsContainer}>
+            <TouchableOpacity
+              style={styles.rewardsButton}
+              onPress={() =>
+                navigation.navigate("RewardsScreen", {
+                  stars,
+                  userProgress,
+                })
+              }
+            >
+              <Ionicons name="star" size={20} color="#fff" />
+              <Text style={styles.buttonText}>Rewards ({stars} ⭐)</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={styles.settingsButton}
+              onPress={() => navigation.navigate("SettingsScreen")}
+            >
+              <Ionicons name="settings" size={20} color="#374151" />
+              <Text style={styles.buttonTextDark}>Settings</Text>
+            </TouchableOpacity>
           </View>
 
           <View style={styles.languageSwitch}>
@@ -129,45 +158,19 @@ const HomeScreenGujarati = ({ navigation, route }) => {
               <Text style={styles.languageText}>ગુજરાતી</Text>
             </TouchableOpacity>
           </View>
-
-          <View style={styles.levelsContainer}>
-            {["basic", "intermediate", "advanced"].map(renderLevelCard)}
-          </View>
-
-          <View style={styles.buttonsContainer}>
-            <TouchableOpacity
-              style={styles.rewardsButton}
-              onPress={() =>
-                navigation.navigate("RewardsScreen", {
-                  stars,
-                  userProgress,
-                })
-              }
-            >
-              <Ionicons name="star" size={20} color="#fff" />
-              <Text style={styles.buttonText}>Rewards ({stars} ⭐)</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={styles.settingsButton}
-              onPress={() => navigation.navigate("SettingsScreen")}
-            >
-              <Ionicons name="settings" size={20} color="#374151" />
-              <Text style={styles.buttonTextDark}>Settings</Text>
-            </TouchableOpacity>
-          </View>
         </ScrollView>
 
         <View style={styles.bottomNav}>
           <TouchableOpacity
             style={styles.navButton}
-            onPress={() => navigation.navigate("HomeScreenGujarati")}
+            onPress={() => navigation.navigate("HomeScreenTamil")}
           >
             <Ionicons name="home" size={24} color="#374151" />
             <Text style={styles.navLabel}>Home</Text>
           </TouchableOpacity>
           <TouchableOpacity
             style={styles.navButton}
-            onPress={() => navigation.navigate("PracticeScreenGujarati")}
+            onPress={() => navigation.navigate("PracticeScreenTamil")}
           >
             <Ionicons name="book" size={24} color="#374151" />
             <Text style={styles.navLabel}>Practice</Text>
@@ -182,8 +185,8 @@ const HomeScreenGujarati = ({ navigation, route }) => {
         </View>
       </LinearGradient>
     </SafeAreaView>
-  )
-}
+  );
+};
 
 const styles = StyleSheet.create({
   container: { flex: 1 },
@@ -307,6 +310,6 @@ const styles = StyleSheet.create({
     marginTop: 2,
     fontFamily: "Sniglet",
   },
-})
+});
 
-export default HomeScreenGujarati
+export default HomeScreenTamil;

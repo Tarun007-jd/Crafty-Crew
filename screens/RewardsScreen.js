@@ -70,6 +70,17 @@ const RewardsScreen = ({ navigation, route }) => {
               renderLevelProgress(level)
             )}
           </View>
+
+          <View style={styles.homeButtonContainer}>
+            <TouchableOpacity
+              style={styles.homeButton}
+              onPress={() => navigation.navigate("HomeScreen")}
+              activeOpacity={0.8}
+            >
+              <Ionicons name="home" size={20} color="white" />
+              <Text style={styles.homeButtonText}>Back to Home</Text>
+            </TouchableOpacity>
+          </View>
         </ScrollView>
       </LinearGradient>
     </SafeAreaView>
@@ -110,6 +121,28 @@ const styles = StyleSheet.create({
   starsRow: { flexDirection: "row", justifyContent: "center", marginBottom: 10 },
   starIcon: { fontSize: 24, marginHorizontal: 2 },
   progressText: { fontSize: 14, color: "rgba(255, 255, 255, 0.8)" },
+  homeButtonContainer: { 
+    alignItems: "center", 
+    paddingHorizontal: 20, 
+    paddingBottom: 30, 
+    paddingTop: 20 
+  },
+  homeButton: {
+    backgroundColor: "rgba(255, 255, 255, 0.2)",
+    flexDirection: "row",
+    alignItems: "center",
+    paddingHorizontal: 20,
+    paddingVertical: 12,
+    borderRadius: 25,
+    borderWidth: 1,
+    borderColor: "rgba(255, 255, 255, 0.3)",
+  },
+  homeButtonText: {
+    color: "white",
+    fontSize: 16,
+    fontWeight: "bold",
+    marginLeft: 8,
+  },
 });
 
 export default RewardsScreen;

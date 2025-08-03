@@ -158,6 +158,8 @@ const HomeScreenTamil = ({ navigation, route }) => {
               <Text style={styles.buttonTextDark}>Settings</Text>
             </TouchableOpacity>
           </View>
+
+          
         </ScrollView>
 
         <View style={styles.bottomNav}>

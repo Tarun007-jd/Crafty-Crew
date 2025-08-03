@@ -72,37 +72,38 @@ const HomeScreen = ({ navigation,route }) => {
             <Text style={styles.welcomeText}>Welcome Back!</Text>
             <Text style={styles.subtitleText}>Let’s continue learning!</Text>
           </View>
-            <View style={styles.languageSwitch}>
-              <TouchableOpacity
-                onPress={() => navigation.navigate("HomeScreen")}
-                style={[
-                  styles.languageTab,
-                  route.name === "HomeScreen" && styles.activeTab,
-                ]}
-              >
-                <Text style={styles.languageText}>English</Text>
-              </TouchableOpacity>
 
-               <TouchableOpacity
-                onPress={() => navigation.navigate("HomeScreenTamil")}
-                style={[
-                  styles.languageTab,
-                  route.name === "HomeScreenTamil" && styles.activeTab,
-                ]}
-              >
-                <Text style={styles.languageText}>தமிழ்</Text>
-              </TouchableOpacity>
-            
-              <TouchableOpacity
-                onPress={() => navigation.navigate("HomeScreenGujarati")}
-                style={[
-                  styles.languageTab,
-                  route.name === "HomeScreenGujarati" && styles.activeTab,
-                ]}
-              >
-                <Text style={styles.languageText}>ગુજરાતી</Text>
-              </TouchableOpacity>
-            </View>
+            <View style={styles.languageSwitch}>
+                        <TouchableOpacity
+                          onPress={() => navigation.navigate("HomeScreen")}
+                          style={[
+                            styles.languageTab,
+                            route.name === "HomeScreen" && styles.activeTab,
+                          ]}
+                        >
+                          <Text style={styles.languageText}>English</Text>
+                        </TouchableOpacity>
+          
+                         <TouchableOpacity
+                          onPress={() => navigation.navigate("HomeScreenTamil")}
+                          style={[
+                            styles.languageTab,
+                            route.name === "HomeScreenTamil" && styles.activeTab,
+                          ]}
+                        >
+                          <Text style={styles.languageText}>தமிழ்</Text>
+                        </TouchableOpacity>
+                      
+                        <TouchableOpacity
+                          onPress={() => navigation.navigate("HomeScreenGujarati")}
+                          style={[
+                            styles.languageTab,
+                            route.name === "HomeScreenGujarati" && styles.activeTab,
+                          ]}
+                        >
+                          <Text style={styles.languageText}>ગુજરાતી</Text>
+                        </TouchableOpacity>
+                      </View>
 
           <View style={styles.levelsContainer}>
             {["basic", "intermediate", "advanced"].map(renderLevelCard)}

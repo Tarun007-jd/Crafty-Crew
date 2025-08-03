@@ -97,7 +97,7 @@ const HomeScreenGujarati = ({ navigation, route }) => {
             <Text style={styles.subtitleText}>ચાલો શીખવાનું ચાલુ રાખીએ!</Text>
           </View>
 
-          <View style={styles.languageSwitch}>
+                    <View style={styles.languageSwitch}>
             <TouchableOpacity
               onPress={() => navigation.navigate("HomeScreen")}
               style={[
@@ -152,6 +152,8 @@ const HomeScreenGujarati = ({ navigation, route }) => {
               <Text style={styles.buttonTextDark}>Settings</Text>
             </TouchableOpacity>
           </View>
+
+
         </ScrollView>
       </LinearGradient>
 
@@ -298,7 +300,7 @@ const styles = StyleSheet.create({
   rewardsButton: {
     flexDirection: "row",
     alignItems: "center",
-    backgroundColor: "#ff6f00",
+    backgroundColor: "#f59e0b",
     paddingHorizontal: 20,
     paddingVertical: 12,
     borderRadius: 25,

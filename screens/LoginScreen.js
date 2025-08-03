@@ -15,16 +15,28 @@ import {
 const LoginScreen = ({ navigation }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [selectedLanguage, setSelectedLanguage] = useState('English');
 
   const handleLogin = () => {
-    // Validate credentials here (e.g. API call)
-    // If successful, navigate to Home
-    navigation.replace('HomeScreen');
+    // Navigate based on selected language
+    if (selectedLanguage === 'தமிழ்') {
+      navigation.replace('HomeScreenTamil');
+    } else if (selectedLanguage === 'ગુજરાતી') {
+      navigation.replace('HomeScreenGujarati');
+    } else {
+      navigation.replace('HomeScreen');
+    }
   };
 
   const handleSignUp = () => {
-    // Navigate to Home screen for now (or implement SignUp screen)
-    navigation.navigate('HomeScreen');
+    // Navigate based on selected language
+    if (selectedLanguage === 'தமிழ்') {
+      navigation.navigate('HomeScreenTamil');
+    } else if (selectedLanguage === 'ગુજરાતી') {
+      navigation.navigate('HomeScreenGujarati');
+    } else {
+      navigation.navigate('HomeScreen');
+    }
   };
 
   const handleForgot = () => {
@@ -42,6 +54,49 @@ const LoginScreen = ({ navigation }) => {
                   />
           
         <Text style={styles.title}>SIGN Learning App</Text>
+        
+        <View style={styles.languageSwitch}>
+          <Text style={styles.languageLabel}>Select Language:</Text>
+          <View style={styles.languageOptions}>
+            <TouchableOpacity
+              style={[
+                styles.languageTab,
+                selectedLanguage === 'English' && styles.activeLanguageTab,
+              ]}
+              onPress={() => setSelectedLanguage('English')}
+            >
+              <Text style={[
+                styles.languageText,
+                selectedLanguage === 'English' && styles.activeLanguageText,
+              ]}>English</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={[
+                styles.languageTab,
+                selectedLanguage === 'தமிழ்' && styles.activeLanguageTab,
+              ]}
+              onPress={() => setSelectedLanguage('தமிழ்')}
+            >
+              <Text style={[
+                styles.languageText,
+                selectedLanguage === 'தமிழ்' && styles.activeLanguageText,
+              ]}>தமிழ்</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={[
+                styles.languageTab,
+                selectedLanguage === 'ગુજરાતી' && styles.activeLanguageTab,
+              ]}
+              onPress={() => setSelectedLanguage('ગુજરાતી')}
+            >
+              <Text style={[
+                styles.languageText,
+                selectedLanguage === 'ગુજરાતી' && styles.activeLanguageText,
+              ]}>ગુજરાતી</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+
         <TextInput
           placeholder="Username"
           placeholderTextColor="#999"
@@ -106,6 +161,42 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: '#F49F26',
     marginBottom: 40,
+  },
+  languageSwitch: {
+    width: '100%',
+    marginBottom: 20,
+  },
+  languageLabel: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    color: '#333',
+    marginBottom: 10,
+    textAlign: 'center',
+  },
+  languageOptions: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    backgroundColor: '#FFF',
+    borderRadius: 25,
+    padding: 5,
+  },
+  languageTab: {
+    paddingVertical: 8,
+    paddingHorizontal: 15,
+    borderRadius: 20,
+    minWidth: 80,
+    alignItems: 'center',
+  },
+  activeLanguageTab: {
+    backgroundColor: '#F49F26',
+  },
+  languageText: {
+    fontSize: 14,
+    fontWeight: 'bold',
+    color: '#666',
+  },
+  activeLanguageText: {
+    color: '#FFF',
   },
   input: {
     width: '100%',

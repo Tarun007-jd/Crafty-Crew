@@ -30,7 +30,7 @@ const LearningScreen = ({ navigation, route }) => {
       updatedProgress[level][moduleIndex].completed = true
       setUserProgress(updatedProgress)
     }
-    navigation.navigate("Quiz", { module, level })
+    navigation.navigate("QuizScreen", { module, level })
   }
 
   const nextLesson = () => {

@@ -144,7 +144,7 @@ const QuizScreen = ({ navigation, route }) => {
               <TouchableOpacity
                 style={styles.rewardsButton}
                 onPress={() =>
-                  navigation.navigate("Rewards", {
+                  navigation.navigate("RewardsScreen", {
                     stars: totalStars,
                     userProgress,
                   })
