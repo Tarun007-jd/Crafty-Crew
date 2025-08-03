@@ -31,8 +31,14 @@ const ModulesScreenTamil = ({ navigation, route }) => {
               <Ionicons name="star" size={24} color="white" />
             </View>
           )}
-          <LottieView source={module.lottie} autoPlay loop style={{ width: 80, height: 70, marginBottom: 0 }}  />
-
+         
+          <LottieView
+            source={module.lottie}
+            autoPlay
+            loop
+            style={{ width: 80, height: 70, marginBottom: 0 }}
+          />
+        
           <Text style={styles.moduleName}>{module.name}</Text>
           <View style={styles.moduleButton}>
             <Text style={styles.moduleButtonText}>{module.completed ? "Review" : "Start Learning"}</Text>

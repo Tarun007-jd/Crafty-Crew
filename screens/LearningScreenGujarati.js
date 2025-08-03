@@ -143,7 +143,7 @@ const styles = StyleSheet.create({
   },
   signEmoji: { fontSize: 120, marginBottom: 20 },
   letterText: {
-    fontSize: 60,
+    fontSize: 50,
     fontWeight: "bold",
     color: "white",
     marginBottom: 10,

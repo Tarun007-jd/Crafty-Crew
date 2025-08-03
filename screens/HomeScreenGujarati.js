@@ -202,6 +202,7 @@ const styles = StyleSheet.create({
   welcomeText: {
     fontSize: 28,
     color: "#6d4c41",
+    fontWeight: "bold",
     fontFamily: "Sniglet",
   },
   subtitleText: {
@@ -209,6 +210,7 @@ const styles = StyleSheet.create({
     color: "#8d6e63",
     marginTop: 4,
     fontFamily: "Sniglet",
+    fontWeight: "bold",
   },
   languageSwitch: {
     flexDirection: "row",
@@ -228,7 +230,7 @@ const styles = StyleSheet.create({
   },
   languageText: {
     fontSize: 16,
-    fontWeight: "Bold",
+    fontWeight: "bold",
     fontFamily: "Sniglet",
   },
   levelsContainer: {
@@ -323,24 +325,21 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     marginLeft: 8,
   },
-  bottomNav: {
+bottomNav: {
     flexDirection: "row",
     justifyContent: "space-around",
-    alignItems: "center",
-    backgroundColor: "#ffffff",
-    paddingVertical: 10,
     borderTopWidth: 1,
     borderColor: "#e5e7eb",
+    backgroundColor: "#ffffff",
+    paddingVertical: 10,
   },
-  navButton: {
-    alignItems: "center",
-  },
+  navButton: { alignItems: "center" },
   navLabel: {
     fontSize: 12,
     color: "#374151",
     marginTop: 2,
     fontFamily: "Sniglet",
   },
-})
+});
 
 export default HomeScreenGujarati

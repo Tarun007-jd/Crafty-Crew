@@ -41,7 +41,7 @@ const Stack = createNativeStackNavigator()
 export default function App() {
 
     const [fontsLoaded] = useFonts({
-    Sniglet: require('./assets/fonts/sniglet/Sniglet-Regular.ttf'),
+    Sniglet: require('./assets/fonts/Sniglet/Sniglet-Regular.ttf'),
   });
 
   if (!fontsLoaded) {

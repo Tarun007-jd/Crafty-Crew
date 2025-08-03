@@ -56,8 +56,8 @@ const HomeScreenGujarati = ({ navigation, route }) => {
         <View style={styles.cardInner}>
           <Text style={styles.levelEmoji}>{levelEmojis[level]}</Text>
           <Text style={styles.levelTitle}>
-            {level === "basic" 
-              ? "મૂળભૂત બાબતો" 
+            {level === "basic"
+              ? "મૂળભૂત બાબતો"
               : level === "intermediate"
               ? "પ્રગતિ પાથ"
               : level === "advanced"
@@ -159,24 +159,52 @@ const HomeScreenGujarati = ({ navigation, route }) => {
 
         <View style={styles.bottomNav}>
           <TouchableOpacity
-            style={styles.navButton}
             onPress={() => navigation.navigate("HomeScreenGujarati")}
+            style={styles.navButton}
           >
-            <Ionicons name="home" size={24} color="#374151" />
+            <Ionicons
+              name={route.name === "HomeScreenGujarati" ? "home" : "home-outline"}
+              size={26}
+              color={route.name === "HomeScreenGujarati" ? "#065f46" : "#6b7280"}
+            />
             <Text style={styles.navLabel}>Home</Text>
           </TouchableOpacity>
           <TouchableOpacity
-            style={styles.navButton}
             onPress={() => navigation.navigate("PracticeScreenGujarati")}
+            style={styles.navButton}
           >
-            <Ionicons name="book" size={24} color="#374151" />
+            <Ionicons
+              name={
+                route.name === "PracticeScreenGujarati"
+                  ? "book"
+                  : "book-outline"
+              }
+              size={24}
+              color={
+                route.name === "PracticeScreenGujarati"
+                  ? "#065f46"
+                  : "#6b7280"
+              }
+            />
             <Text style={styles.navLabel}>Practice</Text>
           </TouchableOpacity>
           <TouchableOpacity
-            style={styles.navButton}
             onPress={() => navigation.navigate("ProfileScreenEnglish")}
+            style={styles.navButton}
           >
-            <Ionicons name="person" size={24} color="#374151" />
+            <Ionicons
+              name={
+                route.name === "ProfileScreenEnglish"
+                  ? "person"
+                  : "person-outline"
+              }
+              size={24}
+              color={
+                route.name === "ProfileScreenEnglish"
+                  ? "#065f46"
+                  : "#6b7280"
+              }
+            />
             <Text style={styles.navLabel}>Profile</Text>
           </TouchableOpacity>
         </View>
@@ -295,17 +323,25 @@ const styles = StyleSheet.create({
   bottomNav: {
     flexDirection: "row",
     justifyContent: "space-around",
-    borderTopWidth: 1,
-    borderColor: "#e5e7eb",
-    backgroundColor: "#ffffff",
+    alignItems: "center",
+    position: "absolute",
+    bottom: 0,
+    left: 0,
+    right: 0,
     paddingVertical: 10,
+    paddingHorizontal: 15,
+    borderTopWidth: 1,
+    borderTopColor: "#d1d5db",
+    backgroundColor: "white",
   },
-  navButton: { alignItems: "center" },
+  navButton: {
+    alignItems: "center",
+    justifyContent: "center",
+  },
   navLabel: {
     fontSize: 12,
     color: "#374151",
     marginTop: 2,
-    fontFamily: "Sniglet",
   },
 })
 

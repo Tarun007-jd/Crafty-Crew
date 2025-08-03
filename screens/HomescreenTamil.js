@@ -160,29 +160,61 @@ const HomeScreenTamil = ({ navigation, route }) => {
           </View>
         </ScrollView>
 
-        <View style={styles.bottomNav}>
-          <TouchableOpacity
-            style={styles.navButton}
-            onPress={() => navigation.navigate("HomeScreenTamil")}
-          >
-            <Ionicons name="home" size={24} color="#374151" />
-            <Text style={styles.navLabel}>Home</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={styles.navButton}
-            onPress={() => navigation.navigate("PracticeScreenTamil")}
-          >
-            <Ionicons name="book" size={24} color="#374151" />
-            <Text style={styles.navLabel}>Practice</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={styles.navButton}
-            onPress={() => navigation.navigate("ProfileScreenEnglish")}
-          >
-            <Ionicons name="person" size={24} color="#374151" />
-            <Text style={styles.navLabel}>Profile</Text>
-          </TouchableOpacity>
-        </View>
+         <View style={styles.bottomNav}>
+                        
+             <TouchableOpacity
+                   onPress={() => navigation.navigate("HomeScreenTamil")}
+                   style={styles.navButton}
+                 >
+                   <Ionicons
+                     name={route.name === "HomeScreenTamil" ? "home" : "home-outline"}
+                     size={26}
+                                 color={route.name === "HomeScreenTamil" ? "#065f46" : "#6b7280"}
+                               />
+                               <Text style={styles.navLabel}>Home</Text>
+                             </TouchableOpacity>
+                   
+                             <TouchableOpacity
+                               onPress={() => navigation.navigate("PracticeScreenTamil")}
+                               style={styles.navButton}
+                             >
+                               <Ionicons
+                                 name={
+                                   route.name === "PracticeScreenTamil"
+                                     ? "book"
+                                     : "book-outline"
+                                 }
+                                 size={24}
+                                 color={
+                                   route.name === "PracticeScreenTamil"
+                                     ? "#065f46"
+                                     : "#6b7280"
+                                 }
+                               />
+                               <Text style={styles.navLabel}>Practice</Text>
+                             </TouchableOpacity>
+                   
+                             <TouchableOpacity
+                               onPress={() => navigation.navigate("ProfileScreenEnglish")}
+                               style={styles.navButton}
+                             >
+                               <Ionicons
+                                 name={
+                                   route.name === "ProfileScreenEnglish"
+                                     ? "person"
+                                     : "person-outline"
+                                 }
+                                 size={24}
+                                 color={
+                                   route.name === "ProfileScreenEnglish"
+                                     ? "#065f46"
+                                     : "#6b7280"
+                                 }
+                               />
+                               <Text style={styles.navLabel}>Profile</Text>
+                             </TouchableOpacity>
+                           
+                </View>
       </LinearGradient>
     </SafeAreaView>
   );
@@ -194,6 +226,7 @@ const styles = StyleSheet.create({
   scrollView: { flexGrow: 1 },
   header: {
     alignItems: "center",
+    justifyContent: "center",
     paddingTop: 40,
     paddingBottom: 20,
   },
@@ -204,14 +237,18 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   welcomeText: {
-    fontSize: 28,
+    paddingBottom: 5,
+    fontSize: 24,
+    fontSize: 22,
     color: "#374151",
+    fontWeight: "bold",
     fontFamily: "Sniglet",
   },
   subtitleText: {
     fontSize: 14,
     color: "#6b7280",
     marginTop: 4,
+    fontWeight: "bold",
     fontFamily: "Sniglet",
   },
   languageSwitch: {
