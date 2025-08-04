@@ -5,6 +5,8 @@ import { View, Image, Text, StyleSheet, TouchableOpacity, Dimensions, ScrollView
 import { LinearGradient } from "expo-linear-gradient"
 import { Ionicons } from "@expo/vector-icons"
 import { levelData, levelColors, levelEmojis } from "../constants/Data"
+import { BlurView } from "expo-blur"
+
 
 const { width } = Dimensions.get("window")
 
@@ -128,32 +130,62 @@ const HomeScreen = ({ navigation,route }) => {
           </View>
         </ScrollView>
       </LinearGradient>
- 
-  <View style={styles.bottomNav}>
-     <TouchableOpacity
-      onPress={() => navigation.navigate("HomeScreen")}
-       style={styles.navButton}
-       >
-    <Ionicons name="home-outline" size={24} color="#374151" />
-    <Text style={styles.navLabel}>Home</Text>
-  </TouchableOpacity>
 
-  <TouchableOpacity
-    onPress={() => navigation.navigate("PracticeScreenEnglish")}
-    style={styles.navButton}
-  >
-    <Ionicons name="book-outline" size={24} color="#374151" />
-    <Text style={styles.navLabel}>Practice</Text>
-  </TouchableOpacity>
+      <View style={styles.bottomNav}>
+     
+          <TouchableOpacity
+            onPress={() => navigation.navigate("HomeScreen")}
+            style={styles.navButton}
+          >
+            <Ionicons
+              name={route.name === "HomeScreen" ? "home" : "home-outline"}
+              size={26}
+              color={route.name === "HomeScreen" ? "#065f46" : "#6b7280"}
+            />
+            <Text style={styles.navLabel}>Home</Text>
+          </TouchableOpacity>
 
-  <TouchableOpacity
-    onPress={() => navigation.navigate("ProfileScreenEnglish")}
-    style={styles.navButton}
-  >
-    <Ionicons name="person-outline" size={24} color="#374151" />
-    <Text style={styles.navLabel}>Profile</Text>
-  </TouchableOpacity>
-</View>
+          <TouchableOpacity
+            onPress={() => navigation.navigate("PracticeScreenEnglish")}
+            style={styles.navButton}
+          >
+            <Ionicons
+              name={
+                route.name === "PracticeScreenEnglish"
+                  ? "book"
+                  : "book-outline"
+              }
+              size={24}
+              color={
+                route.name === "PracticeScreenEnglish"
+                  ? "#065f46"
+                  : "#6b7280"
+              }
+            />
+            <Text style={styles.navLabel}>Practice</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity
+            onPress={() => navigation.navigate("ProfileScreenEnglish")}
+            style={styles.navButton}
+          >
+            <Ionicons
+              name={
+                route.name === "ProfileScreenEnglish"
+                  ? "person"
+                  : "person-outline"
+              }
+              size={24}
+              color={
+                route.name === "ProfileScreenEnglish"
+                  ? "#065f46"
+                  : "#6b7280"
+              }
+            />
+            <Text style={styles.navLabel}>Profile</Text>
+          </TouchableOpacity>
+        
+      </View>
 
     </SafeAreaView>
   )
@@ -185,9 +217,10 @@ const styles = StyleSheet.create({
   },
   welcomeText: {
     fontSize: 28,
-    fontWeight: "italic",
+    fontWeight: "bold",
     color: "#374151",
     fontFamily: "Sniglet", // Use the imported font
+
   },
   subtitleText: {
     fontSize: 14,
@@ -216,7 +249,7 @@ activeTab: {
 
 languageText: {
   fontSize: 16,
-  fontWeight: "Bold",
+  fontWeight: "bold",
   fontFamily: "Sniglet",
 },
 
@@ -311,25 +344,29 @@ languageText: {
   },
 
   bottomNav: {
-  flexDirection: "row",
-  justifyContent: "space-around",
-  alignItems: "center",
-  backgroundColor: "#ffffff",
-  paddingVertical: 10,
-  borderTopWidth: 1,
-  borderColor: "#e5e7eb",
-},
+    flexDirection: "row",
+    justifyContent: "space-around",
+    alignItems: "center",
+    position: "absolute",
+    bottom: 0,
+    left: 0,
+    right: 0,
+    paddingVertical: 10,
+    paddingHorizontal: 15,
+    borderTopWidth: 1,
+    borderTopColor: "#d1d5db",
+    backgroundColor: "white",
+  },
+  navButton: {
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  navLabel: {
+    fontSize: 12,
+    color: "#374151",
+    marginTop: 2,
+  },
 
-navButton: {
-  alignItems: "center",
-},
-
-navLabel: {
-  fontSize: 12,
-  color: "#374151",
-  marginTop: 2,
-  fontFamily: "Sniglet",
-},
 
 })
 
