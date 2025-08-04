@@ -66,18 +66,18 @@ const PracticeScreenTamil = ({ navigation }) => {
                       </TouchableOpacity>
             
                       <TouchableOpacity
-                        onPress={() => navigation.navigate("ProfileScreenEnglish")}
+                        onPress={() => navigation.navigate("ProfileScreenTamil")}
                         style={styles.navButton}
                       >
                         <Ionicons
                           name={
-                            route.name === "ProfileScreenEnglish"
+                            route.name === "ProfileScreenTamil"
                               ? "person"
                               : "person-outline"
                           }
                           size={24}
                           color={
-                            route.name === "ProfileScreenEnglish"
+                            route.name === "ProfileScreenTamil"
                               ? "#065f46"
                               : "#6b7280"
                           }

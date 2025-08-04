@@ -70,7 +70,7 @@ const quizData = [
 
 
 
-const TamilQuiz = (
+const TamilQuizAdvanced = (
   { navigation }
 ) => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -255,4 +255,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default TamilQuiz;
+export default TamilQuizAdvanced;

@@ -57,55 +57,59 @@ const PracticeScreenGujarati = ({ navigation }) => {
       <View style={styles.bottomNav}>
      
           <TouchableOpacity
-            onPress={() => navigation.navigate("HomeScreen")}
+            onPress={() => navigation.navigate("HomeScreenGujarati", { userProgress: route.params?.userProgress })}
             style={styles.navButton}
           >
             <Ionicons
-              name={route.name === "HomeScreen" ? "home" : "home-outline"}
+              name={route.name === "HomeScreenGujarati" ? "home" : "home-outline"}
               size={26}
-              color={route.name === "HomeScreen" ? "#065f46" : "#6b7280"}
+              color={route.name === "HomeScreenGujarati" ? "#065f46" : "#6b7280"}
             />
-            <Text style={styles.navLabel}>Home</Text>
+            <Text style={styles.navLabel}>ઘર</Text>
           </TouchableOpacity>
 
           <TouchableOpacity
-            onPress={() => navigation.navigate("PracticeScreenGujarati")}
+            onPress={() => navigation.navigate("PracticeScreenGujarati", { userProgress: route.params?.userProgress })}
             style={styles.navButton}
           >
             <Ionicons
               name={
-                route.name === "PracticeScreenEnglish"
+                route.name === "PracticeScreenGujarati"
                   ? "book"
                   : "book-outline"
               }
               size={24}
               color={
-                route.name === "PracticeScreenEnglish"
+                route.name === "PracticeScreenGujarati"
                   ? "#065f46"
                   : "#6b7280"
               }
             />
-            <Text style={styles.navLabel}>Practice</Text>
+            <Text style={styles.navLabel}>પ્રેક્ટિસ</Text>
           </TouchableOpacity>
 
           <TouchableOpacity
-            onPress={() => navigation.navigate("ProfileScreenEnglish")}
+            onPress={() => navigation.navigate("ProfileScreenGujarati", { 
+              userName: "શીખનાર", 
+              userProgress: route.params?.userProgress,
+              stars: route.params?.stars || 0
+            })}
             style={styles.navButton}
           >
             <Ionicons
               name={
-                route.name === "ProfileScreenEnglish"
+                route.name === "ProfileScreenGujarati"
                   ? "person"
                   : "person-outline"
               }
               size={24}
               color={
-                route.name === "ProfileScreenEnglish"
-                  ? "#065f46"
+                route.name === "ProfileScreenGujarati"
+                  ? "#10c328ff"
                   : "#6b7280"
               }
             />
-            <Text style={styles.navLabel}>Profile</Text>
+            <Text style={styles.navLabel}>પ્રોફાઇલ</Text>
           </TouchableOpacity>
         
       </View>

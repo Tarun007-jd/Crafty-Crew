@@ -9,7 +9,7 @@ import {
 } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import { Ionicons, MaterialIcons } from "@expo/vector-icons";
-import { levelData } from "../constants/Data";
+import { levelGujaratiData } from "../constants/Data";
 
 const PRIMARY = "#246bfd";
 const SOFT_GREY = "#f6f8fa";
@@ -18,12 +18,10 @@ const BORDER    = "#e3e6eb";
 const ICON_GREY = "#b0b7c3";
 const MENU_CARD_GRADIENT = ["#f8fafc", "#eef2f6"];
 
-
-const ProfileScreenEnglish = ({ navigation, route }) => {
-
+const ProfileScreenGujarati = ({ navigation, route }) => {
   const {
-    userName      = "Learner",
-    userProgress  = levelData,          // default to levelData if not provided
+    userName      = "શીખનાર",
+    userProgress  = levelGujaratiData,
     stars         = 0,
   } = route.params || {};
 
@@ -40,7 +38,6 @@ const ProfileScreenEnglish = ({ navigation, route }) => {
     let totalStarsEarned = 0;
     let levelStats = {};
 
-
     Object.entries(userProgress).forEach(([level, modules]) => {
       if (Array.isArray(modules)) {
         mod += modules.length;
@@ -55,7 +52,6 @@ const ProfileScreenEnglish = ({ navigation, route }) => {
         };
       }
     });
-
 
     const lessonsPerModule = 5;
     const estimatedLessons = modCompleted * lessonsPerModule;
@@ -72,6 +68,14 @@ const ProfileScreenEnglish = ({ navigation, route }) => {
     };
   }, [userProgress]);
 
+  const getLevelNameGujarati = (level) => {
+    switch(level) {
+      case 'basic': return 'મૂળભૂત બાબતો';
+      case 'intermediate': return 'પ્રગતિ પાથ';
+      case 'advanced': return 'નિપુણતા';
+      default: return level.charAt(0).toUpperCase() + level.slice(1);
+    }
+  };
 
   return (
     <SafeAreaView style={styles.container}>
@@ -80,7 +84,6 @@ const ProfileScreenEnglish = ({ navigation, route }) => {
           contentContainerStyle={styles.scrollContent}
           showsVerticalScrollIndicator={false}
         >
-   
           <View style={styles.header}>
             <View style={styles.avatarWrap}>
               <View style={styles.avatarShadow}>
@@ -91,19 +94,17 @@ const ProfileScreenEnglish = ({ navigation, route }) => {
             </View>
 
             <Text style={styles.headerTitle}>
-              Welcome, {userName}
+              નમસ્તે, {userName}
             </Text>
             <Text style={styles.headerSubtitle}>
-              Your learning journey looks great!
+              તમારી શીખવાની યાત્રા ખૂબ સુંદર છે!
             </Text>
           </View>
 
-   
           <View style={styles.statsCard}>
-           
             <View style={styles.statBlock}>
               <Text style={styles.statValue}>{totalStars}</Text>
-              <Text style={styles.statLabel}>⭐ Stars</Text>
+              <Text style={styles.statLabel}>⭐ સ્ટાર્સ</Text>
             </View>
 
             <View style={styles.statDivider} />
@@ -112,25 +113,24 @@ const ProfileScreenEnglish = ({ navigation, route }) => {
               <Text style={styles.statValue}>
                 {completedModules}/{totalModules}
               </Text>
-              <Text style={styles.statLabel}>Modules</Text>
+              <Text style={styles.statLabel}>મોડ્યુલ્સ</Text>
             </View>
 
             <View style={styles.statDivider} />
 
             <View style={styles.statBlock}>
               <Text style={styles.statValue}>{progressPercent}%</Text>
-              <Text style={styles.statLabel}>Progress</Text>
+              <Text style={styles.statLabel}>પ્રગતિ</Text>
             </View>
           </View>
 
-          
           <View style={styles.levelProgressSection}>
-            <Text style={styles.sectionTitle}>Level Progress</Text>
+            <Text style={styles.sectionTitle}>સ્તર પ્રગતિ</Text>
             {Object.entries(levelProgress).map(([level, stats]) => (
               <View key={level} style={styles.levelCard}>
                 <View style={styles.levelHeader}>
                   <Text style={styles.levelName}>
-                    {level.charAt(0).toUpperCase() + level.slice(1)}
+                    {getLevelNameGujarati(level)}
                   </Text>
                   <Text style={styles.levelPercentage}>{stats.percentage}%</Text>
                 </View>
@@ -141,32 +141,31 @@ const ProfileScreenEnglish = ({ navigation, route }) => {
                     />
                   </View>
                   <Text style={styles.levelStats}>
-                    {stats.completed}/{stats.total} completed
+                    {stats.completed}/{stats.total} પૂર્ણ
                   </Text>
                 </View>
               </View>
             ))}
           </View>
 
-          {/* ------------ MENU LIST ---------- */}
           <View style={styles.menuList}>
             {[
               { 
-                title: "Learning Progress", 
+                title: "શીખવાની પ્રગતિ", 
                 icon: "stats-chart-outline", 
                 nav: "RewardsScreen",
                 params: { userProgress, stars: totalStars }
               },
               { 
-                title: "Practice Sessions", 
+                title: "પ્રેક્ટિસ સેશન્સ", 
                 icon: "book-outline", 
-                nav: "PracticeScreenEnglish",
+                nav: "PracticeScreenGujarati",
                 params: { userProgress }
               },
               { 
-                title: "Back to Home", 
+                title: "હોમ પર પાછા", 
                 icon: "home-outline", 
-                nav: "HomeScreen",
+                nav: "HomeScreenGujarati",
                 params: { userProgress }
               },
             ].map(item => (
@@ -188,7 +187,6 @@ const ProfileScreenEnglish = ({ navigation, route }) => {
             ))}
           </View>
 
-          {/* ------------ LOGOUT ------------- */}
           <View style={styles.logoutWrap}>
             <TouchableOpacity
               style={styles.logout}
@@ -199,7 +197,7 @@ const ProfileScreenEnglish = ({ navigation, route }) => {
               activeOpacity={0.8}
             >
               <Ionicons name="log-out-outline" size={22} color={PRIMARY} />
-              <Text style={styles.logoutText}>Back to Login</Text>
+              <Text style={styles.logoutText}>લોગિનમાં પાછા</Text>
             </TouchableOpacity>
           </View>
         </ScrollView>
@@ -207,7 +205,6 @@ const ProfileScreenEnglish = ({ navigation, route }) => {
     </SafeAreaView>
   );
 };
-
 
 const styles = StyleSheet.create({
   container: { 
@@ -257,7 +254,6 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
 
-  /* STATS CARD */
   statsCard: {
     marginHorizontal: 26,
     marginBottom: 30,
@@ -285,7 +281,6 @@ const styles = StyleSheet.create({
     alignSelf: "center",
   },
 
-  /* LEVEL PROGRESS SECTION */
   levelProgressSection: {
     marginHorizontal: 26,
     marginBottom: 28,
@@ -348,7 +343,6 @@ const styles = StyleSheet.create({
     minWidth: 70,
   },
 
-  /* MENU */
   menuList: { marginHorizontal: 26, marginBottom: 28 },
   menuCard: { marginBottom: 16, borderRadius: 13, shadowColor: "#e2e8f0", elevation: 1 },
   menuCardBg: {
@@ -363,7 +357,6 @@ const styles = StyleSheet.create({
   },
   menuText: { flex: 1, marginLeft: 14, fontSize: 15, color: "#333", fontWeight: "500" },
 
-  /* LOGOUT */
   logoutWrap: { marginHorizontal: 26, marginTop: 10, borderRadius: 12, overflow: "hidden" },
   logout: {
     flexDirection: "row",
@@ -383,4 +376,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ProfileScreenEnglish;
+export default ProfileScreenGujarati;

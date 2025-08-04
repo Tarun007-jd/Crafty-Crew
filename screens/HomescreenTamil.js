@@ -165,7 +165,7 @@ const HomeScreenTamil = ({ navigation, route }) => {
          <View style={styles.bottomNav}>
                         
              <TouchableOpacity
-                   onPress={() => navigation.navigate("HomeScreenTamil")}
+                   onPress={() => navigation.navigate("HomeScreenTamil", { userProgress, stars })}
                    style={styles.navButton}
                  >
                    <Ionicons
@@ -173,11 +173,11 @@ const HomeScreenTamil = ({ navigation, route }) => {
                      size={26}
                                  color={route.name === "HomeScreenTamil" ? "#065f46" : "#6b7280"}
                                />
-                               <Text style={styles.navLabel}>Home</Text>
+                               <Text style={styles.navLabel}>முகப்பு</Text>
                              </TouchableOpacity>
                    
                              <TouchableOpacity
-                               onPress={() => navigation.navigate("PracticeScreenTamil")}
+                               onPress={() => navigation.navigate("PracticeScreenTamil", { userProgress })}
                                style={styles.navButton}
                              >
                                <Ionicons
@@ -193,27 +193,31 @@ const HomeScreenTamil = ({ navigation, route }) => {
                                      : "#6b7280"
                                  }
                                />
-                               <Text style={styles.navLabel}>Practice</Text>
+                               <Text style={styles.navLabel}>பயிற்சி</Text>
                              </TouchableOpacity>
                    
                              <TouchableOpacity
-                               onPress={() => navigation.navigate("ProfileScreenEnglish")}
+                               onPress={() => navigation.navigate("ProfileScreenTamil", { 
+                                 userName: "கற்கும் மாணவர்", 
+                                 userProgress, 
+                                 stars 
+                               })}
                                style={styles.navButton}
                              >
                                <Ionicons
                                  name={
-                                   route.name === "ProfileScreenEnglish"
+                                   route.name === "ProfileScreenTamil"
                                      ? "person"
                                      : "person-outline"
                                  }
                                  size={24}
                                  color={
-                                   route.name === "ProfileScreenEnglish"
+                                   route.name === "ProfileScreenTamil"
                                      ? "#065f46"
                                      : "#6b7280"
                                  }
                                />
-                               <Text style={styles.navLabel}>Profile</Text>
+                               <Text style={styles.navLabel}>சுயவிவரம்</Text>
                              </TouchableOpacity>
                            
                 </View>

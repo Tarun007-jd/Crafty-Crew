@@ -65,7 +65,11 @@ const HomeScreen = ({ navigation,route }) => {
   return (
     <SafeAreaView style={styles.container}>
       <LinearGradient colors={["#a0f1ffff","#fcc6d8ff"]} style={styles.gradient}>
-        <ScrollView style={styles.scrollView} showsVerticalScrollIndicator={false}>
+        <ScrollView 
+          style={styles.scrollView} 
+          contentContainerStyle={styles.scrollContent}
+          showsVerticalScrollIndicator={false}
+        >
           <View style={styles.header}>
             <Image
               source={require("../assets/Logo.png")}
@@ -114,7 +118,10 @@ const HomeScreen = ({ navigation,route }) => {
           <View style={styles.buttonsContainer}>
             <TouchableOpacity
               style={styles.rewardsButton}
-              onPress={() => navigation.navigate("RewardsScreen", { stars, userProgress })}
+              onPress={() => navigation.navigate("RewardsScreen", { 
+                stars, 
+                userProgress 
+              })}
             >
               <Ionicons name="trophy" size={24} color="#ffffff" />
               <Text style={styles.buttonText}>Rewards ({stars} ⭐)</Text>
@@ -134,7 +141,7 @@ const HomeScreen = ({ navigation,route }) => {
       <View style={styles.bottomNav}>
      
           <TouchableOpacity
-            onPress={() => navigation.navigate("HomeScreen")}
+            onPress={() => navigation.navigate("HomeScreen", { userProgress, stars })}
             style={styles.navButton}
           >
             <Ionicons
@@ -146,7 +153,7 @@ const HomeScreen = ({ navigation,route }) => {
           </TouchableOpacity>
 
           <TouchableOpacity
-            onPress={() => navigation.navigate("PracticeScreenEnglish")}
+            onPress={() => navigation.navigate("PracticeScreenEnglish", { userProgress })}
             style={styles.navButton}
           >
             <Ionicons
@@ -166,7 +173,11 @@ const HomeScreen = ({ navigation,route }) => {
           </TouchableOpacity>
 
           <TouchableOpacity
-            onPress={() => navigation.navigate("ProfileScreenEnglish")}
+            onPress={() => navigation.navigate("ProfileScreenEnglish", { 
+              userName: "Learner", 
+              userProgress, 
+              stars 
+            })}
             style={styles.navButton}
           >
             <Ionicons
@@ -200,6 +211,9 @@ const styles = StyleSheet.create({
   },
   scrollView: {
     flex: 1,
+  },
+  scrollContent: {
+    paddingBottom: 80, // Add padding to prevent content from being hidden behind nav bar
   },
   header: {
     alignItems: "center",

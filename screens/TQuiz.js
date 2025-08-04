@@ -15,13 +15,13 @@ const TQuizLevelsScreen = ({ navigation }) => {
       </TouchableOpacity>
       <TouchableOpacity
         style={styles.button}
-        onPress={() => navigation.navigate("TamilQuiz")}
+        onPress={() => navigation.navigate("TamilQuizIntermediate")}
       >
         <Text style={styles.buttonText}>Intermediate</Text>
       </TouchableOpacity>
       <TouchableOpacity
         style={styles.button}
-        onPress={() => navigation.navigate("TamilQuiz")}
+        onPress={() => navigation.navigate("TamilQuizAdvanced")}
       >
         <Text style={styles.buttonText}>Advanced</Text>
       </TouchableOpacity>

@@ -3,74 +3,35 @@ import { View, Text, TouchableOpacity, StyleSheet, FlatList } from 'react-native
 import { Video } from "expo-av"
 import { LinearGradient } from "expo-linear-gradient"
 
-// Tamil Videos
-import AUyir from '../assets/UyirEluthukkal/a.mp4';
-import AAUyir from '../assets/UyirEluthukkal/aa.mp4';
-import IUyir from '../assets/UyirEluthukkal/i.mp4';
-import EUyir from '../assets/UyirEluthukkal/e.mp4';
-import KaMei from '../assets/MeiYeluthu/க்.mp4';
-import NgaMei from '../assets/MeiYeluthu/ங்.mp4';
-import One from '../assets/tamilnum/1.mp4';
-import Two from '../assets/tamilnum/2.mp4';
-import Five from '../assets/tamilnum/5.mp4';
-import Six from '../assets/tamilnum/6.mp4';
-import Amma from '../assets/tfamily/amma.mp4';
-import Appa from '../assets/tfamily/appa.mp4';
+import Hello from '../assets/GreetingsVideos/Hello.mp4'; // Adjust the path as necessary
+import A from '../assets/AlpabetVideos/A.mp4'; // Adjust the path as necessary
+import Six from '../assets/Numbers/Six.mp4'; // Adjust the path as necessary
 
 const quizData = [
+
   {
-    question: 'இது எந்த உயிரெழுத்து?',
-    Video: AUyir,
-    options: ['அ', 'ஆ', 'இ', 'ஈ'],
-    answer: 'அ',
+    question: 'What is the sign ?',
+    Video: Hello,
+    options: ['Seed', 'Hello', 'Apple', 'Cat'],
+    answer: 'Hello',
   },
   {
-    question: 'இது எந்த உயிரெழுத்து?',
-    Video: AAUyir,
-    options: ['அ', 'ஆ', 'இ', 'ஈ'],
-    answer: 'ஆ',
+    question: 'What is the sign ?',
+    Video:A,
+    options: ['I', 'K', 'A', 'Q'],
+    answer: 'A',
   },
   {
-    question: 'இது எந்த உயிரெழுத்து?',
-    Video: IUyir,
-    options: ['அ', 'ஆ', 'இ', 'ஈ'],
-    answer: 'இ',
-  },
-  {
-    question: 'இது எந்த உயிரெழுத்து?',
-    Video: EUyir,
-    options: ['எ', 'ஏ', 'ஐ', 'ஒ'],
-    answer: 'எ',
-  },
-  {
-    question: 'இது எந்த மெய்யெழுத்து?',
-    Video: KaMei,
-    options: ['க்', 'ங்', 'ச்', 'ஞ்'],
-    answer: 'க்',
-  },
-  {
-    question: 'இது எந்த எண்?',
-    Video: One,
-    options: ['ஒன்று', 'இரண்டு', 'மூன்று', 'நான்கு'],
-    answer: 'ஒன்று',
-  },
-  {
-    question: 'இது எந்த எண்?',
-    Video: Five,
-    options: ['மூன்று', 'நான்கு', 'ஐந்து', 'ஆறு'],
-    answer: 'ஐந்து',
-  },
-  {
-    question: 'இது எந்த குடும்ப உறுப்பினர்?',
-    Video: Amma,
-    options: ['அம்மா', 'அப்பா', 'அக்கா', 'அண்ணன்'],
-    answer: 'அம்மா',
+    question: 'What is the sign ?',
+    Video: Six,
+    options: ['Five', 'Two', 'One', 'Six'],
+    answer: 'Six',
   },
 ];
 
 
 
-const TamilQuiz = (
+const EnglishQuizAdvanced = (
   { navigation }
 ) => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -94,6 +55,12 @@ const TamilQuiz = (
     }, 600);
   };
 
+  const handleLogin = () => {
+    // Validate credentials here (e.g. API call)
+    // If successful, navigate to Home
+    navigation.replace('HomeScreen');
+  };
+
 
   const handleRestart = () => {
     setCurrentQuestion(0);
@@ -106,18 +73,18 @@ const TamilQuiz = (
     return (
       <View style={styles.container2}>
         <LinearGradient colors={["#03e1faff", "#69f696ff", "#f191eaff"]} style={styles.gradient}>
-          <Text style={styles.title}>உங்கள் மதிப்பெண்</Text>
-          <Text style={styles.score}>{score} / {quizData.length}</Text>
-          <TouchableOpacity 
-            style={styles.button} 
-            onPress={handleRestart}
-            activeOpacity={0.8}
-          >
-            <Text style={styles.buttonText}>மீண்டும் தொடங்கு</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.buttonhome} onPress={() => navigation.navigate("HomeScreenTamil")}>
-            <Text style={styles.buttonText}>முகப்பு</Text>
-          </TouchableOpacity>
+        <Text style={styles.title}>Your Score</Text>
+        <Text style={styles.score}>{score} / {quizData.length}</Text>
+        <TouchableOpacity 
+        style={styles.button} 
+        onPress={handleRestart}
+        activeOpacity={0.8}
+        >
+          <Text style={styles.buttonText}>Restart Quiz</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.buttonhome} onPress={() => navigation.navigate("HomeScreen")}>
+          <Text style={styles.buttonText}>Home</Text>
+        </TouchableOpacity>
         </LinearGradient>
       </View>
     );
@@ -128,7 +95,7 @@ const TamilQuiz = (
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title1}>தமிழ் வினாடி வினா</Text>
+      <Text style={styles.title1}>English Quiz</Text>
           <Video
                 source={question.Video}
                 style={{ width: 350, height: 350, borderRadius: 12,paddingBottom: 10,paddingTop: 10 }}
@@ -255,4 +222,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default TamilQuiz;
+export default EnglishQuizAdvanced;
