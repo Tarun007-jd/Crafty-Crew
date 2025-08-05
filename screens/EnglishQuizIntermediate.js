@@ -3,36 +3,71 @@ import { View, Text, TouchableOpacity, StyleSheet, FlatList } from 'react-native
 import { Video } from "expo-av"
 import { LinearGradient } from "expo-linear-gradient"
 
-import Hello from '../assets/GreetingsVideos/Hello.mp4'; // Adjust the path as necessary
-import A from '../assets/AlpabetVideos/A.mp4'; // Adjust the path as necessary
-import Six from '../assets/Numbers/Six.mp4'; // Adjust the path as necessary
+// Intermediate level videos - Greetings and Body Parts
+import GoodMorning from '../assets/TestGreetings/good morning.mp4';
+import GoodNight from '../assets/TestGreetings/good night.mp4';
+import Namaste from '../assets/TestGreetings/namaste.mp4';
+import ThankYou from '../assets/TestGreetings/Thankyou.mp4';
+import Ear from '../assets/Testpartsofbody/ear.mp4';
+import Eye from '../assets/Testpartsofbody/eye.mp4';
+import Forehead from '../assets/Testpartsofbody/forehead.mp4';
+import Nose from '../assets/Testpartsofbody/nose.mp4';
 
 const quizData = [
-
   {
-    question: 'What is the sign ?',
-    Video: Hello,
-    options: ['Seed', 'Hello', 'Apple', 'Cat'],
-    answer: 'Hello',
+    question: 'What greeting is being shown?',
+    Video: GoodMorning,
+    options: ['Good Evening', 'Good Morning', 'Good Afternoon', 'Good Night'],
+    answer: 'Good Morning',
   },
   {
-    question: 'What is the sign ?',
-    Video:A,
-    options: ['I', 'K', 'A', 'Q'],
-    answer: 'A',
+    question: 'What greeting is being shown?',
+    Video: GoodNight,
+    options: ['Good Night', 'Good Morning', 'Good Bye', 'Sleep Well'],
+    answer: 'Good Night',
   },
   {
-    question: 'What is the sign ?',
-    Video: Six,
-    options: ['Five', 'Two', 'One', 'Six'],
-    answer: 'Six',
+    question: 'What traditional greeting is this?',
+    Video: Namaste,
+    options: ['Hello', 'Namaste', 'Welcome', 'Goodbye'],
+    answer: 'Namaste',
+  },
+  {
+    question: 'What polite expression is being shown?',
+    Video: ThankYou,
+    options: ['Please', 'Sorry', 'Thank You', 'Excuse Me'],
+    answer: 'Thank You',
+  },
+  {
+    question: 'Which body part is being indicated?',
+    Video: Ear,
+    options: ['Eye', 'Nose', 'Ear', 'Mouth'],
+    answer: 'Ear',
+  },
+  {
+    question: 'Which body part is being indicated?',
+    Video: Eye,
+    options: ['Eye', 'Eyebrow', 'Eyelash', 'Forehead'],
+    answer: 'Eye',
+  },
+  {
+    question: 'Which body part is being indicated?',
+    Video: Forehead,
+    options: ['Head', 'Hair', 'Forehead', 'Scalp'],
+    answer: 'Forehead',
+  },
+  {
+    question: 'Which body part is being indicated?',
+    Video: Nose,
+    options: ['Mouth', 'Nose', 'Chin', 'Cheek'],
+    answer: 'Nose',
   },
 ];
 
 
 
 const EnglishQuizIntermediate = (
-  { navigation }
+  { navigation, route }
 ) => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [selectedOption, setSelectedOption] = useState(null);
@@ -82,7 +117,10 @@ const EnglishQuizIntermediate = (
         >
           <Text style={styles.buttonText}>Restart Quiz</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.buttonhome} onPress={() => navigation.navigate("HomeScreen")}>
+        <TouchableOpacity style={styles.buttonhome} onPress={() => navigation.navigate("HomeScreen", { 
+          userProgress: route.params?.userProgress, 
+          stars: route.params?.stars 
+        })}>
           <Text style={styles.buttonText}>Home</Text>
         </TouchableOpacity>
         </LinearGradient>
@@ -95,7 +133,7 @@ const EnglishQuizIntermediate = (
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title1}>English Quiz</Text>
+      <Text style={styles.title1}>English Quiz - Intermediate</Text>
           <Video
                 source={question.Video}
                 style={{ width: 350, height: 350, borderRadius: 12,paddingBottom: 10,paddingTop: 10 }}

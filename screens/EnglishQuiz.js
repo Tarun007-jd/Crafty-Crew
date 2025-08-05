@@ -3,9 +3,9 @@ import { View, Text, TouchableOpacity, StyleSheet, FlatList } from 'react-native
 import { Video } from "expo-av"
 import { LinearGradient } from "expo-linear-gradient"
 
-import Hello from '../assets/GreetingsVideos/Hello.mp4'; // Adjust the path as necessary
+import Hello from '../assets/TestGreetings/namaste.mp4'; // Adjust the path as necessary
 import A from '../assets/AlpabetVideos/A.mp4'; // Adjust the path as necessary
-import Six from '../assets/Numbers/Six.mp4'; // Adjust the path as necessary
+import Thankyou from '../assets/TestGreetings/Thankyou.mp4'; // Adjust the path as necessary
 
 const quizData = [
 
@@ -23,9 +23,9 @@ const quizData = [
   },
   {
     question: 'What is the sign ?',
-    Video: Six,
-    options: ['Five', 'Two', 'One', 'Six'],
-    answer: 'Six',
+    Video: Thankyou,
+    options: ['Bye', 'Hi', 'Thank You', 'GO'],
+    answer: 'Thank You',
   },
 ];
 

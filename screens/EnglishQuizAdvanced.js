@@ -3,36 +3,71 @@ import { View, Text, TouchableOpacity, StyleSheet, FlatList } from 'react-native
 import { Video } from "expo-av"
 import { LinearGradient } from "expo-linear-gradient"
 
-import Hello from '../assets/GreetingsVideos/Hello.mp4'; // Adjust the path as necessary
-import A from '../assets/AlpabetVideos/A.mp4'; // Adjust the path as necessary
-import Six from '../assets/Numbers/Six.mp4'; // Adjust the path as necessary
+// Advanced level videos - Fruits and Science & Geography
+import Apple from '../assets/TestFruits/apple.mp4';
+import Banana from '../assets/TestFruits/banana.mp4';
+import Grapes from '../assets/TestFruits/grapes.mp4';
+import Pineapple from '../assets/TestFruits/pineapple.mp4';
+import Moon from '../assets/TestScience&geography/moon.mp4';
+import Rainbow from '../assets/TestScience&geography/rainbow.mp4';
+import Wave from '../assets/TestScience&geography/wave.mp4';
+import Wind from '../assets/TestScience&geography/wind.mp4';
 
 const quizData = [
-
   {
-    question: 'What is the sign ?',
-    Video: Hello,
-    options: ['Seed', 'Hello', 'Apple', 'Cat'],
-    answer: 'Hello',
+    question: 'Which fruit is being demonstrated?',
+    Video: Apple,
+    options: ['Orange', 'Apple', 'Peach', 'Cherry'],
+    answer: 'Apple',
   },
   {
-    question: 'What is the sign ?',
-    Video:A,
-    options: ['I', 'K', 'A', 'Q'],
-    answer: 'A',
+    question: 'Which tropical fruit is being shown?',
+    Video: Banana,
+    options: ['Mango', 'Banana', 'Papaya', 'Coconut'],
+    answer: 'Banana',
   },
   {
-    question: 'What is the sign ?',
-    Video: Six,
-    options: ['Five', 'Two', 'One', 'Six'],
-    answer: 'Six',
+    question: 'Which clustered fruit is being demonstrated?',
+    Video: Grapes,
+    options: ['Berries', 'Grapes', 'Cherries', 'Raisins'],
+    answer: 'Grapes',
+  },
+  {
+    question: 'Which exotic fruit is being shown?',
+    Video: Pineapple,
+    options: ['Pineapple', 'Durian', 'Dragon Fruit', 'Star Fruit'],
+    answer: 'Pineapple',
+  },
+  {
+    question: 'Which celestial body is being represented?',
+    Video: Moon,
+    options: ['Sun', 'Star', 'Moon', 'Planet'],
+    answer: 'Moon',
+  },
+  {
+    question: 'Which natural phenomenon is being demonstrated?',
+    Video: Rainbow,
+    options: ['Lightning', 'Rainbow', 'Aurora', 'Sunset'],
+    answer: 'Rainbow',
+  },
+  {
+    question: 'Which water movement is being shown?',
+    Video: Wave,
+    options: ['Current', 'Tide', 'Wave', 'Tsunami'],
+    answer: 'Wave',
+  },
+  {
+    question: 'Which weather element is being demonstrated?',
+    Video: Wind,
+    options: ['Rain', 'Snow', 'Wind', 'Hail'],
+    answer: 'Wind',
   },
 ];
 
 
 
 const EnglishQuizAdvanced = (
-  { navigation }
+  { navigation, route }
 ) => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [selectedOption, setSelectedOption] = useState(null);
@@ -82,7 +117,10 @@ const EnglishQuizAdvanced = (
         >
           <Text style={styles.buttonText}>Restart Quiz</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.buttonhome} onPress={() => navigation.navigate("HomeScreen")}>
+        <TouchableOpacity style={styles.buttonhome} onPress={() => navigation.navigate("HomeScreen", { 
+          userProgress: route.params?.userProgress, 
+          stars: route.params?.stars 
+        })}>
           <Text style={styles.buttonText}>Home</Text>
         </TouchableOpacity>
         </LinearGradient>
@@ -95,7 +133,7 @@ const EnglishQuizAdvanced = (
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title1}>English Quiz</Text>
+      <Text style={styles.title1}>English Quiz - Advanced</Text>
           <Video
                 source={question.Video}
                 style={{ width: 350, height: 350, borderRadius: 12,paddingBottom: 10,paddingTop: 10 }}

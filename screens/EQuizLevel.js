@@ -5,7 +5,7 @@ import { LinearGradient } from "expo-linear-gradient"
 const QuizLevelsScreen = ({ navigation }) => {
   // Handler for button press to navigate to Quiz page with selected level
   const handleLevelPress = (level) => {
-    navigation.navigate('QuizPage', { level });
+    navigation.navigate(level);
   };
 
   return (
@@ -20,13 +20,13 @@ const QuizLevelsScreen = ({ navigation }) => {
       </TouchableOpacity>
       <TouchableOpacity
         style={styles.button}
-        onPress={() => handleLevelPress('Basic')}
+        onPress={() => navigation.navigate('EnglishQuizIntermediate')}
       >
         <Text style={styles.buttonText}>Intermediate</Text>
       </TouchableOpacity>
       <TouchableOpacity
         style={styles.button}
-        onPress={() => handleLevelPress('Advanced')}
+        onPress={() => navigation.navigate('EnglishQuizAdvanced')}
       >
         <Text style={styles.buttonText}>Advanced</Text>
       </TouchableOpacity>
